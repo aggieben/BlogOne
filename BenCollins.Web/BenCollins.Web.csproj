@@ -276,7 +276,6 @@
     <Content Include="Views\Shared\_PostExcerptPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
