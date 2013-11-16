@@ -17,8 +17,8 @@ build/
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
-!packages/**/net45/*.pdb
-!packages/**/net45/*.dll
+!packages/**/*.dll
+!packages/**/*.pdb
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
