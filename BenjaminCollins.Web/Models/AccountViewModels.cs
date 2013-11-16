@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BenjaminCollins.Web.Models
+namespace BenCollins.Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

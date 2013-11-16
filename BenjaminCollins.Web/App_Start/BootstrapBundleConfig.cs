@@ -1,8 +1,8 @@
 using System.Web.Optimization;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(BenjaminCollins.Web.App_Start.BootstrapBundleConfig), "RegisterBundles")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(BenCollins.Web.App_Start.BootstrapBundleConfig), "RegisterBundles")]
 
-namespace BenjaminCollins.Web.App_Start
+namespace BenCollins.Web.App_Start
 {
 	public class BootstrapBundleConfig
 	{

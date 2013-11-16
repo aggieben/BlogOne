@@ -1,0 +1,13 @@
+﻿@model BenCollins.Web.Models.Post
+@{
+    var md = new MarkdownSharp.Markdown();
+}
+<article class="post-container">
+    <header>
+        <h4>@Model.Title</h4>
+        <h6>@Model.CreationDate</h6>
+    </header>
+    <div class="content">
+        @md.Transform(Model.Body);
+    </div>
+</article>

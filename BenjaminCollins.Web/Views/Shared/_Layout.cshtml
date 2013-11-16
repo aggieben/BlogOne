@@ -10,11 +10,31 @@
 </head>
 <body>
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar hidden-print affix panel panel-default">
+                    <div class="panel-body">
+                        <div class="g-plus-badge">
+                            <div class="g-person" data-width="200" data-href="//plus.google.com/114496887237669338071" data-rel="author"></div>
+                            <script type="text/javascript">
+                                (function () {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                        </div>
+                        <a href="http://stackexchange.com/users/2365">
+                            <img src="http://stackexchange.com/users/flair/2365.png?theme=clean" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+                        </a>
+                        @* post index goes here *@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

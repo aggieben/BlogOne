@@ -3,7 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace BenjaminCollins.Web
+namespace BenCollins.Web
 {
     public partial class Startup
     {
@@ -32,7 +32,7 @@ namespace BenjaminCollins.Web
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }
