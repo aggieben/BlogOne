@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[AspNetUserLogins] (
+    [Id]         INT            IDENTITY (1, 1) NOT NULL,
     [Sid] UNIQUEIDENTIFIER NOT NULL, 
     [UserId]        NVARCHAR (128) NOT NULL,
     [LoginProvider] NVARCHAR (128) NOT NULL,

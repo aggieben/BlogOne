@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BenCollins.Web.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace BenCollins.Web.Data
 {
-    interface IRepository<T> where T : class
+    interface IRepository<T> where T : ModelBase
     {
         void Add(T item);
         void Remove(T item);
