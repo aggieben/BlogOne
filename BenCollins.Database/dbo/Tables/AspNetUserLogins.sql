@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[AspNetUserLogins] (
-    [UserId]        NVARCHAR (128) NOT NULL,
     [Sid] UNIQUEIDENTIFIER NOT NULL, 
+    [UserId]        NVARCHAR (128) NOT NULL,
     [LoginProvider] NVARCHAR (128) NOT NULL,
     [ProviderKey]   NVARCHAR (128) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([UserId] ASC, [LoginProvider] ASC, [ProviderKey] ASC),
