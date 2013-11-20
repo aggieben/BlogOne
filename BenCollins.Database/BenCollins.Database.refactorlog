@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="69048340-b67e-4876-b682-c0df807f3326" ChangeDateTime="11/20/2013 04:17:55">
+    <Property Name="ElementName" Value="[dbo].[AspNetRoles].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AspNetRoles]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Sid" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5c143618-7609-4db5-a35f-e7f22072e175" ChangeDateTime="11/20/2013 04:18:52">
+    <Property Name="ElementName" Value="[dbo].[AspNetUserClaims].[User_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AspNetUserClaims]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+</Operations>
