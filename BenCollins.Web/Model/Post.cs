@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BenCollins.Web.Models
+namespace BenCollins.Web.Model
 {
     public class Post
     {

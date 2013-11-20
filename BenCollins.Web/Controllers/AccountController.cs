@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using BenCollins.Web.Models;
+using BenCollins.Web.Model;
 
 namespace BenCollins.Web.Controllers
 {
