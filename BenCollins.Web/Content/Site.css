@@ -7356,10 +7356,16 @@ input[type="checkbox"].input-validation-error {
 
 .sidebar.panel .sidebar-widget {
     margin-top: 7px;
+    margin-right: 0px;
+    margin-left: auto;
 }
 
 .sidebar.panel .sidebar-widget:first-of-type {
     margin-top: inherit;
+}
+
+.sidebar.panel .sidebar-widget.twitter {
+    margin-left: 50px;
 }
 
 .sidebar-widget ul.nav-stacked {
