@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using StackExchange.Profiling;
+using BenCollins.Web.Mvc;
 
 namespace BenCollins.Web
 {
@@ -17,6 +18,7 @@ namespace BenCollins.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ContainerConfig.RegisterContainer();
         }
 
         protected void Application_BeginRequest()
