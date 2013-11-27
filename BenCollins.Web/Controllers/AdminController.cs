@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using BenCollins.Web.Model;
 using BenCollins.Web.ViewModel;
+using BenCollins.Web.Data;
+using BenCollins.Web.Identity;
 
 namespace BenCollins.Web.Controllers
 {
     [Authorize]
     public class AdminController : Controller
     {
-        //
-        // GET: /Account/Login
-        [AllowAnonymous]
-        [Route("admin/login")]
-        public ActionResult Login(string returnUrl)
+        private readonly IExternalLoginRepository _xlRepository;
+
+        public AdminController(IExternalLoginRepository xlRepository)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            _xlRepository = xlRepository;
+            UserManager = new UserManager<User>(new UserStore());
         }
+
+        public UserManager<User> UserManager { get; private set; }
 
         //
         // POST: /Account/Disassociate
@@ -48,14 +49,17 @@ namespace BenCollins.Web.Controllers
 
         //
         // POST: /Account/ExternalLogin
-        [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         [Route("admin/login")]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Admin", new { ReturnUrl = returnUrl }));
+            var xlTypes = this.ControllerContext.HttpContext.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+            var requestedXlType = xlTypes.SingleOrDefault(xlt => xlt.AuthenticationType.ToLower() == provider.ToLower());
+            if (requestedXlType == null)
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, "Unsupported Authentication Provider");
+
+            return new ChallengeResult(requestedXlType.AuthenticationType, Url.Action("ExternalLoginCallback", "Admin", new { ReturnUrl = returnUrl }));
         }
 
         //
@@ -70,22 +74,29 @@ namespace BenCollins.Web.Controllers
                 return RedirectToAction("Login");
             }
 
-            //// Sign in the user with this external login provider if the user already has a login
-            //var user = await UserManager.FindAsync(loginInfo.Login);
-            //if (user != null)
-            //{
-            //    await SignInAsync(user, isPersistent: false);
-            //    return RedirectToLocal(returnUrl);
-            //}
-            //else
-            //{
-            //    // If the user does not have an account, then prompt the user to create an account
-            //    ViewBag.ReturnUrl = returnUrl;
-            //    ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-            //    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
-            //}
+            var logins = _xlRepository.Find(xli => xli.Login.ProviderKey == loginInfo.Login.ProviderKey);
+            if (!logins.Any())
+            {
+                // create new login
+                if (_xlRepository.FindAll().Any())
+                {
+                    throw new HttpException("Unauthorized access");
+                }
+                else
+                {
+                    _xlRepository.Add(loginInfo);
+                }
+            }
 
-            throw new NotImplementedException("external login not implemented.");
+            //// Sign in the user with this external login provider if the user already has a login
+            var user = await UserManager.FindAsync(loginInfo.Login);
+            if (user != null)
+            {
+                await SignInAsync(user, isPersistent: false);
+                return RedirectToLocal(returnUrl);
+            }
+
+            throw new HttpException("Unexpected failure to find user.");
         }
 
         //
@@ -205,12 +216,12 @@ namespace BenCollins.Web.Controllers
             }
         }
 
-        //private async Task SignInAsync(ApplicationUser user, bool isPersistent)
-        //{
-        //    AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-        //    var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-        //    AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
-        //}
+        private async Task SignInAsync(User user, bool isPersistent)
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+        }
 
         private void AddErrors(IdentityResult result)
         {
@@ -219,16 +230,6 @@ namespace BenCollins.Web.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-
-        //private bool HasPassword()
-        //{
-        //    var user = UserManager.FindById(User.Identity.GetUserId());
-        //    if (user != null)
-        //    {
-        //        return user.PasswordHash != null;
-        //    }
-        //    return false;
-        //}
 
         public enum ManageMessageId
         {

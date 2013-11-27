@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace BenCollins.Web.Data
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         void Add(T item);
         void Remove(T item);

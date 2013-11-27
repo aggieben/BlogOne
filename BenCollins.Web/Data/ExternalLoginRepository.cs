@@ -3,42 +3,49 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Dapper;
+using Dapper.Contrib.Extensions;
 
 namespace BenCollins.Web.Data
 {
-    public class ExternalLoginRepository : IRepository<ExternalLoginInfo>
+    public class ExternalLoginRepository : Repository<ExternalLoginInfo>, IExternalLoginRepository
     {
-        public void Add(ExternalLoginInfo item)
+        public ExternalLoginRepository(IDbConnectionFactory factory) : base(factory) { }
+
+        public override void Add(ExternalLoginInfo item)
+        {
+            using (var db = Connection)
+            {
+                db.Insert(item);
+            }
+        }
+
+        public override void Remove(ExternalLoginInfo item)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(ExternalLoginInfo item)
+        public override void Update(ExternalLoginInfo item)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(ExternalLoginInfo item)
+        public override ExternalLoginInfo FindBySid(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public ExternalLoginInfo FindBySid(Guid id)
+        public override ExternalLoginInfo FindById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public ExternalLoginInfo FindById(int id)
+        public override IEnumerable<ExternalLoginInfo> Find(System.Linq.Expressions.Expression<Func<ExternalLoginInfo, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ExternalLoginInfo> Find(System.Linq.Expressions.Expression<Func<ExternalLoginInfo, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<ExternalLoginInfo> FindAll()
+        public override IEnumerable<ExternalLoginInfo> FindAll()
         {
             throw new NotImplementedException();
         }
