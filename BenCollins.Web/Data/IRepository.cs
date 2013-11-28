@@ -12,7 +12,6 @@ namespace BenCollins.Web.Data
         void Update(T item);
         T FindBySid(Guid id);
         T FindById(int id);
-        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         IEnumerable<T> FindAll();
     }
 }

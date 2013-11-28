@@ -22,7 +22,6 @@ namespace BenCollins.Web.Data
         public abstract void Update(T item);
         public abstract T FindBySid(Guid id);
         public abstract T FindById(int id);
-        public abstract IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> predicate);
         public abstract IEnumerable<T> FindAll();
     }
 }

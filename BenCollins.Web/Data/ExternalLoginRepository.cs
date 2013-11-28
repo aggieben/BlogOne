@@ -5,14 +5,17 @@ using System.Linq;
 using System.Web;
 using Dapper;
 using Dapper.Contrib.Extensions;
+using BenCollins.Web.Model;
+using System.Data;
+using BenCollins.Web.Extensions;
 
 namespace BenCollins.Web.Data
 {
-    public class ExternalLoginRepository : Repository<ExternalLoginInfo>, IExternalLoginRepository
+    public class ExternalLoginRepository : Repository<ExternalLogin>, IExternalLoginRepository
     {
         public ExternalLoginRepository(IDbConnectionFactory factory) : base(factory) { }
 
-        public override void Add(ExternalLoginInfo item)
+        public override void Add(ExternalLogin item)
         {
             using (var db = Connection)
             {
@@ -20,34 +23,101 @@ namespace BenCollins.Web.Data
             }
         }
 
-        public override void Remove(ExternalLoginInfo item)
+        public override void Remove(ExternalLogin item)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                if (item.Id.HasValue)
+                {
+                    db.Delete(item);
+                }
+                else
+                {
+                    const string sql = @"
+delete from ExternalLogins el 
+      where el.LoginProvider = @loginProvider
+        and el.ProviderKey = @providerKey";
+
+                    if (0 <= db.Execute(sql, new { loginProvider = item.LoginProvider, providerKey = item.ProviderKey }))
+                    {
+                        throw new DataException("Failed to remove entity");
+                    }
+                }
+            }
         }
 
-        public override void Update(ExternalLoginInfo item)
+        public override void Update(ExternalLogin item)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                if (item.Id.HasValue)
+                {
+                    if (!db.Update(item))
+                    {
+                        throw new DataException("Failed to update ExternalLogin");
+                    }
+                }
+                else
+                {
+                    const string querySql = @"
+select *
+  from ExternalLogins el
+ where el.LoginProvider = @loginProvider
+   and el.ProviderKey = @providerKey";
+
+                    var entity = db.Query(querySql, new { loginProvider = item.LoginProvider, providerKey = item.ProviderKey }).FirstOrDefault();
+                    if (entity.HasValue())
+                    {
+                        this.Update(entity);
+                    }
+                }
+            }
         }
 
-        public override ExternalLoginInfo FindBySid(Guid id)
+        public override ExternalLogin FindBySid(Guid id)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+select *
+  from ExternalLogins el
+ where el.Sid = @guid";
+            using (var db = Connection)
+            {
+                return db.Query(sql, new { guid = id }).FirstOrDefault();
+            }
         }
 
-        public override ExternalLoginInfo FindById(int id)
+        public override ExternalLogin FindById(int id)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                return db.Get<ExternalLogin>(id);
+            }
         }
 
-        public override IEnumerable<ExternalLoginInfo> Find(System.Linq.Expressions.Expression<Func<ExternalLoginInfo, bool>> predicate)
+        public ExternalLogin FindByProviderAndKey(string provider, string key)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+select *
+  from ExternalLogins el
+ where el.LoginProvider = @provider
+   and el.ProviderKey = @key;";
+
+            using (var db = Connection)
+            {
+                return db.Query<ExternalLogin>(sql, new { provider, key }).FirstOrDefault();
+            }
         }
 
-        public override IEnumerable<ExternalLoginInfo> FindAll()
+        public override IEnumerable<ExternalLogin> FindAll()
         {
-            throw new NotImplementedException();
+            const string sql = @"
+select *
+  from ExternalLogins";
+
+            using (var db = Connection)
+            {
+                return db.Query<ExternalLogin>(sql);
+            }
         }
     }
 }

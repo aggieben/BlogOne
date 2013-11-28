@@ -74,8 +74,8 @@ namespace BenCollins.Web.Controllers
                 return RedirectToAction("Login");
             }
 
-            var logins = _xlRepository.Find(xli => xli.Login.ProviderKey == loginInfo.Login.ProviderKey);
-            if (!logins.Any())
+            var login = _xlRepository.FindByProviderAndKey(loginInfo.Login.LoginProvider, loginInfo.Login.ProviderKey);
+            if (login == null)
             {
                 // create new login
                 if (_xlRepository.FindAll().Any())
