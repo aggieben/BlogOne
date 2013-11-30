@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using StackExchange.Profiling;
-using BenCollins.Web.Mvc;
 
 namespace BenCollins.Web
 {

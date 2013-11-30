@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenCollins.Web", "BenCollin
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BenCollins.Database", "BenCollins.Database\BenCollins.Database.sqlproj", "{22327701-8D54-40EB-A336-09EC4456EB5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munq.IocContainer", "sm\munq\IocContainer\Munq.IocContainer\Munq.IocContainer.csproj", "{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
