@@ -15,7 +15,7 @@ using BenCollins.Web.Identity;
 namespace BenCollins.Web.Controllers
 {
     [Authorize]
-    public class AdminController : Controller
+    public partial class AdminController : Controller
     {
         private readonly IExternalLoginRepository _xlRepository;
 
@@ -26,6 +26,13 @@ namespace BenCollins.Web.Controllers
         }
 
         public UserManager<User> UserManager { get; private set; }
+
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+        public ViewResult Dashboard()
+        {
+            return View();
+        }
 
         //
         // POST: /Account/Disassociate
@@ -168,8 +175,7 @@ namespace BenCollins.Web.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("admin/logout")]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();

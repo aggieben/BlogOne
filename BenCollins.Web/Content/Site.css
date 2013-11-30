@@ -7378,3 +7378,7 @@ input[type="checkbox"].input-validation-error {
     margin-right: auto;
     text-align: center;
 }
+
+.navbar-nav li span {
+    margin-right: 4px;
+}

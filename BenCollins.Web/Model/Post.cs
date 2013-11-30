@@ -10,5 +10,6 @@ namespace BenCollins.Web.Model
         public DateTime CreationDate { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }

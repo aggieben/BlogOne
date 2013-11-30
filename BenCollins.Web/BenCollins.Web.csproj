@@ -166,6 +166,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Dapper\SqlMapperExtensions.cs" />
     <Compile Include="Data\IDbConnectionFactory.cs" />
     <Compile Include="Data\SqlConnectionFactory.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Identity\UserStore.cs" />
     <Compile Include="Model\ExternalLogin.cs" />
     <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="Model\Tag.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Mvc\DependencyResolver.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />
@@ -293,6 +295,10 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_PostExcerptPartial.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_UserNavigation.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Post\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

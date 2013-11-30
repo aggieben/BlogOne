@@ -16,15 +16,58 @@
 </head>
 <body>
     <div class="container body-content">
+        @if (Request.IsAuthenticated)
+        {
+            Html.RenderPartial("_UserNavigation");
+        }
+
         <div class="row">
             @if (!Request.Browser.IsMobileDevice)
             {
-            <div class="col-md-3">
-                <div class="sidebar hidden-print affix panel panel-default hidden-xs">
-                    <div class="panel-body">
-                        <div class="g-plus-badge sidebar-widget">
+                <div class="col-md-3">
+                    <div class="sidebar hidden-print affix panel panel-default hidden-xs">
+                        <div class="panel-body">
+                            <div class="g-plus-badge sidebar-widget">
+                                <!-- Place this tag where you want the widget to render. -->
+                                <div class="g-person" data-width="208" data-href="//plus.google.com/114496887237669338071" data-rel="author"></div>
+
+                                <!-- Place this tag after the last widget tag. -->
+                                <script type="text/javascript">
+                                    (function () {
+                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                        po.src = 'https://apis.google.com/js/plusone.js';
+                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                    })();
+                                </script>
+                            </div>
+                            <div class="sidebar-widget">
+                                <a href="http://stackexchange.com/users/2365">
+                                    <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+                                </a>
+                            </div>
+                            <div class="sidebar-widget twitter">
+                                <a href="https://twitter.com/aggieben" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @@aggieben</a>
+                                <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                            </div>
+                            <div class="sidebar-widget">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">archives</a></li>
+                                    <li><a href="#">tags</a></li>
+                                </ul>
+                            </div>
+                            @* post index goes here *@
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-9">
+                @if (Request.Browser.IsMobileDevice)
+                {
+                    <div class="visible-xs mobile-header">
+                        <div class="g-plus-badge visible-xs">
                             <!-- Place this tag where you want the widget to render. -->
-                            <div class="g-person" data-width="208" data-href="//plus.google.com/114496887237669338071" data-rel="author"></div>
+                            <div class="g-person" data-href="//plus.google.com/114496887237669338071" data-layout="landscape" data-rel="author"></div>
 
                             <!-- Place this tag after the last widget tag. -->
                             <script type="text/javascript">
@@ -35,52 +78,14 @@
                                 })();
                             </script>
                         </div>
-                        <div class="sidebar-widget">
+                        <div class="visible-xs">
                             <a href="http://stackexchange.com/users/2365">
                                 <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
                             </a>
                         </div>
-                        <div class="sidebar-widget twitter">
-                            <a href="https://twitter.com/aggieben" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @@aggieben</a>
-                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-                        </div>
-                        <div class="sidebar-widget">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#">archives</a></li>
-                                <li><a href="#">tags</a></li>
-                            </ul>
-                        </div>
-                        @* post index goes here *@
                     </div>
-                </div>
-            </div>
-            }
-            
-            <div class="col-md-9">
-                @if (Request.Browser.IsMobileDevice)
-                {
-                <div class="visible-xs mobile-header">
-                    <div class="g-plus-badge visible-xs">
-                        <!-- Place this tag where you want the widget to render. -->
-                        <div class="g-person" data-href="//plus.google.com/114496887237669338071" data-layout="landscape" data-rel="author"></div>
-
-                        <!-- Place this tag after the last widget tag. -->
-                        <script type="text/javascript">
-                            (function () {
-                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                po.src = 'https://apis.google.com/js/plusone.js';
-                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                            })();
-                        </script>
-                    </div>
-                    <div class="visible-xs">
-                        <a href="http://stackexchange.com/users/2365">
-                            <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-                        </a>
-                    </div>
-                </div>
                 }
-                
+
                 @using (profiler.Step("RenderBody"))
                 {
                     @RenderBody()
@@ -94,5 +99,11 @@
     @RenderSection("scripts", required: false)
     @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.Left)
 </body>
+
+
+
+
+
+
 
 </html>
