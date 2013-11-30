@@ -8,6 +8,8 @@ namespace BenCollins.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [Route("")]
+        [Route("home")]
         public ActionResult Index()
         {
             return View();
