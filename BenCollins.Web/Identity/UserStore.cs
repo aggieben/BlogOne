@@ -8,8 +8,9 @@ using System.Web;
 
 namespace BenCollins.Web.Identity
 {
-    public class UserStore : IUserStore<User>
+    public class UserStore : IUserStore<User>, IUserLoginStore<User>
     {
+        #region IUserStore
         public System.Threading.Tasks.Task CreateAsync(User user)
         {
             return Task.FromResult<object>(null);
@@ -43,7 +44,30 @@ namespace BenCollins.Web.Identity
 
         public void Dispose()
         {
-            
+
         }
+        #endregion
+
+        #region IUserLoginStore
+        public Task AddLoginAsync(User user, UserLoginInfo login)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<User> FindAsync(UserLoginInfo login)
+        {
+            return new User("0", "admin");
+        }
+
+        public async Task<IList<UserLoginInfo>> GetLoginsAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task RemoveLoginAsync(User user, UserLoginInfo login)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
