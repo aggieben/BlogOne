@@ -17,9 +17,10 @@ namespace BenCollins.Web.Model
 
         public string UserName { get; set; }
 
-        public User(string id, string UserName)
+        public User(string id, string username)
         {
             _id = id;
+            UserName = username;
         }
     }
 }
