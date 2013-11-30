@@ -12,6 +12,8 @@ namespace BenCollins.Web.Model
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
 
+        public ExternalLogin() { }
+
         public ExternalLogin(ExternalLoginInfo fromInfo)
         {
             DefaultUserName = fromInfo.DefaultUserName;
