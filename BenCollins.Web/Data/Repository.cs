@@ -10,7 +10,15 @@ namespace BenCollins.Web.Data
     public abstract class Repository<T> : IRepository<T>
     {
         private readonly IDbConnectionFactory _connectionFactory;
-        protected IDbConnection Connection { get { return _connectionFactory.CreateConnection(); } }
+        protected IDbConnection Connection 
+        { 
+            get 
+            {
+                var cn = _connectionFactory.CreateConnection();
+                cn.Open();
+                return cn;
+            } 
+        }
 
         public Repository(IDbConnectionFactory connectionFactory)
         {
