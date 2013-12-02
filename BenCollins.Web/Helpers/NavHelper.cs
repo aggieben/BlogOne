@@ -9,7 +9,7 @@ namespace BenCollins.Web.Helpers
 {
     public static class NavHelper
     {
-        public static IHtmlString NavLink(this HtmlHelper helper, string action, string controller, string text, string glyph, bool iconLeft = true)
+        public static IHtmlString NavLink(this HtmlHelper helper, string action, string controller, string text, string glyph, bool iconLeft = false)
         {
             var url = new UrlHelper(helper.ViewContext.RequestContext);
             string anchor = String.Empty;

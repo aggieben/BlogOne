@@ -51,9 +51,9 @@
                                 <br/>
                                 <div class="sidebar-widget">
                                     <ul class="nav nav-pills nav-stacked">
-                                        <li>@Html.NavLink("Index", "Home", "home", "glyphicon-home", false)</li>
-                                        <li>@Html.NavLink("Index", "Archive", "achive", "glyphicon-time", false)</li>
-                                        <li>@Html.NavLink("Index", "Tag", "tags", "glyphicon-tags", false)</li>
+                                        <li>@Html.NavLink("Index", "Home", "home", "glyphicon-home")</li>
+                                        <li>@Html.NavLink("Index", "Archive", "achive", "glyphicon-time")</li>
+                                        <li>@Html.NavLink("Index", "Tag", "tags", "glyphicon-tags")</li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +65,10 @@
                                     <h3 class="panel-title">Admin</h3>
                                 </div>
                                 <div class="panel-body">
-                                    @Html.Partial("_UserNavigation")
+                                    <div class="sidebar-widget">
+                                        @Html.Partial("_UserNavigation")
+                                    </div>
+                                    
                                 </div>
                             </div>
                         }
