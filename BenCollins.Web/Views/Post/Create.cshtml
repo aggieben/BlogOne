@@ -4,6 +4,20 @@
     ViewBag.Title = "Create";
 }
 
+@section scripts {
+    @Scripts.Render("~/Scripts/Markdown.Converter.js")
+    @Scripts.Render("~/Scripts/Markdown.Sanitizer.js")
+    @Scripts.Render("~/Scripts/Markdown.Editor.js")
+
+    <script type="text/javascript">
+        $(function () {
+            var converter = new Markdown.Converter();
+            var editor = new Markdown.Editor(converter);
+            editor.run();
+        })
+    </script>
+}
+
 <h2>Create</h2>
 
 @using (Html.BeginForm()) 
@@ -16,14 +30,6 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CreationDate, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreationDate)
-                @Html.ValidationMessageFor(model => model.CreationDate)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title)
@@ -31,13 +37,26 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Body, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Body)
                 @Html.ValidationMessageFor(model => model.Body)
             </div>
+        </div>*@
+        <div class="wmd-panel">
+            <div id="wmd-button-bar"></div>
+            <textarea class="wmd-input" id="wmd-input">
+This is the *first* editor.
+------------------------------
+
+Just plain **Markdown**, except that the input is sanitized:
+
+<marquee>I'm the ghost from the past!</marquee>
+            </textarea>
         </div>
+
+        <div id="wmd-preview" class="wmd-preview"></div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
