@@ -29,7 +29,7 @@ namespace BenCollins.Web.Controllers
 
         [HttpGet]
         [ValidateAntiForgeryToken]
-        public ViewResult Dashboard()
+        public ViewResult Index()
         {
             return View();
         }
