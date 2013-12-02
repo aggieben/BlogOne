@@ -46,22 +46,28 @@ input[type="checkbox"].input-validation-error {
 .sidebar.panel {
     .sidebar-widget {
         margin-top: 7px;
+        margin-bottom: 4px;
         margin-right: 0px;
         margin-left: auto;
 
         &:first-of-type {
             margin-top: inherit;
-        }
-
-        &.twitter {
-            margin-left: 50px;
-        }
+            margin-top: inherti;
+        }        
     }
 }
 
 .sidebar-widget {
     ul.nav-stacked  {
         text-align: right;
+    }
+
+    &.social {
+        .text-center();
+
+        img {
+            width: 36px;
+        }
     }
 }
 
@@ -70,8 +76,18 @@ input[type="checkbox"].input-validation-error {
     text-align: center;
 }
 
-.navbar-nav {
-    li span {
+a.nav-link {
+    span {
         margin-right: 4px;
+    }
+
+    &.active {
+        text-decoration: none;
+        color: @text-color;
+        background-color: @nav-link-hover-bg;
+        
+        &:hover {
+            color: @text-color;
+        }
     }
 }

@@ -7356,20 +7356,26 @@ input[type="checkbox"].input-validation-error {
 
 .sidebar.panel .sidebar-widget {
     margin-top: 7px;
+    margin-bottom: 4px;
     margin-right: 0px;
     margin-left: auto;
 }
 
 .sidebar.panel .sidebar-widget:first-of-type {
     margin-top: inherit;
-}
-
-.sidebar.panel .sidebar-widget.twitter {
-    margin-left: 50px;
+    margin-top: inherti;
 }
 
 .sidebar-widget ul.nav-stacked {
     text-align: right;
+}
+
+.sidebar-widget.social {
+    text-align: center;
+}
+
+.sidebar-widget.social img {
+    width: 36px;
 }
 
 .mobile-header {
@@ -7379,6 +7385,16 @@ input[type="checkbox"].input-validation-error {
     text-align: center;
 }
 
-.navbar-nav li span {
+a.nav-link span {
     margin-right: 4px;
+}
+
+a.nav-link.active {
+    text-decoration: none;
+    color: #333333;
+    background-color: #eeeeee;
+}
+
+a.nav-link.active:hover {
+    color: #333333;
 }
