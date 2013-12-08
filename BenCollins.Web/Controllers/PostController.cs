@@ -1,4 +1,5 @@
-﻿using BenCollins.Web.Model;
+﻿using BenCollins.Web.Data;
+using BenCollins.Web.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,17 @@ namespace BenCollins.Web.Controllers
     [Authorize]
     public class PostController : Controller
     {
+        private readonly IPostRepository _postRepository;
+
+        public PostController(IPostRepository postRepository)
+        {
+            _postRepository = postRepository;
+        }
+
         //
         // GET: /Post/
         [AllowAnonymous]
+        [Route("posts")]
         public ActionResult Index()
         {
             return View();
@@ -42,20 +51,25 @@ namespace BenCollins.Web.Controllers
         [Route("post/new")]
         public ActionResult Create(FormCollection collection)
         {
-            try
+            // TODO: Add insert logic here
+            var post = new Post
             {
-                // TODO: Add insert logic here
-                var post = new Post
-                {
-                    Title = collection["Title"],
-                    Body = collection["wmd-input"]
-                };
+                Title = collection["Title"],
+                Body = collection["wmd-input"]
+            };
 
-            }
-            catch
-            {
-                return View();
-            }
+            _postRepository.Add(post);
+
+            return RedirectToAction("Details", new { id = post.Id });
+        }
+        
+        [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        [Route("post/draft")]
+        public ActionResult Draft(FormCollection collection)
+        {
+            return Content("draft");
         }
 
         //

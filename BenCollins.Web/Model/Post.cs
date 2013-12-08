@@ -5,11 +5,10 @@ using System.Web;
 
 namespace BenCollins.Web.Model
 {
-    public class Post
+    public class Post : ModelBase
     {
-        public DateTime CreationDate { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
-        public List<Tag> Tags { get; set; }
+        // ignore for now: public List<Tag> Tags { get; set; }
     }
 }

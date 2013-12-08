@@ -179,9 +179,8 @@ namespace Dapper.Contrib.Extensions
         /// <param name="connection">Open SqlConnection</param>
         /// <param name="entityToInsert">Entity to insert</param>
         /// <returns>Identity of inserted entity</returns>
-        public static long Insert<T>(this IDbConnection connection, T entityToInsert, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static int Insert<T>(this IDbConnection connection, T entityToInsert, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
-
             var type = typeof(T);
 
             var name = GetTableName(type);
@@ -510,8 +509,19 @@ public class SqlServerAdapter : ISqlAdapter
         //NOTE: would prefer to use IDENT_CURRENT('tablename') or IDENT_SCOPE but these are not available on SQLCE
         var r = connection.Query("select @@IDENTITY id", transaction: transaction, commandTimeout: commandTimeout);
         int id = (int)r.First().id;
-        if (keyProperties.Any())
-            keyProperties.First().SetValue(entityToInsert, id, null);
+        if (keyProperties.Any()) 
+        {
+            //var idProperty = keyProperties.First();
+            //if (Nullable.GetUnderlyingType(idProperty.PropertyType) != null)
+            //{
+            //    idProperty.SetValue(entityToInsert, new Nullable<int>(id), null);
+            //}
+            //else
+            //{
+                keyProperties.First().SetValue(entityToInsert, id, null);
+            //}
+        }
+            
         return id;
     }
 }
