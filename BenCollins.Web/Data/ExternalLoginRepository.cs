@@ -20,6 +20,7 @@ namespace BenCollins.Web.Data
             using (var db = Connection)
             {
                 db.Insert(item);
+                
             }
         }
 
