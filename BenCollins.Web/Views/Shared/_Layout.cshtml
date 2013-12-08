@@ -54,7 +54,12 @@
                                         <li>@Html.NavLink("Index", "Home", "home", "glyphicon-home")</li>
                                         <li>@Html.NavLink("Index", "Archive", "achive", "glyphicon-time")</li>
                                         <li>@Html.NavLink("Index", "Tag", "tags", "glyphicon-tags")</li>
+                                        @if (!Request.IsAuthenticated)
+                                        {
+                                        <li>@Html.NavLink("ExternalLogin", "Admin", new { returnUrl = Html.ViewContext.HttpContext.Request.Url.PathAndQuery }, "login", "glyphicon-log-in")</li>
+                                        }
                                     </ul>
+
                                 </div>
                             </div>
                         </div>

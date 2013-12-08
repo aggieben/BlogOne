@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using Dapper.Contrib.Extensions;
+using System;
 
 namespace BenCollins.Web.Model
 {
@@ -10,6 +7,7 @@ namespace BenCollins.Web.Model
     {
         [Key]
         public int? Id { get; set; }
+        [Computed]
         public Guid? Sid { get; set; }
     }
 }

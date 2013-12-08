@@ -55,10 +55,10 @@ namespace BenCollins.Web.Controllers
         }
 
         //
-        // POST: /Account/ExternalLogin
+        // /Account/ExternalLogin
         [AllowAnonymous]
         [Route("admin/login")]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
+        public ActionResult ExternalLogin(string returnUrl, string provider = "google")
         {
             // Request a redirect to the external login provider
             var xlTypes = this.ControllerContext.HttpContext.GetOwinContext().Authentication.GetExternalAuthenticationTypes();

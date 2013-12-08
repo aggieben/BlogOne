@@ -11,6 +11,11 @@ namespace BenCollins.Web.Helpers
     {
         public static IHtmlString NavLink(this HtmlHelper helper, string action, string controller, string text, string glyph, bool iconLeft = false)
         {
+            return NavLink(helper, action, controller, null, text, glyph, iconLeft);
+        }
+
+        public static IHtmlString NavLink(this HtmlHelper helper, string action, string controller, object routeValues, string text, string glyph, bool iconLeft = false)
+        {
             var url = new UrlHelper(helper.ViewContext.RequestContext);
             string anchor = String.Empty;
 
@@ -20,7 +25,8 @@ namespace BenCollins.Web.Helpers
             }
             else
             {
-                anchor += "<a href=\"{0}\" class=\"nav-link\">".f(url.Action(action, controller));
+                string href = (routeValues.HasValue()) ? url.Action(action, controller, routeValues) : url.Action(action, controller);
+                anchor += "<a href=\"{0}\" class=\"nav-link\">".f(href);
             }
 
             string icon = null;
