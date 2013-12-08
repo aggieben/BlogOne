@@ -35,26 +35,6 @@ namespace BenCollins.Web.Controllers
         }
 
         //
-        // POST: /Account/Disassociate
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
-        {
-            //IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
-            //if (result.Succeeded)
-            //{
-            //    message = ManageMessageId.RemoveLoginSuccess;
-            //}
-            //else
-            //{
-            //    message = ManageMessageId.Error;
-            //}
-            //return RedirectToAction("Manage", new { Message = message });
-
-            throw new NotImplementedException("disassociate unimplemented.");
-        }
-
-        //
         // /Account/ExternalLogin
         [AllowAnonymous]
         [Route("admin/login")]
@@ -107,107 +87,12 @@ namespace BenCollins.Web.Controllers
         }
 
         //
-        // POST: /Account/LinkLogin
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LinkLogin(string provider)
-        {
-            // Request a redirect to the external login provider to link a login for the current user
-            return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
-        }
-
-        //
-        // GET: /Account/LinkLoginCallback
-        public async Task<ActionResult> LinkLoginCallback()
-        {
-            //var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
-            //if (loginInfo == null)
-            //{
-            //    return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
-            //}
-            //var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
-            //if (result.Succeeded)
-            //{
-            //    return RedirectToAction("Manage");
-            //}
-            //return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
-
-            throw new NotImplementedException("LinkLoginCallback not implemented.");
-        }
-
-        //
-        // POST: /Account/ExternalLoginConfirmation
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Manage");
-            }
-
-            if (ModelState.IsValid)
-            {
-                // Get the information about the user from the external login provider
-                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
-                    return View("ExternalLoginFailure");
-                }
-                //var user = new ApplicationUser() { UserName = model.UserName };
-                //var result = await UserManager.CreateAsync(user);
-                //if (result.Succeeded)
-                //{
-                //    result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                //    if (result.Succeeded)
-                //    {
-                //        await SignInAsync(user, isPersistent: false);
-                //        return RedirectToLocal(returnUrl);
-                //    }
-                //}
-                //AddErrors(result);
-            }
-
-            ViewBag.ReturnUrl = returnUrl;
-            return View(model);
-        }
-
-        //
         // POST: /Account/LogOff
         [Route("admin/logout")]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
-        }
-
-        //
-        // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
-        {
-            return View();
-        }
-
-        [ChildActionOnly]
-        public ActionResult RemoveAccountList()
-        {
-            //var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
-            //ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
-            //return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
-
-            throw new NotImplementedException("RemoveAccountList");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            //if (disposing && UserManager != null)
-            //{
-            //    UserManager.Dispose();
-            //    UserManager = null;
-            //}
-            base.Dispose(disposing);
         }
 
         #region Helpers
