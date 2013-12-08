@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[ExternalLogins]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Sid] UNIQUEIDENTIFIER NULL DEFAULT newsequentialid(), 
+    [Sid] UNIQUEIDENTIFIER NOT NULL DEFAULT newid(), 
     [DefaultUserName] NVARCHAR(128) NOT NULL, 
     [LoginProvider] NVARCHAR(128) NOT NULL, 
     [ProviderKey] NVARCHAR(1024) NOT NULL
