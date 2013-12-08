@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenCollins.Web.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,14 +37,20 @@ namespace BenCollins.Web.Controllers
         //
         // POST: /Post/Create
         [HttpPost]
+        [ValidateInput(false)]
+        [ValidateAntiForgeryToken]
         [Route("post/new")]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
+                var post = new Post
+                {
+                    Title = collection["Title"],
+                    Body = collection["wmd-input"]
+                };
 
-                return RedirectToAction("Index");
             }
             catch
             {
