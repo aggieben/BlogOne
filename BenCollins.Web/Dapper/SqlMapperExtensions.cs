@@ -28,9 +28,9 @@ namespace Dapper.Contrib.Extensions
         private static readonly ConcurrentDictionary<RuntimeTypeHandle, string> TypeTableName = new ConcurrentDictionary<RuntimeTypeHandle, string>();
 
         private static readonly Dictionary<string, ISqlAdapter> AdapterDictionary = new Dictionary<string, ISqlAdapter>() {
-																							{"sqlconnection", new SqlServerAdapter()},
-																							{"npgsqlconnection", new PostgresAdapter()}
-																						};
+                                                                                            {"sqlconnection", new SqlServerAdapter()},
+                                                                                            {"npgsqlconnection", new PostgresAdapter()}
+                                                                                        };
 
         private static IEnumerable<PropertyInfo> ComputedPropertiesCache(Type type)
         {

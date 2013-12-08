@@ -202,13 +202,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\gplus-icon.png" />
+    <Content Include="Content\pagedown\Markdown.Editor.Icons.fw.png" />
+    <Content Include="Content\pagedown\Markdown.Editor.Icons.png" />
     <Content Include="Content\img\sidebar-profile-208.png" />
     <Content Include="Content\img\twitter-icon.png" />
-    <Content Include="Content\pagedown\pagedown.css">
-      <DependentUpon>pagedown.less</DependentUpon>
-    </Content>
-    <Content Include="Content\pagedown\pagedown.min.css">
-      <DependentUpon>pagedown.less</DependentUpon>
+    <Content Include="Content\pagedown\Markdown.Editor.min.css">
+      <DependentUpon>Markdown.Editor.less</DependentUpon>
     </Content>
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
@@ -270,7 +269,7 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Content\pagedown\pagedown.less" />
+    <Content Include="Content\pagedown\Markdown.Editor.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -315,6 +314,8 @@
     <Content Include="Views\Shared\_UserNavigation.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Create.cshtml" />
+    <Content Include="Views\Post\_PostFormPartial.cshtml" />
+    <Content Include="Views\Shared\_MarkdownEditorPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
