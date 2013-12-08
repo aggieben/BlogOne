@@ -9,7 +9,7 @@
   </SourceModelProvider>
   <TargetModelProvider>
     <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=.;Initial Catalog=Blog;Integrated Security=True;Pooling=False</ConnectionString>
+      <ConnectionString>Data Source=tcp:s8r95ba9es.database.windows.net;Initial Catalog=bencollins;Persist Security Info=True;User ID=bencollins@s8r95ba9es;Pooling=False</ConnectionString>
     </ConnectionBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
