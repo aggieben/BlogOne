@@ -8,6 +8,7 @@ using Dapper.Contrib.Extensions;
 using BenCollins.Web.Model;
 using System.Data;
 using BenCollins.Web.Extensions;
+using StackExchange.Profiling;
 
 namespace BenCollins.Web.Data
 {
@@ -15,16 +16,15 @@ namespace BenCollins.Web.Data
     {
         public ExternalLoginRepository(IDbConnectionFactory factory) : base(factory) { }
 
-        public override void Add(ExternalLogin item)
+        protected override void AddImpl(ExternalLogin item)
         {
             using (var db = Connection)
             {
-                db.Insert(item);
-                
+               db.Insert(item);
             }
         }
 
-        public override void Remove(ExternalLogin item)
+        protected override void RemoveImpl(ExternalLogin item)
         {
             using (var db = Connection)
             {
@@ -47,7 +47,7 @@ delete from ExternalLogins el
             }
         }
 
-        public override void Update(ExternalLogin item)
+        protected override void UpdateImpl(ExternalLogin item)
         {
             using (var db = Connection)
             {
@@ -75,19 +75,20 @@ select *
             }
         }
 
-        public override ExternalLogin FindBySid(Guid id)
+        protected override ExternalLogin FindBySidImpl(Guid id)
         {
             const string sql = @"
 select *
   from ExternalLogins el
  where el.Sid = @guid";
+
             using (var db = Connection)
             {
                 return db.Query(sql, new { guid = id }).FirstOrDefault();
             }
         }
 
-        public override ExternalLogin FindById(int id)
+        protected override ExternalLogin FindByIdImpl(int id)
         {
             using (var db = Connection)
             {
@@ -103,13 +104,14 @@ select *
  where el.LoginProvider = @provider
    and el.ProviderKey = @key;";
 
+            using (MiniProfiler.Current.Step("Repository.FindByProviderAndKey"))
             using (var db = Connection)
             {
                 return db.Query<ExternalLogin>(sql, new { provider, key }).FirstOrDefault();
             }
         }
 
-        public override IEnumerable<ExternalLogin> FindAll()
+        protected override IEnumerable<ExternalLogin> FindAllImpl()
         {
             const string sql = @"
 select *
