@@ -211,6 +211,7 @@
     <Content Include="Content\pagedown\Markdown.Editor.min.css">
       <DependentUpon>Markdown.Editor.less</DependentUpon>
     </Content>
+    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
     <Content Include="Scripts\Markdown.Sanitizer.js" />
@@ -219,14 +220,10 @@
       <DependentUpon>Site.less</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.less</DependentUpon>
     </Content>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Site.less" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -272,6 +269,10 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\pagedown\Markdown.Editor.less" />
+    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.eot" />
+    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.otf" />
+    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.ttf" />
+    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
