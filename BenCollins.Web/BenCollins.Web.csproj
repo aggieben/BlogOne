@@ -194,10 +194,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-BenCollins.Web-20131115040426.mdf" />
-    <Content Include="App_Data\aspnet-BenCollins.Web-20131115040426_log.ldf">
-      <DependentUpon>aspnet-BenCollins.Web-20131115040426.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -322,7 +318,9 @@
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
