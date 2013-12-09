@@ -111,8 +111,9 @@ select *
             }
         }
 
-        protected override IEnumerable<ExternalLogin> FindAllImpl()
+        protected override IEnumerable<ExternalLogin> FindAllImpl(int page, int pageSize)
         {
+            // punting on paging these for now, cuz there should only ever be a few of them
             const string sql = @"
 select *
   from ExternalLogins";

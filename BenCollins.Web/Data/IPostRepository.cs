@@ -8,5 +8,6 @@ namespace BenCollins.Web.Data
 {
     public interface IPostRepository : IRepository<Post>
     {
+        Post FindBySlug(string slug);
     }
 }

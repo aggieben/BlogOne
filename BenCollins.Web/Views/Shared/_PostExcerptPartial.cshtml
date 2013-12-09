@@ -1,13 +1,17 @@
 ﻿@model BenCollins.Web.Model.Post
 @{
     var md = new MarkdownSharp.Markdown();
+    var excerptEnd = Model.Body.IndexOf("^^^");
 }
-<article class="post-container">
-    <header>
-        <h4>@Model.Title</h4>
-        <h6>@Model.CreationDate</h6>
-    </header>
-    <div class="content">
-        @md.Transform(Model.Body);
-    </div>
+
+<h2>@Model.Title</h2>
+<span>posted @Model.CreationDate</span>
+<hr />
+<article>
+    @(new HtmlString(md.Transform(Model.Body.Substring(0, excerptEnd > 0 ? excerptEnd : Model.Body.Length)))))
+    @if (Model.Body.Length > 2048)
+    {
+        Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null);
+    }   
 </article>
+

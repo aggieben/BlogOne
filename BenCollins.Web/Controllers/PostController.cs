@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BenCollins.Web.Extensions;
 
 namespace BenCollins.Web.Controllers
 {
@@ -27,12 +28,22 @@ namespace BenCollins.Web.Controllers
             return View();
         }
 
-        //
-        // GET: /Post/Details/5
+        ////
+        //// GET: /Post/Details/5
+        //[AllowAnonymous]
+        //[Route("post/{id}")]
+        //public ActionResult PostById(int id)
+        //{
+        //    var post = _postRepository.FindById(id);
+        //    return RedirectToAction("Details", new { slug = post.Slug });
+        //}
+
         [AllowAnonymous]
-        public ActionResult Details(int id)
+        [Route("post/{slug}")]
+        public ActionResult Details(string slug)
         {
-            return View();
+            var post = _postRepository.FindBySlug(slug);
+            return View(post);
         }
 
         //
@@ -51,16 +62,17 @@ namespace BenCollins.Web.Controllers
         [Route("post/new")]
         public ActionResult Create(FormCollection collection)
         {
-            // TODO: Add insert logic here
+            string title = collection["Title"];
             var post = new Post
             {
-                Title = collection["Title"],
-                Body = collection["wmd-input"]
+                Title = title,
+                Body = collection["wmd-input"],
+                Slug = title.AsSlug(),
             };
 
             _postRepository.Add(post);
 
-            return RedirectToAction("Details", new { id = post.Id });
+            return RedirectToAction("Details", new { slug = post.Slug });
         }
         
         [HttpPost]
@@ -77,25 +89,28 @@ namespace BenCollins.Web.Controllers
         [Route("post/edit/{id}")]
         public ActionResult Edit(int id)
         {
-            return View();
+            var post = _postRepository.FindById(id);
+            return View(post);
         }
 
         //
         // POST: /Post/Edit/5
         [HttpPost]
+        [ValidateInput(false)]
         [Route("post/edit/{id}")]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add update logic here
+            var post = _postRepository.FindById(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            string title = collection["Title"];
+
+            post.Title = title;
+            post.Body = collection["wmd-input"];
+            post.Slug = title.AsSlug();
+
+            _postRepository.Update(post);
+
+            return RedirectToAction("Details", new { slug = post.Slug });
         }
 
         //

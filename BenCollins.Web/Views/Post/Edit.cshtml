@@ -1,7 +1,7 @@
 ﻿@model BenCollins.Web.Model.Post
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 
 @section scripts {
@@ -18,53 +18,7 @@
     </script>
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Post</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title)
-                @Html.ValidationMessageFor(model => model.Title)
-            </div>
-        </div>  
-
-        <div class="form-group">
-            @*@Html.LabelFor(model => model.Body, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Body)
-                @Html.ValidationMessageFor(model => model.Body)
-            </div>*@
-
-            <div class="wmd-panel">
-                <div id="wmd-button-bar"></div>
-                <textarea class="wmd-input" id="wmd-input">
-This is the *first* editor.
-------------------------------
-
-Just plain **Markdown**, except that the input is sanitized:
-
-<marquee>I'm the ghost from the past!</marquee>
-                </textarea>
-            </div>
-
-            <div id="wmd-preview" class="wmd-preview"></div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+@Html.Partial("_PostFormPartial", Model)
 
 <div>
     @Html.ActionLink("Back to List", "Index")

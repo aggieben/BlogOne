@@ -9,6 +9,7 @@ namespace BenCollins.Web.Model
     {
         public string Title { get; set; }
         public string Body { get; set; }
+        public string Slug { get; set; }
         // ignore for now: public List<Tag> Tags { get; set; }
     }
 }

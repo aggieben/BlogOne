@@ -319,6 +319,8 @@
     <Content Include="Views\Post\Create.cshtml" />
     <Content Include="Views\Post\_PostFormPartial.cshtml" />
     <Content Include="Views\Shared\_MarkdownEditorPartial.cshtml" />
+    <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Shared\_PostPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

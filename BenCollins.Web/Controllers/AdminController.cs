@@ -18,20 +18,24 @@ namespace BenCollins.Web.Controllers
     public partial class AdminController : Controller
     {
         private readonly IExternalLoginRepository _xlRepository;
+        private readonly IPostRepository _postRepository;
 
-        public AdminController(IExternalLoginRepository xlRepository)
+        public AdminController(IExternalLoginRepository xlRepository, IPostRepository postRepository)
         {
             _xlRepository = xlRepository;
+            _postRepository = postRepository;
+
             UserManager = new UserManager<User>(new UserStore());
         }
 
         public UserManager<User> UserManager { get; private set; }
 
         [HttpGet]
-        [ValidateAntiForgeryToken]
+        [Route("admin")]
         public ViewResult Index()
         {
-            return View();
+            var posts = _postRepository.FindAll();
+            return View(posts);
         }
 
         //

@@ -22,19 +22,9 @@ namespace BenCollins.Web {
             ioc.Register<IPostRepository, PostRepository>();
 
             // controllers
-            ioc.Register<AdminController>(
-                c =>
-                {
-                    var xlr = c.Resolve(typeof(IExternalLoginRepository)) as IExternalLoginRepository;
-                    return new AdminController(xlr);
-                });
-
-            ioc.Register<PostController>(
-                c =>
-                {
-                    var pr = c.Resolve(typeof(IPostRepository)) as IPostRepository;
-                    return new PostController(pr);
-                });
+            ioc.Register<HomeController>(c => new HomeController(c.Resolve<IPostRepository>()));
+            ioc.Register<AdminController>(c => new AdminController(c.Resolve<IExternalLoginRepository>(), c.Resolve<IPostRepository>()));
+            ioc.Register<PostController>(c => new PostController(c.Resolve<IPostRepository>()));
 
             return ioc;
         }

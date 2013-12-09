@@ -1,7 +1,28 @@
-﻿
+﻿@model IEnumerable<BenCollins.Web.Model.Post>
 @{
     ViewBag.Title = "Admin Dashboard";
 }
 
-<h2>View1</h2>
+<h2>Posts</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Slug</th>           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</td>
+            <td>@post.CreationDate</td>
+            <td>@post.Title.AsSlug()</td>
+        </tr>
+        }
+    </tbody>
+
+</table>
 

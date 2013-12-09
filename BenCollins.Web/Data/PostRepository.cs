@@ -12,6 +12,19 @@ namespace BenCollins.Web.Data
     {
         public PostRepository(IDbConnectionFactory factory) : base(factory) { }
 
+        public Post FindBySlug(string slug)
+        {
+            using (var db = Connection)
+            {
+                const string sql = @"
+select *
+  from Posts p
+ where p.SlugHash = checksum(@slug)";
+
+                return db.Query<Post>(sql, new { slug }).SingleOrDefault();
+            }
+        }
+
         protected override void AddImpl(Post item)
         {
             using (var db = Connection)
@@ -22,17 +35,31 @@ namespace BenCollins.Web.Data
 
         protected override void RemoveImpl(Post item)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                db.Delete(item);
+            }
         }
 
         protected override void UpdateImpl(Post item)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                db.Update(item);
+            }
         }
 
         protected override Post FindBySidImpl(Guid id)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+select *
+  from Posts
+ where Sid = @id";
+
+            using (var db = Connection)
+            {
+                return db.Query(sql, new { id }).FirstOrDefault();
+            }
         }
 
         protected override Post FindByIdImpl(int id)
@@ -43,9 +70,24 @@ namespace BenCollins.Web.Data
             }
         }
 
-        protected override IEnumerable<Post> FindAllImpl()
+        protected override IEnumerable<Post> FindAllImpl(int page, int pageSize)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+with NumberedPosts as
+(
+    select row_number() over (order by Id) as Row, Id
+      from Posts
+)
+select *
+  from NumberedPosts np
+       inner join Posts p on np.Id = p.Id
+ where np.Row between @pageBegin and @pageEnd
+order by np.Row desc";
+
+            using (var db = Connection)
+            {
+                return db.Query<Post>(sql, new { pageBegin =  pageSize * (page - 1) + 1, pageEnd = page * pageSize });
+            }
         }
     }
 }

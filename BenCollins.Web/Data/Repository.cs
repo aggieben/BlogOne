@@ -60,10 +60,10 @@ namespace BenCollins.Web.Data
                 return FindByIdImpl(id);
         }
 
-        public IEnumerable<T> FindAll()
+        public IEnumerable<T> FindAll(int page = 1, int pageSize = int.MaxValue)
         {
             using (MiniProfiler.Current.Step("Repository.FindAll"))
-                return FindAllImpl();
+                return FindAllImpl(page, pageSize);
         }
 
         protected abstract void AddImpl(T item);
@@ -71,6 +71,6 @@ namespace BenCollins.Web.Data
         protected abstract void UpdateImpl(T item);
         protected abstract T FindBySidImpl(Guid id);
         protected abstract T FindByIdImpl(int id);
-        protected abstract IEnumerable<T> FindAllImpl();
+        protected abstract IEnumerable<T> FindAllImpl(int page, int pageSize);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenCollins.Web.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +9,19 @@ namespace BenCollins.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPostRepository _postRepository;
+
+        public HomeController(IPostRepository postRepository)
+        {
+            _postRepository = postRepository;
+        }
+
         [Route("")]
         [Route("home")]
         public ActionResult Index()
         {
-            return View();
+            var posts = _postRepository.FindAll(1, 5);
+            return View(posts);
         }
 
         public ActionResult About()

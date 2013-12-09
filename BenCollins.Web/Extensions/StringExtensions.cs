@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace BenCollins.Web.Extensions
@@ -15,6 +16,14 @@ namespace BenCollins.Web.Extensions
             }
 
             return str;
-        }        
+        }    
+    
+        public static string AsSlug(this string str)
+        {   
+            return Regex.Replace(str, @"[^\w\s]", String.Empty)
+                        .Replace(' ', '-')
+                        .Substring(0, Math.Min(50, str.Length))
+                        .ToLower();
+        }
     }
 }

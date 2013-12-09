@@ -12,6 +12,6 @@ namespace BenCollins.Web.Data
         void Update(T item);
         T FindBySid(Guid id);
         T FindById(int id);
-        IEnumerable<T> FindAll();
+        IEnumerable<T> FindAll(int page = 1, int pageSize = int.MaxValue);
     }
 }
