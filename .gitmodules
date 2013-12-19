@@ -3,4 +3,4 @@
 	url = https://github.com/aggieben/munq
 [submodule "sm/miniprofiler-dotnet"]
 	path = sm/miniprofiler-dotnet
-	url = https://github.com/MiniProfiler/dotnet
+	url = https://github.com/aggieben/dotnet
