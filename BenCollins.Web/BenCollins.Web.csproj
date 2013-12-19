@@ -46,9 +46,6 @@
       <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MiniProfiler">
-      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -326,6 +323,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\sm\miniprofiler-dotnet\StackExchange.Profiling.Mvc\StackExchange.Profiling.Mvc.csproj">
+      <Project>{074bcd84-3e44-4140-9918-c09fcbeec09f}</Project>
+      <Name>StackExchange.Profiling.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sm\miniprofiler-dotnet\StackExchange.Profiling\StackExchange.Profiling.csproj">
+      <Project>{386222bd-6b6e-480f-a342-8de1ab516e2c}</Project>
+      <Name>StackExchange.Profiling</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sm\munq\IocContainer\Munq.IocContainer\Munq.IocContainer.csproj">
       <Project>{3a5bc8f1-5817-4b0e-a82b-d92ffc5be440}</Project>
       <Name>Munq.IocContainer</Name>

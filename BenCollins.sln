@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.21126.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenCollins.Web", "BenCollins.Web\BenCollins.Web.csproj", "{845CBF4B-75BE-435E-9BB4-6281B192BE22}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BenCollins.Database", "BenCollins.Database\BenCollins.Database.sqlproj", "{22327701-8D54-40EB-A336-09EC4456EB5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munq.IocContainer", "sm\munq\IocContainer\Munq.IocContainer\Munq.IocContainer.csproj", "{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{3A2E84CD-910B-4831-9661-89FB61C28C55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchange.Profiling", "sm\miniprofiler-dotnet\StackExchange.Profiling\StackExchange.Profiling.csproj", "{386222BD-6B6E-480F-A342-8DE1AB516E2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchange.Profiling.Mvc", "sm\miniprofiler-dotnet\StackExchange.Profiling.Mvc\StackExchange.Profiling.Mvc.csproj", "{074BCD84-3E44-4140-9918-C09FCBEEC09F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +35,20 @@ Global
 		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386222BD-6B6E-480F-A342-8DE1AB516E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386222BD-6B6E-480F-A342-8DE1AB516E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386222BD-6B6E-480F-A342-8DE1AB516E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386222BD-6B6E-480F-A342-8DE1AB516E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{074BCD84-3E44-4140-9918-C09FCBEEC09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{074BCD84-3E44-4140-9918-C09FCBEEC09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{074BCD84-3E44-4140-9918-C09FCBEEC09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{074BCD84-3E44-4140-9918-C09FCBEEC09F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{386222BD-6B6E-480F-A342-8DE1AB516E2C} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
+		{074BCD84-3E44-4140-9918-C09FCBEEC09F} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
 	EndGlobalSection
 EndGlobal
