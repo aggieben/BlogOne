@@ -18,7 +18,7 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                @Html.Partial("_MarkdownEditorPartial", Model.Body)
+                @Html.Partial("_MarkdownEditorPartial", Model != null ? Model.Body : null)
             </div>
         </div>
         
