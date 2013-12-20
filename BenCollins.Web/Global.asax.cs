@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using StackExchange.Profiling;
+using StackExchange.Profiling.Mvc;
+using System;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using StackExchange.Profiling;
-using System.Diagnostics;
 
 namespace BenCollins.Web
 {
@@ -19,15 +17,18 @@ namespace BenCollins.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ContainerConfig.RegisterContainer();
+
+            var engines = ViewEngines.Engines.ToList();
+            ViewEngines.Engines.Clear();
+            foreach (var ve in engines)
+            {
+                ViewEngines.Engines.Add(new ProfilingViewEngine(ve));
+            }
         }
 
         protected void Application_BeginRequest()
         {
-            Trace.TraceInformation("Beginning request. Request.IsLocal: {0}; Request.IsAuthenticated: {1};", Request.IsLocal, Request.IsAuthenticated);
-            if (Request.IsLocal || Request.IsAuthenticated)
-            {
-                MiniProfiler.Start();
-            }
+            MiniProfiler.Start();
         }
 
         protected void Application_EndRequest()

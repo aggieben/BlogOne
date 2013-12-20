@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using StackExchange.Profiling.Mvc;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BenCollins.Web
@@ -8,6 +9,7 @@ namespace BenCollins.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ProfilingActionFilter());
         }
     }
 }

@@ -22,21 +22,21 @@
                 <div class="col-md-3">
                     <div class="sidebar hidden-print affix hidden-xs">
                         <div class="panel panel-default">
-                            <div class="panel-body">                                
+                            <div class="panel-body">
                                 <div class="sidebar-widget">
                                     <img src="@Url.Content("~/Content/Img/sidebar-profile-208.png")" />
                                 </div>
                                 <div class="sidebar-widget social center-block">
                                     <span title="GitHub"><a class="symbol" href="https://github.com/aggieben">githubalt</a></span>
-                                    <span title="Google+"><a class="symbol" href="https://google.com/+BenjaminCollins1">googleplus</a></span title="Google+">
-                                    <span title="Twitter"><a class="symbol" href="https://twitter.com/aggieben">twitter</a></span title="Twitter">
+                                    <span title="Google+"><a class="symbol" href="https://google.com/+BenjaminCollins1">googleplus</a></span>
+                                    <span title="Twitter"><a class="symbol" href="https://twitter.com/aggieben">twitter</a></span>
                                 </div>
                                 <div class="sidebar-widget">
                                     <a href="http://stackexchange.com/users/2365">
                                         <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
                                     </a>
                                 </div>
-                                <br/>
+                                <br />
                                 <div class="sidebar-widget">
                                     <ul class="nav nav-pills nav-stacked">
                                         <li>@Html.NavLink("Index", "Home", "home", "glyphicon-home")</li>
@@ -44,7 +44,7 @@
                                         <li>@Html.NavLink("Index", "Tag", "tags", "glyphicon-tags")</li>
                                         @if (!Request.IsAuthenticated)
                                         {
-                                        <li>@Html.NavLink("ExternalLogin", "Admin", new { returnUrl = Html.ViewContext.HttpContext.Request.Url.PathAndQuery }, "login", "glyphicon-log-in")</li>
+                                            <li>@Html.NavLink("ExternalLogin", "Admin", new { returnUrl = Html.ViewContext.HttpContext.Request.Url.PathAndQuery }, "login", "glyphicon-log-in")</li>
                                         }
                                     </ul>
                                 </div>
@@ -60,11 +60,11 @@
                                     <div class="sidebar-widget">
                                         @Html.Partial("_UserNavigation")
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         }
-                        
+
                     </div>
                 </div>
             }
@@ -72,31 +72,31 @@
             <div class="col-md-9">
                 @if (Request.Browser.IsMobileDevice)
                 {
-                <div class="visible-xs mobile-header">
-                    <div class="g-plus-badge visible-xs">
-                        <!-- Place this tag where you want the widget to render. -->
-                        <div class="g-person" data-href="//plus.google.com/114496887237669338071" data-layout="landscape" data-rel="author"></div>
+                    <div class="visible-xs mobile-header">
+                        <div class="g-plus-badge visible-xs">
+                            <!-- Place this tag where you want the widget to render. -->
+                            <div class="g-person" data-href="//plus.google.com/114496887237669338071" data-layout="landscape" data-rel="author"></div>
 
-                        <!-- Place this tag after the last widget tag. -->
-                        <script type="text/javascript">
+                            <!-- Place this tag after the last widget tag. -->
+                            <script type="text/javascript">
                                 (function () {
                                     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
                                     po.src = 'https://apis.google.com/js/plusone.js';
                                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                                 })();
-                        </script>
+                            </script>
+                        </div>
+                        <div class="visible-xs">
+                            <a href="http://stackexchange.com/users/2365">
+                                <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+                            </a>
+                        </div>
                     </div>
-                    <div class="visible-xs">
-                        <a href="http://stackexchange.com/users/2365">
-                            <img src="http://stackexchange.com/users/flair/2365.png" width="208" height="58" alt="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Ben Collins on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-                        </a>
-                    </div>
-                </div>
                 }
 
                 @using (profiler.Step("RenderBody"))
                 {
-                @RenderBody()
+                    @RenderBody()
                 }
             </div>
         </div>
@@ -105,8 +105,15 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.Left)
+    @if (Request.IsAuthenticated)
+    {
+        @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.Left)
+    }
 </body>
+
+
+
+
 
 
 
