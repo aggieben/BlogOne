@@ -25,7 +25,7 @@
     // this area.
     // -------------------------------------------------------------------
 
-    // The text that appears on the upper part of the dialog box when
+    // The text that appears on the upper part of the modal box when
     // entering links.
     var linkDialogText = "<p>http://example.com/ \"optional title\"</p>";
     var imageDialogText = "<p>http://example.com/images/diagram.jpg \"optional title\"</p>";
@@ -962,7 +962,7 @@
         };
 
         init();
-    };
+    }
 
     
     // This simulates a modal dialog box and asks for the URL when you
@@ -977,7 +977,7 @@
 
         // These variables need to be declared at this level since they are used
         // in multiple functions.
-        var dialog;         // The dialog box.
+        var modal;         // The modal box.
         var input;         // The text box where you enter the hyperlink.
 
 
@@ -1011,7 +1011,7 @@
                     text = 'http://' + text;
             }
 
-            $(dialog).modal('hide');
+            $(modal).modal('hide');
 
             callback(text);
             return false;
@@ -1035,28 +1035,37 @@
             //   </div>
             // </div>
 
-            // The main dialog box.
-            dialog = doc.createElement("div");
-            dialog.className = "modal hide fade";
-            dialog.style.display = "none";
+            // The modal.
+            modal = doc.createElement("div");
+            modal.className = "modal fade";
+
+            // The dialog
+            var dialog = doc.createElement("div");
+            dialog.className = "modal-dialog";
+            modal.appendChild(dialog);
+
+            //Content
+            var content = doc.createElement("div");
+            content.className = "modal-content";
+            dialog.appendChild(content);
 
             // The header.
             var header = doc.createElement("div");
             header.className = "modal-header";
             header.innerHTML = '<a class="close" data-dismiss="modal">×</a> <h3>'+title+'</h3>';
-            dialog.appendChild(header);
+            content.appendChild(header);
 
             // The body.
             var body = doc.createElement("div");
             body.className = "modal-body";
-            dialog.appendChild(body);
+            content.appendChild(body);
 
             // The footer.
             var footer = doc.createElement("div");
             footer.className = "modal-footer";
-            dialog.appendChild(footer);
+            content.appendChild(footer);
 
-            // The dialog text.
+            // The modal text.
             var question = doc.createElement("p");
             question.innerHTML = text;
             question.style.padding = "5px";
@@ -1099,7 +1108,7 @@
 
             util.addEvent(doc.body, "keydown", checkEscape);
 
-            doc.body.appendChild(dialog);
+            doc.body.appendChild(modal);
 
         };
 
@@ -1122,15 +1131,15 @@
                 range.select();
             }
             
-            $(dialog).on('shown', function () {
+            $(modal).on('shown', function () {
                 input.focus();
-            })
+            });
             
-            $(dialog).on('hidden', function () {
-                dialog.parentNode.removeChild(dialog);
-            })
+            $(modal).on('hidden', function () {
+                modal.parentNode.removeChild(modal);
+            });
 
-            $(dialog).modal()
+            $(modal).modal();
 
         }, 0);
     };
