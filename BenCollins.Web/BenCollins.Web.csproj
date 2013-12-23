@@ -205,6 +205,7 @@
       <DependentUpon>Markdown.Editor.less</DependentUpon>
     </Content>
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
+    <Content Include="Scripts\drafting.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
     <Content Include="Scripts\Markdown.Sanitizer.js" />
@@ -281,6 +282,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\stringformat.min.js" />
+    <Content Include="Scripts\stringformat.js" />
+    <Content Include="Scripts\utility.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
