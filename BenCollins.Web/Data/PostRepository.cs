@@ -25,6 +25,27 @@ select *
             }
         }
 
+        public IEnumerable<Post> FindPublished(int page = 1, int pageSize = int.MaxValue)
+        {
+            const string sql = @"
+with NumberedPosts as
+(
+    select row_number() over (order by Id) as Row, Id
+      from Posts p
+     where p.Draft = 0
+)
+select *
+  from NumberedPosts np
+       inner join Posts p on np.Id = p.Id
+ where np.Row between @pageBegin and @pageEnd
+order by np.Row desc";
+
+            using (var db = Connection)
+            {
+                return db.Query<Post>(sql, new { pageBegin = pageSize * (page - 1) + 1, pageEnd = page * pageSize });
+            }
+        }
+
         protected override void AddImpl(Post item)
         {
             using (var db = Connection)

@@ -11,5 +11,6 @@ namespace BenCollins.Web.Model
         public Guid? Sid { get; set; }
         [Computed]
         public DateTime CreationDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
     }
 }

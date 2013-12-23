@@ -9,5 +9,6 @@ namespace BenCollins.Web.Data
     public interface IPostRepository : IRepository<Post>
     {
         Post FindBySlug(string slug);
+        IEnumerable<Post> FindPublished(int page = 1, int pageSize = int.MaxValue);
     }
 }
