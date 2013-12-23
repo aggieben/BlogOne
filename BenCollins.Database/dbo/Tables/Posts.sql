@@ -6,7 +6,9 @@
     [Title] NVARCHAR(256) NOT NULL, 
     [Body] TEXT NOT NULL, 
     [Slug] NVARCHAR(50) NOT NULL, 
-    [SlugHash] AS (checksum(Slug)) PERSISTED NOT NULL
+    [SlugHash] AS (checksum([Slug])) PERSISTED NOT NULL, 
+    [Draft] BIT NOT NULL DEFAULT ((1)), 
+    [ModifiedDate] DATETIME NULL
 )
 
 GO
