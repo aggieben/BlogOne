@@ -139,32 +139,18 @@ namespace BenCollins.Web.Controllers
             _postRepository.Update(post);
 
             return RedirectToAction("Details", new { slug = post.Slug });
-        }
-
-        //
-        // GET: /Post/Delete/5
-        [Route("post/delete/{id}")]
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        }        
 
         //
         // POST: /Post/Delete/5
         [HttpPost]
         [Route("post/delete/{id}")]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var post = _postRepository.FindById(id);
+            _postRepository.Remove(post);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return new EmptyResult();
         }
     }
 }
