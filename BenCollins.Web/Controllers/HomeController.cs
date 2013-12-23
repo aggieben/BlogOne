@@ -20,7 +20,7 @@ namespace BenCollins.Web.Controllers
         [Route("home")]
         public ActionResult Index()
         {
-            var posts = _postRepository.FindAll(1, 5);
+            var posts = _postRepository.FindPublished(1, 5);
             return View(posts);
         }
 
