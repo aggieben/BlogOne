@@ -19,30 +19,16 @@ namespace BenCollins.Web.Controllers
             _postRepository = postRepository;
         }
 
-        //
-        // GET: /Post/
-        [AllowAnonymous]
-        [Route("posts")]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        ////
-        //// GET: /Post/Details/5
-        //[AllowAnonymous]
-        //[Route("post/{id}")]
-        //public ActionResult PostById(int id)
-        //{
-        //    var post = _postRepository.FindById(id);
-        //    return RedirectToAction("Details", new { slug = post.Slug });
-        //}
-
         [AllowAnonymous]
         [Route("post/{slug}")]
         public ActionResult Details(string slug)
         {
             var post = _postRepository.FindBySlug(slug);
+            if (post.Draft && !Request.IsAuthenticated)
+            {
+                return HttpNotFound();
+            }
+            
             return View(post);
         }
 
