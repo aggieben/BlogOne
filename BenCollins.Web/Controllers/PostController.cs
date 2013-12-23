@@ -79,9 +79,37 @@ namespace BenCollins.Web.Controllers
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         [Route("post/draft")]
-        public ActionResult Draft(FormCollection collection)
+        public JsonResult Draft(FormCollection collection)
         {
-            return Content("draft");
+            Post post = null;
+            var postIdValue = collection["PostId"];
+            int? postId = postIdValue.HasValue() ? Convert.ToInt32(postIdValue) : (int?)null;
+
+            if (postId.HasValue)
+            {                
+                post = _postRepository.FindById(postId.Value);
+            }
+            else
+            {
+                post = new Post { Draft = true };
+            }
+
+            string title = collection["Title"];
+            post.Title = title;
+            post.Body = collection["wmd-input"];
+            post.Slug = title.AsSlug();
+
+            if (postId.HasValue)
+            {
+                post.ModifiedDate = DateTime.UtcNow;
+                _postRepository.Update(post);
+            }
+            else
+            {
+                _postRepository.Add(post);
+            }
+            
+            return Json(post.Id);
         }
 
         //
