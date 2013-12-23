@@ -7559,3 +7559,15 @@ a.nav-link.active {
 a.nav-link.active:hover {
     color: #333333;
 }
+
+.form-group .btn {
+    margin-right: 15px;
+}
+
+.form-group .status-text.failure {
+    color: #b94a48;
+}
+
+.form-group .status-text.success {
+    color: #306d17;
+}

@@ -3,6 +3,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    @Html.Hidden("PostId", Model.Id)
 
     <div class="form-horizontal">
         
@@ -24,8 +25,9 @@
         
 
         <div class="form-group">
-            <div class="col-md-2">
+            <div class="col-md-10">
                 <input type="submit" value="Post" class="btn btn-default" />
+                <span class="status-text"></span>
             </div>
         </div>
 
