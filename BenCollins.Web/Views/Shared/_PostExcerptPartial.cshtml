@@ -1,17 +1,15 @@
-﻿@model BenCollins.Web.Model.Post
-@{
-    var md = new MarkdownSharp.Markdown();
-    var excerptEnd = Model.Body.IndexOf("^^^");
-}
+﻿@model BenCollins.Web.ViewModel.PostViewModel
 
-<h2>@Model.Title</h2>
-<span>posted @Model.CreationDate</span>
-<hr />
+<header>
+    <h2>@Html.ActionLink(Model.Title, "Details", "Post", new { slug = Model.Slug }, null)</h2>
+    <span>@(Model.ModifiedDate.HasValue ? String.Format("Updated {0:g}", Model.ModifiedDate.Value) : String.Format("Posted {0:g}", Model.CreationDate))</span>
+</header>
 <article>
-    @(new HtmlString(md.Transform(Model.Body.Substring(0, excerptEnd > 0 ? excerptEnd : Model.Body.Length)))))
-    @if (Model.Body.Length > 2048)
-    {
-        Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null);
-    }   
+    @Model.BodyExcerpt
 </article>
-
+<footer>
+    @if (Model.Excerpted)
+    {
+        @:@Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null)
+    }
+</footer>
