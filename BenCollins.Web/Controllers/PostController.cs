@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BenCollins.Web.Extensions;
+using BenCollins.Web.ViewModel;
+using StackExchange.Profiling;
 
 namespace BenCollins.Web.Controllers
 {
@@ -29,7 +31,7 @@ namespace BenCollins.Web.Controllers
                 return HttpNotFound();
             }
             
-            return View(post);
+            return View(ViewModelFromPost(post));
         }
 
         //
@@ -101,9 +103,10 @@ namespace BenCollins.Web.Controllers
         //
         // GET: /Post/Edit/5
         [Route("post/edit/{id}")]
-        public ActionResult Edit(int id)
+        public ViewResult Edit(int id)
         {
             var post = _postRepository.FindById(id);
+
             return View(post);
         }
 
@@ -137,6 +140,45 @@ namespace BenCollins.Web.Controllers
             _postRepository.Remove(post);
 
             return new EmptyResult();
+        }
+
+        [Flags]
+        public enum PostViewModelOptions
+        {
+            Excerpt,
+            FullBody
+        }
+
+        public static PostViewModel ViewModelFromPost(Post post, PostViewModelOptions options = PostViewModelOptions.Excerpt | PostViewModelOptions.FullBody)
+        {
+            var breakIndex = post.Body.IndexOf("^^^");
+            HtmlString excerptHtml = null, fullHtml = null;
+            using (MiniProfiler.Current.Step("Markdown transform"))
+            {
+                var md = new MarkdownSharp.Markdown();
+                if (options.HasFlag(PostViewModelOptions.Excerpt))
+                {
+                    excerptHtml = new HtmlString(md.Transform(post.Body.Substring(0, breakIndex > 0 ? breakIndex : post.Body.Length)));
+                }
+
+                if (options.HasFlag(PostViewModelOptions.FullBody))
+                {
+                    var bodyMd = post.Body.Remove(breakIndex, 3);
+                    fullHtml = new HtmlString(md.Transform(bodyMd));
+                }
+            }
+
+            return new PostViewModel
+            {
+                Id = post.Id.Value,
+                Title = post.Title,
+                CreationDate = post.CreationDate,
+                ModifiedDate = post.ModifiedDate,
+                BodyHtml = fullHtml,
+                BodyExcerpt = excerptHtml,
+                Excerpted = breakIndex > -1,
+                Slug = post.Slug
+            };
         }
     }
 }

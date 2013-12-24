@@ -1,4 +1,6 @@
 ﻿using BenCollins.Web.Data;
+using BenCollins.Web.ViewModel;
+using StackExchange.Profiling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,8 @@ namespace BenCollins.Web.Controllers
         [Route("home")]
         public ActionResult Index()
         {
-            var posts = _postRepository.FindPublished(1, 5);
+            var posts = _postRepository.FindPublished(1, 5)
+                .Select(p => PostController.ViewModelFromPost(p, PostController.PostViewModelOptions.Excerpt));
             return View(posts);
         }
 

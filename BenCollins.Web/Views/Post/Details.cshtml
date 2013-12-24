@@ -1,28 +1,31 @@
-﻿@model BenCollins.Web.Model.Post
+﻿@model BenCollins.Web.ViewModel.PostViewModel
 
 @{
     ViewBag.Title = Model.Title;
     var md = new MarkdownSharp.Markdown();
 }
 
-<h2>@Model.Title</h2>
-<hr/>
+<header>
+    <h1>@Model.Title</h1>
+    <div>
+        <span>posted @Model.CreationDate</span>
+        @if (Request.IsAuthenticated)
+        {
+            @: |
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
+            @Html.ActionLink("Back to List", "Index")
+        }
+    </div>
+</header>
+
 <article>
-    @(new HtmlString(md.Transform(Model.Body)))
+    @Model.BodyHtml
     <p>
         <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></a>
         <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
     </p>
 </article>
-<footer>
-    <span>posted @Model.CreationDate</span>
-    @if (Request.IsAuthenticated)
-    {
-        @: |
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
-        @Html.ActionLink("Back to List", "Index")
-    }
-</footer>
+
 <!-- Place this tag after the last share tag. -->
 <script type="text/javascript">
     //google

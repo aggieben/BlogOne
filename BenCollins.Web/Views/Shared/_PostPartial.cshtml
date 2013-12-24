@@ -1,14 +1,13 @@
-﻿@model BenCollins.Web.Model.Post
+﻿@model BenCollins.Web.ViewModel.PostViewModel
 
 @{
-    ViewBag.Title = Model.Title;
-    var md = new MarkdownSharp.Markdown();
+    ViewBag.Title = Model.Title;    
 }
 
 <h2>@Model.Title</h2>
 <hr />
 <article>
-    @(new HtmlString(md.Transform(Model.Body)))
+    @Model.BodyHtml
     <p>
         <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></a>
         <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
