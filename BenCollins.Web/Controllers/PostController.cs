@@ -39,7 +39,7 @@ namespace BenCollins.Web.Controllers
         [Route("post/new")]
         public ActionResult Create()
         {
-            return View();
+            return View(new Post());
         }
 
         //
