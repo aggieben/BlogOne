@@ -71,7 +71,7 @@ namespace BenCollins.Web.Controllers
         {
             Post post = null;
             var postIdValue = collection["PostId"];
-            int? postId = postIdValue.HasValue() ? Convert.ToInt32(postIdValue) : (int?)null;
+            int? postId = postIdValue.HasValue() && postIdValue != String.Empty ? Convert.ToInt32(postIdValue) : (int?)null;
 
             if (postId.HasValue)
             {                
