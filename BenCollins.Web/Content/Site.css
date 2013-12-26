@@ -7571,3 +7571,21 @@ a.nav-link.active:hover {
 .form-group .status-text.success {
     color: #306d17;
 }
+
+article header,
+article footer {
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+}
+
+article header {
+    margin-bottom: 10px;
+}
+
+article footer {
+    margin-top: 50px;
+}
+
+article div.content {
+    padding: 0 10px;
+}

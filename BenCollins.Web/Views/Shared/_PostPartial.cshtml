@@ -4,24 +4,19 @@
     ViewBag.Title = Model.Title;    
 }
 
-<h2>@Model.Title</h2>
-<hr />
 <article>
-    @Model.BodyHtml
-    <p>
+    <header>
+        <h1>@Model.Title</h1>
+        <span>@(Model.ModifiedDate.HasValue ? String.Format("Updated {0:g}", Model.ModifiedDate.Value) : String.Format("Posted {0:g}", Model.CreationDate))</span>
+    </header>
+    <div class="content">
+        @Model.BodyHtml
+    </div>
+    <footer>
         <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></a>
         <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-    </p>
+    </footer>
 </article>
-<footer>
-    <span>posted @Model.CreationDate</span>
-    @if (Request.IsAuthenticated)
-    {
-        @: |
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
-        @Html.ActionLink("Back to List", "Index")
-    }
-</footer>
 <!-- Place this tag after the last share tag. -->
 <script type="text/javascript">
     //google
