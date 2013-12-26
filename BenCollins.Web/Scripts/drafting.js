@@ -1,5 +1,6 @@
 ﻿(function ($) {
     'use strict';
+    var $hiddenId = $('input#PostId')
     var $input = $('textarea#wmd-input')
     var $title = $('input#Title')
     var $status = $('.status-text')
@@ -14,6 +15,8 @@
         } else if ($input.val()) {
             last = setTimeout(function () {
                 $.post('/post/draft', $('form').serialize(), function success(data, status, jqxhr) {
+                    $hiddenId.val(data)
+
                     $status.removeClass('failure')
                     $status.addClass('success')
                     $status.text('draft saved at {0:g}'.format(new Date()))
