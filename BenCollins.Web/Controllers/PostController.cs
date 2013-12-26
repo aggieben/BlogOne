@@ -163,7 +163,7 @@ namespace BenCollins.Web.Controllers
 
                 if (options.HasFlag(PostViewModelOptions.FullBody))
                 {
-                    var bodyMd = post.Body.Remove(breakIndex, 3);
+                    var bodyMd = breakIndex > 0 ? post.Body.Remove(breakIndex, 3) : post.Body;
                     fullHtml = new HtmlString(md.Transform(bodyMd));
                 }
             }
