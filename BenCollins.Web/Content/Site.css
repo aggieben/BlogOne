@@ -7572,6 +7572,10 @@ a.nav-link.active:hover {
     color: #306d17;
 }
 
+article {
+    margin-bottom: 20px;
+}
+
 article header,
 article footer {
     padding: 5px 10px;
