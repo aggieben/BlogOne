@@ -4,3 +4,6 @@
 [submodule "sm/miniprofiler-dotnet"]
 	path = sm/miniprofiler-dotnet
 	url = https://github.com/aggieben/dotnet
+[submodule "sm/grandejs"]
+	path = sm/grandejs
+	url = https://github.com/aggieben/grande.js
