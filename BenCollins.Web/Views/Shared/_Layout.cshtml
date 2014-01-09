@@ -10,6 +10,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - Ben Collins</title>
+        @RenderSection("head", required: false);
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")

@@ -196,8 +196,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\editor.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\icomoon\icomoon.dev.svg" />
+    <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
+    <Content Include="Content\menu.css" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.fw.png" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.png" />
     <Content Include="Content\img\sidebar-profile-208.png" />
@@ -207,6 +211,7 @@
     </Content>
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
     <Content Include="Scripts\drafting.js" />
+    <Content Include="Scripts\grande.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
     <Content Include="Scripts\Markdown.Sanitizer.js" />
@@ -268,6 +273,10 @@
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.otf" />
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.ttf" />
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.woff" />
+    <Content Include="Content\fonts\medium-icons.woff" />
+    <Content Include="Content\icomoon\icomoon.eot" />
+    <Content Include="Content\icomoon\icomoon.ttf" />
+    <Content Include="Content\icomoon\icomoon.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

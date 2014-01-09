@@ -2,25 +2,24 @@
 
 @{
     ViewBag.Title = "Create";
+    
+}
+
+@section head {
+    @Styles.Render("~/Content/grandejs")
 }
 
 @section scripts {
-    @Scripts.Render("~/Scripts/Markdown.Converter.js")
-    @Scripts.Render("~/Scripts/Markdown.Sanitizer.js")
-    @Scripts.Render("~/Scripts/Markdown.Editor.js")
-
-    @Scripts.Render("~/Scripts/drafting.js")
+    @Scripts.Render("~/Scripts/grande.js")
 
     <script type="text/javascript">
         $(function () {
-            var converter = new Markdown.Converter();
-            var editor = new Markdown.Editor(converter);
-            editor.run();
+            grande.bind(document.querySelectorAll("article"));
         })
     </script>
 }
 
-@Html.Partial("_PostFormPartial", Model)
+<article contenteditable="true"></article>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
