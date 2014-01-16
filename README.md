@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/aggieben/blogone.png?label=ready)](https://waffle.io/aggieben/blogone)
 webphlet
 ====
 This is a simple blogging engine.  It will improve over time and will get new features occasionally, but it will always be focused on the single-user, developer-centric use case.  It exists because I got tired of using WordPress, and because I wanted to be able to experiment.
