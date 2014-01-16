@@ -19,14 +19,19 @@ namespace BenCollins.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            //          "~/Scripts/bootstrap.js",
+            //          "~/Scripts/respond.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include(
-            //          //"~/Content/bootstrap.css",
-            //          "~/Content/site.css"));
-            bundles.Add(new StyleBundle("~/Content/grandejs").Include(
+            bundles.Add(new ScriptBundle("~/bundles/editor").Include(
+                      "~/Scripts/grande.js",
+                      "~/Scripts/grande-ext.js"
+                      ));
+
+            bundles.Add(new StyleBundle("~/bundles/css").Include(
+                      //"~/Content/bootstrap.css",
+                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/bundles/grandejs.css").Include(
                       "~/Content/editor.css",
                       "~/Content/menu.css"));
         }

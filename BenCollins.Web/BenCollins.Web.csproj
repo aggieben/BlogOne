@@ -198,6 +198,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\editor.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\grandejs-ext.min.css">
+      <DependentUpon>grandejs-ext.less</DependentUpon>
+    </Content>
     <Content Include="Content\icomoon\icomoon.dev.svg" />
     <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
@@ -211,6 +214,7 @@
     </Content>
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
     <Content Include="Scripts\drafting.js" />
+    <Content Include="Scripts\grande-ext.js" />
     <Content Include="Scripts\grande.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
@@ -277,6 +281,7 @@
     <Content Include="Content\icomoon\icomoon.eot" />
     <Content Include="Content\icomoon\icomoon.ttf" />
     <Content Include="Content\icomoon\icomoon.woff" />
+    <Content Include="Content\grandejs-ext.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -328,6 +333,7 @@
     <Content Include="Views\Shared\_MarkdownEditorPartial.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
+    <Content Include="Views\Post\_Editor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

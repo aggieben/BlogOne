@@ -1,5 +1,7 @@
 ﻿@import "bootstrap/bootstrap.less";
-@import "pagedown/Markdown.Editor.less";
+@import "grandejs-ext.less";
+
+@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
 
 body {
     padding-top: 50px;
@@ -114,10 +116,10 @@ a.nav-link {
 article {
     margin-bottom: 20px;
 
-    header, footer {
+    /*header, footer {
         padding: 5px 10px;
         background-color: #f5f5f5;
-    } 
+    }*/ 
     
     header {
         margin-bottom: 10px;
@@ -129,5 +131,45 @@ article {
 
     div.content {
         padding: 0 10px;
+    }
+
+    &.content {
+        min-height: 200px;
+
+        h1 {
+            font-size: 50px;
+            font-weight: 700;
+
+            &.title {
+                font-family: 'Lobster', cursive;
+
+                .placeholder {
+                    color: grey;
+                    width: 100%;
+                }
+            }
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 300;
+
+            &.subtitle {
+                font-family: 'Merriweather', serif;
+
+                .placeholder {
+                    color: lightgrey;
+                    width: 100%;
+                }
+            }
+        }
+
+        section {
+            font-family: 'Merriweather', serif;
+
+            .placeholder {
+                color: lightgrey;
+            }
+        }
     }
 }

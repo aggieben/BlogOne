@@ -1,26 +1,18 @@
 ﻿@model BenCollins.Web.Model.Post
 
 @{
-    ViewBag.Title = "Create";
-    
+    ViewBag.Title = "New Post";
 }
 
 @section head {
-    @Styles.Render("~/Content/grandejs")
+    @Styles.Render("~/bundles/grandejs.css")
 }
 
 @section scripts {
-    @Scripts.Render("~/Scripts/grande.js")
-
+    @Scripts.Render("~/bundles/editor")
     <script type="text/javascript">
-        $(function () {
-            grande.bind(document.querySelectorAll("article"));
-        })
+            grande.bind(document.querySelectorAll('article .editable'))
     </script>
 }
 
-<article contenteditable="true"></article>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@Html.Partial("_Editor")
