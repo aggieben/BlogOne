@@ -9,12 +9,6 @@
 
 <script>
     $(function () {
-        $(document).on('keyup', function (e) {
-            if (e.keyCode === 27) {
-                XMedium.clearPopovers()
-            }
-        })
-
         new Medium({
             element: document.querySelector('article.content header h1.editable'),
             mode: 'inline'

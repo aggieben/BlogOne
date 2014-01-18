@@ -289,6 +289,12 @@
     <Content Include="Scripts\less-1.4.2.min.js" />
     <Content Include="Scripts\medium.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popover.js">
+      <DependentUpon>popover.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\popover.min.js">
+      <DependentUpon>popover.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\stringformat.min.js" />
@@ -335,6 +341,7 @@
     <Content Include="Views\Shared\_PostPartial.cshtml" />
     <Content Include="Views\Post\_Editor.cshtml" />
     <Content Include="Scripts\xmedium.coffee" />
+    <Content Include="Scripts\popover.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

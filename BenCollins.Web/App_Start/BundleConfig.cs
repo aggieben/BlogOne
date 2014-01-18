@@ -27,7 +27,8 @@ namespace BenCollins.Web
                       //"~/Scripts/grande.js",
                       //"~/Scripts/grande-ext.js"
                       "~/Scripts/medium.js",
-                      "~/Scripts/xmedium.js"
+                      "~/Scripts/xmedium.js",
+                      "~/Scripts/popover.js"
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
