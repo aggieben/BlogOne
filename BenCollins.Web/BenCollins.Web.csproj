@@ -196,15 +196,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\editor.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\grandejs-ext.min.css">
-      <DependentUpon>grandejs-ext.less</DependentUpon>
-    </Content>
     <Content Include="Content\icomoon\icomoon.dev.svg" />
     <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
-    <Content Include="Content\menu.css" />
+    <Content Include="Content\medium.css" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.fw.png" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.png" />
     <Content Include="Content\img\sidebar-profile-208.png" />
@@ -214,8 +210,6 @@
     </Content>
     <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
     <Content Include="Scripts\drafting.js" />
-    <Content Include="Scripts\grande-ext.js" />
-    <Content Include="Scripts\grande.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
     <Content Include="Scripts\Markdown.Sanitizer.js" />
@@ -281,7 +275,6 @@
     <Content Include="Content\icomoon\icomoon.eot" />
     <Content Include="Content\icomoon\icomoon.ttf" />
     <Content Include="Content\icomoon\icomoon.woff" />
-    <Content Include="Content\grandejs-ext.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -294,12 +287,19 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\less-1.4.2.js" />
     <Content Include="Scripts\less-1.4.2.min.js" />
+    <Content Include="Scripts\medium.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\stringformat.min.js" />
     <Content Include="Scripts\stringformat.js" />
     <Content Include="Scripts\utility.js" />
+    <Content Include="Scripts\xmedium.js">
+      <DependentUpon>xmedium.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\xmedium.min.js">
+      <DependentUpon>xmedium.coffee</DependentUpon>
+    </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -334,6 +334,7 @@
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
     <Content Include="Views\Post\_Editor.cshtml" />
+    <Content Include="Scripts\xmedium.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

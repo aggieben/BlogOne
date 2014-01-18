@@ -24,8 +24,10 @@ namespace BenCollins.Web
             //          "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/editor").Include(
-                      "~/Scripts/grande.js",
-                      "~/Scripts/grande-ext.js"
+                      //"~/Scripts/grande.js",
+                      //"~/Scripts/grande-ext.js"
+                      "~/Scripts/medium.js",
+                      "~/Scripts/xmedium.js"
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(

@@ -5,14 +5,12 @@
 }
 
 @section head {
-    @Styles.Render("~/bundles/grandejs.css")
+    @Styles.Render("~/Content/medium.css")
+
 }
 
 @section scripts {
-    @Scripts.Render("~/bundles/editor")
-    <script type="text/javascript">
-            grande.bind(document.querySelectorAll('article .editable'))
-    </script>
+    @Scripts.Render("~/bundles/editor")    
 }
 
 @Html.Partial("_Editor")

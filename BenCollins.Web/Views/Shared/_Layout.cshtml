@@ -12,6 +12,7 @@
         <title>@ViewBag.Title - Ben Collins</title>
         @RenderSection("head", required: false);
         @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/Scripts/stringformat.js")
         @Scripts.Render("~/Scripts/utility.js")
@@ -28,46 +29,11 @@
             </div>
         </div>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @if (Request.IsAuthenticated)
     {
         @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.Left)
     }
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

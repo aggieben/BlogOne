@@ -1,13 +1,38 @@
 ﻿<article class="content">
     <header>
-        <h1 class="title editable" contenteditable="true" data-placeholder="Title">Title</h1>
-        <h2 class="subtitle editable" contenteditable="true" data-placeholder="Subtitle">subtitle</h2>
+        <h1 class="editable title" data-medium-placeholder="Title"></h1>
+        <h2 class="editable subtitle" data-medium-placeholder="Subtitle"></h2>
     </header>
-    <section class="editable" contenteditable="true" data-placeholder="Write your post">
-        Write your post.
+    <section class="editable">
     </section>
 </article>
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+<script>
+    $(function () {
+        $(document).on('keyup', function (e) {
+            if (e.keyCode === 27) {
+                XMedium.clearPopovers()
+            }
+        })
+
+        new Medium({
+            element: document.querySelector('article.content header h1.editable'),
+            mode: 'inline'
+        })
+        new Medium({
+            element: document.querySelector('article.content header h2.editable'),
+            mode: 'inline'
+        })
+        new Medium({
+            element: document.querySelector('article.content section.editable'),
+            autofocus: true,
+            placeholder: 'Write your post.',
+            modifiers: {
+                188: XMedium.modifiers.linkify
+            }
+        })
+    })
+</script>
+
+
 
