@@ -1,19 +1,38 @@
 ﻿# CoffeeScript
 class Popover
+    @_current = null
+
     constructor: (opts) ->
         div = document.createElement 'div'
         div.setAttribute('class','bo-popover')
- 
+        div.innerHTML = opts.content ? ''
+        document.body.appendChild(div)
+        
         switch opts.position
             when 'selection'
                 coords = @_getSelectionCoords()
-                div.setAttribute('style', "position: absolute; 
-                                           left: #{coords.x}px; 
-                                           top: #{coords.y}px;
-                                           height: 50px;
-                                           width: 50px;
-                                           background-color: red;")
-        document.body.appendChild(div)
+                div.style.left = "#{coords.x}px"
+                div.style.top = "#{coords.y}px"
+                div.style.marginTop = "-#{Math.floor(10+div.clientHeight)}px"
+                div.style.marginLeft = "-#{Math.floor(div.clientWidth/2)}px"
+        
+        # *sigh*.  I was hoping to avoid dependencies of any kind, but events are a pain without jquery.
+        # if someone else uses this someday and it's a big deal, they can file an issue on GitHub.
+        $(div).on 'click keyup', (e) -> false unless e.keyCode is 27
+            
+        @div = div
+        unless Popover._current?
+            Popover._current = this
+            $(document).on 'click keyup', (e) ->
+                console.log(e)
+                Popover._current?.remove()
+                Popover._current = null
+                
+    remove: () ->
+        @div.parentNode.removeChild(@div)     
+        
+    contains: (node) ->
+        @div.contains(node)
         
     _getSelectionElement: () ->
         sel = document.selection
@@ -24,7 +43,6 @@ class Popover
     
     _getCoordsRelativeToElement: (element, coords) ->
         
-    
     # by Tim Down,  http://stackoverflow.com/a/6847328/3279 License: CC-SA
     _getSelectionCoords: `function () {
         var sel = document.selection, range;

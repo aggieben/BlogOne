@@ -8,7 +8,8 @@ XMedium = (function() {
     linkify: function(e) {
       var pop;
       return pop = new Popover({
-        position: 'selection'
+        position: 'selection',
+        content: '<input type="url" size="35" autofocus="true"/>'
       });
     }
   };

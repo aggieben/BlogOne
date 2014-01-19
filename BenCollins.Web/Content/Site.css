@@ -6109,13 +6109,7 @@ article.content header h2.subtitle {
   min-width: 200px;
   min-height: 30px;
 }
-article.content header h2.subtitle .placeholder {
-  color: lightgrey;
-  width: 100%;
-}
 article.content section {
   font-family: 'Merriweather', serif;
-}
-article.content section .placeholder {
-  color: lightgrey;
+  min-height: 200px;
 }

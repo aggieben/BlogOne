@@ -2,17 +2,48 @@
 var Popover;
 
 Popover = (function() {
+  Popover._current = null;
+
   function Popover(opts) {
-    var coords, div;
+    var coords, div, _ref;
     div = document.createElement('div');
     div.setAttribute('class', 'bo-popover');
+    div.innerHTML = (_ref = opts.content) != null ? _ref : '';
+    document.body.appendChild(div);
     switch (opts.position) {
       case 'selection':
         coords = this._getSelectionCoords();
-        div.setAttribute('style', "position: absolute;                                            left: " + coords.x + "px;                                            top: " + coords.y + "px;                                           height: 50px;                                           width: 50px;                                           background-color: red;");
+        div.style.left = "" + coords.x + "px";
+        div.style.top = "" + coords.y + "px";
+        div.style.marginTop = "-" + (Math.floor(10 + div.clientHeight)) + "px";
+        div.style.marginLeft = "-" + (Math.floor(div.clientWidth / 2)) + "px";
     }
-    document.body.appendChild(div);
+    $(div).on('click keyup', function(e) {
+      if (e.keyCode !== 27) {
+        return false;
+      }
+    });
+    this.div = div;
+    if (Popover._current == null) {
+      Popover._current = this;
+      $(document).on('click keyup', function(e) {
+        var _ref1;
+        console.log(e);
+        if ((_ref1 = Popover._current) != null) {
+          _ref1.remove();
+        }
+        return Popover._current = null;
+      });
+    }
   }
+
+  Popover.prototype.remove = function() {
+    return this.div.parentNode.removeChild(this.div);
+  };
+
+  Popover.prototype.contains = function(node) {
+    return this.div.contains(node);
+  };
 
   Popover.prototype._getSelectionElement = function() {
     var sel;
