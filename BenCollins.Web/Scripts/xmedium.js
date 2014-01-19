@@ -9,7 +9,7 @@ XMedium = (function() {
       var pop;
       return pop = new Popover({
         position: 'selection',
-        content: '<input type="url" size="35" autofocus="true"/>'
+        content: '<input type="url" size="35" autofocus="true" placeholder="paste or type a link"/>'
       });
     }
   };
