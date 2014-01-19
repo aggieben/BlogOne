@@ -6,10 +6,24 @@ XMedium = (function() {
 
   XMedium.modifiers = {
     linkify: function(e) {
-      var pop;
+      var eventFilter, eventHandler, pop;
+      eventFilter = function(e) {
+        return ((e.key != null) && e.key === 'enter') || ((e.which != null) && e.which === 13);
+      };
+      eventHandler = function(e) {
+        return document.execCommand('createLink', false, e.target.value);
+      };
       return pop = new Popover({
         position: 'selection',
-        content: '<input type="url" size="35" autofocus="true" placeholder="paste or type a link"/>'
+        content: "<input type=\"url\" size=\"35\" autofocus=\"true\" placeholder=\"paste or type a link\"/>",
+        eventing: [
+          {
+            selector: 'input',
+            event: 'keyup',
+            filter: eventFilter,
+            handler: eventHandler
+          }
+        ]
       });
     }
   };

@@ -4,6 +4,10 @@ var Popover;
 Popover = (function() {
   Popover._current = null;
 
+  Popover._getId = function() {
+    return ("0000" + (Math.random() * Math.pow(36, 4) << 0).toString(36)).substr(-4);
+  };
+
   Popover._removeTrigger = function(e) {
     var afn, pop, _ref;
     pop = Popover._current;
@@ -21,9 +25,10 @@ Popover = (function() {
   };
 
   function Popover(opts) {
-    var coords, div, _ref, _ref1;
+    var coords, div, _ref, _ref1, _this;
     this.firstTime = true;
     div = document.createElement('div');
+    div.id = Popover._getId();
     div.setAttribute('class', 'bo-popover');
     div.style.visibility = 'hidden';
     div.innerHTML = (_ref = opts.content) != null ? _ref : '';
@@ -43,12 +48,22 @@ Popover = (function() {
       _ref1.remove();
     }
     Popover._current = this;
+    _this = this;
     $(div).on('click keyup', function(e) {
       if (e.keyCode !== 27) {
         return false;
       }
     });
     $(document).on('click keyup', Popover._removeTrigger);
+    opts.eventing.forEach(function(desc, i) {
+      return $("#" + div.id + " " + desc.selector).on(desc.event, function(e) {
+        if (desc.filter(e)) {
+          _this.restoreRange();
+          _this.remove();
+          return desc.handler(e);
+        }
+      });
+    });
   }
 
   Popover.prototype.remove = function() {
@@ -59,6 +74,13 @@ Popover = (function() {
 
   Popover.prototype.contains = function(node) {
     return this.div.contains(node);
+  };
+
+  Popover.prototype.restoreRange = function() {
+    var sel;
+    sel = window.getSelection();
+    sel.removeAllRanges();
+    return sel.addRange(this.range);
   };
 
   Popover.prototype._getSelectionCoords = function() {

@@ -1,6 +1,7 @@
 ﻿# CoffeeScript
 class Popover
     @_current = null
+    @_getId: () -> ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4) # hat-tip KennyTM http://stackoverflow.com/a/6248722/3279
     @_removeTrigger: (e) ->    
         pop = Popover._current
         if pop? 
@@ -15,6 +16,7 @@ class Popover
     constructor: (opts) ->
         @firstTime = true
         div = document.createElement 'div'
+        div.id = Popover._getId()
         div.setAttribute('class','bo-popover')
         div.style.visibility = 'hidden'
         div.innerHTML = opts.content ? ''
@@ -33,11 +35,14 @@ class Popover
         @div = div
         Popover._current?.remove()
         Popover._current = @
+        _this = @
         # *sigh*.  I was hoping to avoid dependencies of any kind, but events are a pain without jquery.
         # if someone else uses this someday and it's a big deal, he can file an issue on GitHub.
         $(div).on 'click keyup', (e) -> false unless e.keyCode is 27 # esc
-        $(document).on 'click keyup', Popover._removeTrigger
-                
+        $(document).on 'click keyup', Popover._removeTrigger  
+        opts.eventing.forEach (desc,i) -> 
+            $("##{div.id} #{desc.selector}").on desc.event, (e) -> 
+                if desc.filter(e) then _this.restoreRange(); _this.remove(); desc.handler(e)
                 
     remove: () ->
         @div.parentNode.removeChild(@div)    
@@ -47,7 +52,10 @@ class Popover
     contains: (node) ->
         @div.contains(node)
         
-    
+    restoreRange: () ->
+        sel = window.getSelection()
+        sel.removeAllRanges()
+        sel.addRange(@range)
         
     _getSelectionCoords: () ->
         sel = document.selection
