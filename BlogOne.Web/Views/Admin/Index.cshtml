@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BlogOne.Web.Model.Post>
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Posts</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th></th> @* edit | delete*@
+            <th>Date</th>
+            <th>Slug</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+        <tr>
+            <td><span class="@(post.Draft ? "draft" : "glyphicon glyphicon-ok-sign")"></span></td>
+            <td>@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</td>
+            <td>@Html.ActionLink("edit", "Edit", "Post", new { id = post.Id }, null)&nbsp;|&nbsp;@Html.ActionLink("delete", "Delete", "Post", new { id = post.Id }, new { @class="delete-post", data_post_id = post.Id })</td>
+            <td>@post.CreationDate</td>
+            <td>@post.Title.AsSlug()</td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts {
+    <script type="text/javascript">
+        $('a.delete-post').on('click', function (e) {
+            var $target = $(e.target)
+            var postId = $target.data('post-id')
+
+            e.preventDefault();
+            if (true == confirm('really delete post {0}?'.format(postId))) {                            
+                $.post('post/delete/{0}'.format(postId), function (result, status, jqxhr) {
+                    location.reload()
+                })
+                .fail(function () {
+                    alert('failed to delete ')
+                    location.reload()
+                })
+            }
+        })
+    </script>
+}
+

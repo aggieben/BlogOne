@@ -1,0 +1,39 @@
+﻿@using StackExchange.Profiling;
+@{
+    var profiler = MiniProfiler.Current;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @using (profiler.Step("header stuff"))
+    {
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Ben Collins</title>
+        @RenderSection("head", required: false);
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/Scripts/stringformat.js")
+        @Scripts.Render("~/Scripts/utility.js")
+    }
+</head>
+<body class="g-body">
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-9">
+                @using (profiler.Step("RenderBody"))
+                {
+                    @RenderBody()
+                }
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @if (Request.IsAuthenticated)
+    {
+        @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.BottomRight)
+    }
+</body>
+</html>
