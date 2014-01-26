@@ -6,9 +6,9 @@ do ($ = jQuery) ->
             title: $('article.content .title :not(.Medium-placeholder)').html()
             subtitle: $('article.content .subtitle :not(.Medium-placeholder)').html()
             body: $('article.content section.editable:not(.Medium-placeholder)').html()
-                
-        if (pid = $('article.content').data('post-id'))
-            content.postId = pid
+            
+        pid = parseInt($('article.content').data('post-id'), 10)        
+        content.postId = pid unless isNaN(pid)
         
         $.ajax '/post/draft', 
             type: 'POST'
@@ -18,14 +18,13 @@ do ($ = jQuery) ->
                 console.log status
                 console.log jqxhr
             success: (data, status, jqxhr) ->
-                window.location.pathname = "/post/edit/#{data}" unless pid?
+                window.location.pathname = "/post/#{data}/edit" if isNaN(pid)
             
     last = -1
     draftOnEvent = (selector, event, options) ->
         delay = options?.delay ? 750
         condition = options?.condition
         $(selector).on event, (e) ->
-            console.log e
             if not condition? or condition() is true
                 clearTimeout last
                 last = setTimeout (() -> save()), delay

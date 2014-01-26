@@ -25,6 +25,18 @@ select *
             }
         }
 
+        public Post FindByShortcode(string shortcode)
+        {
+            using (var db = Connection)
+            {
+                const string sql = @"
+select *
+  from Posts p
+ where p.Shortcode = @shortcode";
+                return db.Query<Post>(sql, new {shortcode}).Single();
+            }
+        }
+
         public IEnumerable<Post> FindPublished(int page = 1, int pageSize = int.MaxValue)
         {
             const string sql = @"

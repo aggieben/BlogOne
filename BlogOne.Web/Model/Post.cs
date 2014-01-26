@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BlogOne.Web.Helpers;
 
 namespace BlogOne.Web.Model
 {
@@ -12,6 +13,11 @@ namespace BlogOne.Web.Model
         public string Body { get; set; }
         public string Slug { get; set; }
         public bool Draft { get; set; }
-        // ignore for now: public List<Tag> Tags { get; set; }
+        public string Shortcode { get; private set; }
+
+        public Post()
+        {
+            Shortcode = WebHelper.GetShortcode(10);
+        }
     }
 }

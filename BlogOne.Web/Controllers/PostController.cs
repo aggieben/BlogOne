@@ -103,16 +103,14 @@ namespace BlogOne.Web.Controllers
                 _postRepository.Add(post);
             }
 
-            return Json(post.Id);
+            return Json(post.Shortcode);
         }
 
-        //
-        // GET: /Post/Edit/5
-        [Route("post/edit/{id}")]
-        public ViewResult Edit(int id)
+        [Route("post/{shortcode}/edit")]
+        public ViewResult Edit(string shortcode)
         {
-            var post = _postRepository.FindById(id);
-
+            var post = _postRepository.FindByShortcode(shortcode);
+            
             return View(post);
         }
 
@@ -120,7 +118,7 @@ namespace BlogOne.Web.Controllers
         // POST: /Post/Edit/5
         [HttpPost]
         [ValidateInput(false)]
-        [Route("post/edit/{id}")]
+        [Route("post/{id}/edit")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             var post = _postRepository.FindById(id);
@@ -139,7 +137,7 @@ namespace BlogOne.Web.Controllers
         //
         // POST: /Post/Delete/5
         [HttpPost]
-        [Route("post/delete/{id}")]
+        [Route("post/{id}/delete")]
         public ActionResult Delete(int id)
         {
             var post = _postRepository.FindById(id);

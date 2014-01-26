@@ -9,9 +9,14 @@
     [SlugHash] AS (checksum([Slug])) PERSISTED NOT NULL, 
     [Draft] BIT NOT NULL DEFAULT ((1)), 
     [ModifiedDate] DATETIME NULL, 
-    [Subtitle] NVARCHAR(256) NULL
+    [Subtitle] NVARCHAR(256) NULL, 
+    [Shortcode] NCHAR(10) NOT NULL
 )
 
 GO
 
 CREATE INDEX [IX_Posts_SlugHash] ON [dbo].[Posts] ([SlugHash])
+
+GO
+
+CREATE INDEX [IX_Posts_Shortcode] ON [dbo].[Posts] ([Shortcode])
