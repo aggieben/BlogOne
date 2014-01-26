@@ -1,7 +1,18 @@
 ﻿@model BlogOne.Web.Model.Post
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit Post";
 }
 
+@section head {
+    @Styles.Render("~/Content/medium.css")
+    @Styles.Render("~/Content/popover.css")
+
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/editor")
+}
+
+@Html.Partial("_Editor", @Model)
 

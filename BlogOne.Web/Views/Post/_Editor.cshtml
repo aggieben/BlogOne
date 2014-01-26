@@ -1,10 +1,12 @@
-﻿<article class="content">
+﻿@model BlogOne.Web.Model.Post
+<article class="content" data-post-id="@(Model.HasValue() ? Model.Id : null)">
     @Html.AntiForgeryToken()
     <header>
-        <h1 class="editable title" data-medium-placeholder="Title"></h1>
-        <h2 class="editable subtitle" data-medium-placeholder="Subtitle"></h2>
+        <h1 class="editable title" data-medium-placeholder="Title">@(Model.HasValue() ? Model.Title : null)</h1>
+        <h2 class="editable subtitle" data-medium-placeholder="Subtitle">@(Model.HasValue() ? Model.Subtitle : null)</h2>
     </header>
     <section class="editable">
+        @(Model.HasValue() ? Html.Raw(Model.Body) : null)
     </section>
 </article>
 

@@ -18,14 +18,32 @@ do ($ = jQuery) ->
                 console.log status
                 console.log jqxhr
             success: (data, status, jqxhr) ->
-                window.location.pathname = "/post/edit/#{data}"
-            
+                window.location.pathname = "/post/edit/#{data}" unless pid?
             
     last = -1
-    $('article.content section.editable').on 'input', (e) ->
-        console.log 'saving draft...'
-        clearTimeout last
-        last = setTimeout (() -> save()), 500
+    draftOnEvent = (selector, event, options) ->
+        delay = options?.delay ? 750
+        condition = options?.condition
+        $(selector).on event, (e) ->
+            console.log e
+            if not condition? or condition() is true
+                clearTimeout last
+                last = setTimeout (() -> save()), delay
+    
+    draftOnEvent 'article.content section.editable', 'input'
+    draftOnEvent 'article.content .title.editable', 'blur', 
+        condition: () -> $('article.content .title .Medium-placeholder').length is 0 
+    draftOnEvent 'article.content .subtitle.editable', 'blur', 
+        condition: () -> $('article.content .subtitle .Medium-placeholder').length is 0
+
+    
+    $('article.content .title').on 'blur', (e) ->
+        console.log "title blur: #{@}"
+        if $('article.content .title :not(.Medium-placeholder)').length is 0
+            clearTimeout last
+            last = setTimeout (() -> save()), 750 
+            
+    
         
     
             

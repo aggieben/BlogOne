@@ -33,7 +33,7 @@
     @RenderSection("scripts", required: false)
     @if (Request.IsAuthenticated)
     {
-        @MiniProfiler.RenderIncludes(position: Request.Browser.IsMobileDevice ? RenderPosition.Right : RenderPosition.BottomRight)
+        @MiniProfiler.RenderIncludes(position: RenderPosition.Right)
     }
 </body>
 </html>
