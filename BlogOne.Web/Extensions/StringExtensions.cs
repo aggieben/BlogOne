@@ -20,11 +20,13 @@ namespace BlogOne.Web.Extensions
     
         public static string AsSlug(this string str)
         {
-            return Regex.Replace(str.Trim(), @"[^\w\s\-]", String.Empty)
-                        .Replace(' ', '-')
-                        .Substring(0, Math.Min(50, str.Length))
-                        .ToLower()
-                        .TrimEnd('-');
+            return str.HasValue()
+                ? Regex.Replace(str.Trim(), @"[^\w\s\-]", String.Empty)
+                    .Replace(' ', '-')
+                    .Substring(0, Math.Min(50, str.Length))
+                    .ToLower()
+                    .TrimEnd('-')
+                : null;
         }
     }
 }
