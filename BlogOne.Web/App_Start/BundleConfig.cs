@@ -20,8 +20,6 @@ namespace BlogOne.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/editor").Include(
-                      //"~/Scripts/grande.js",
-                      //"~/Scripts/grande-ext.js"
                       "~/Scripts/medium.js",
                       "~/Scripts/xmedium.js",
                       "~/Scripts/popover.js",
@@ -30,9 +28,8 @@ namespace BlogOne.Web
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/site.css"));
-            bundles.Add(new StyleBundle("~/bundles/grandejs.css").Include(
-                      "~/Content/editor.css",
-                      "~/Content/menu.css"));
+            bundles.Add(new StyleBundle("~/bundles/edtorcss").Include(
+                      "~/Content/medium.css"));
         }
     }
 }
