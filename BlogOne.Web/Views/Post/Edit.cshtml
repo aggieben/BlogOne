@@ -14,5 +14,19 @@
     @Scripts.Render("~/bundles/editor")
 }
 
+@section left {
+    LEFT
+}
+
+@section right {
+    BLAH
+}
+
+<div id="post-controls">
+    <span id="publish" class="control">publish</span>
+    <span id="review" class="control">submit for review</span>
+    <span id="share" class="control">share</span>
+    <span id="status" class="status-text"></span>
+</div>
 @Html.Partial("_Editor", @Model)
 

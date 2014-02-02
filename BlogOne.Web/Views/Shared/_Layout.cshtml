@@ -8,7 +8,7 @@
     @using (profiler.Step("header stuff"))
     {
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>@ViewBag.Title - Ben Collins</title>
         @RenderSection("head", required: false);
         @Styles.Render("~/bundles/css")
@@ -18,16 +18,26 @@
         @Scripts.Render("~/Scripts/utility.js")
     }
 </head>
-<body class="g-body">
-    <div class="container body-content">
-        <div class="row">
-            <div class="col-md-9">
-                @using (profiler.Step("RenderBody"))
-                {
-                    @RenderBody()
-                }
-            </div>
-        </div>
+<body>
+    <div class="container">
+        <section class="left-sidebar">
+            @using (profiler.Step("left section"))
+            {
+                @RenderSection("left", required: false)
+            }
+        </section>
+        <main class="body-content" role="main">
+            @using (profiler.Step("RenderBody"))
+            {
+                @RenderBody()
+            }
+        </main>
+        <section class="right-sidebar">
+            @using (profiler.Step("right section"))
+            {
+                @RenderSection("right", required: false)
+            }
+        </section>
     </div>
 
     @RenderSection("scripts", required: false)

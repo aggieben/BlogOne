@@ -20,10 +20,11 @@
         {
         <tr>
             <td><span class="@(post.Draft ? "draft" : "glyphicon glyphicon-ok-sign")"></span></td>
-            <td>@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</td>
-            <td>@Html.ActionLink("edit", "Edit", "Post", new { id = post.Id }, null)&nbsp;|&nbsp;@Html.ActionLink("delete", "Delete", "Post", new { id = post.Id }, new { @class="delete-post", data_post_id = post.Id })</td>
+            @*<td>@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</td>*@
+            <td>@(post.Title.HasValue() ? post.Title : "Untitled")</td>
+            <td>@Html.ActionLink("edit", "Edit", "Post", new { post.Shortcode }, null)&nbsp;|&nbsp;@Html.ActionLink("delete", "Delete", "Post", new { id = post.Id }, new { @class="delete-post", data_post_id = post.Id })</td>
             <td>@post.CreationDate</td>
-            <td>@post.Title.AsSlug()</td>
+            <td>@(post.Title.HasValue() ? post.Title.AsSlug() : null)</td>
         </tr>
         }
     </tbody>
