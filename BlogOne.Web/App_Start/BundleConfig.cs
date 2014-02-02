@@ -19,10 +19,6 @@ namespace BlogOne.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.js",
-            //          "~/Scripts/respond.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/editor").Include(
                       //"~/Scripts/grande.js",
                       //"~/Scripts/grande-ext.js"
@@ -33,7 +29,6 @@ namespace BlogOne.Web
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      //"~/Content/bootstrap.css",
                       "~/Content/site.css"));
             bundles.Add(new StyleBundle("~/bundles/grandejs.css").Include(
                       "~/Content/editor.css",
