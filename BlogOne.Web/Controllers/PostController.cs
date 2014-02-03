@@ -114,6 +114,18 @@ namespace BlogOne.Web.Controllers
             return View(post);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("post/{id}/publish")]
+        public ActionResult Publish(int id)
+        {
+            var post = _postRepository.FindById(id);
+            post.Draft = false;
+            _postRepository.Update(post);
+
+            return new EmptyResult();
+        }
+
         //
         // POST: /Post/Edit/5
         [HttpPost]

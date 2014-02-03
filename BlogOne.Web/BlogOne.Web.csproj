@@ -219,6 +219,12 @@
     <Content Include="Scripts\drafting.min.js">
       <DependentUpon>drafting.coffee</DependentUpon>
     </Content>
+    <Content Include="Scripts\editing.js">
+      <DependentUpon>editing.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\editing.min.js">
+      <DependentUpon>editing.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\_drafting.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
@@ -244,6 +250,7 @@
     <Content Include="Content\icomoon\icomoon.woff" />
     <Content Include="Content\popover.less" />
     <Content Include="Scripts\drafting.coffee" />
+    <Content Include="Scripts\editing.coffee" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -1,10 +1,5 @@
-﻿using BlogOne.Web.ViewModel;
-using BlogOne.Web.Data;
-using StackExchange.Profiling;
-using System;
-using System.Collections.Generic;
+﻿using BlogOne.Web.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogOne.Web.Controllers

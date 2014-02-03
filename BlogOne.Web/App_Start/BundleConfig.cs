@@ -23,7 +23,8 @@ namespace BlogOne.Web
                       "~/Scripts/medium.js",
                       "~/Scripts/xmedium.js",
                       "~/Scripts/popover.js",
-                      "~/Scripts/drafting.js"
+                      "~/Scripts/drafting.js",
+                      "~/Scripts/editing.js"
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
