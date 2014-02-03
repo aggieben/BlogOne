@@ -6,14 +6,8 @@
         <span>@(Model.ModifiedDate.HasValue ? String.Format("Updated {0:g}", Model.ModifiedDate.Value) : String.Format("Posted {0:g}", Model.CreationDate))</span>
         <span>@Html.ActionLink("Comments", "Details", "Post", null, null, "disqus_thread", new { slug = Model.Slug }, null)</span>
     </header>
-    <div class="content">
-        @Model.BodyExcerpt
-    </div>
     <footer>
-        @if (Model.Excerpted)
-        {
-            @:@Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null)
-        }
+        @Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null)
     </footer>
 </article>
 

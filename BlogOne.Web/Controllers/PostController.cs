@@ -167,32 +167,13 @@ namespace BlogOne.Web.Controllers
 
         public static PostViewModel ViewModelFromPost(Post post, PostViewModelOptions options = PostViewModelOptions.Excerpt | PostViewModelOptions.FullBody)
         {
-            var breakIndex = post.Body.IndexOf("^^^");
-            HtmlString excerptHtml = null, fullHtml = null;
-            using (MiniProfiler.Current.Step("Markdown transform"))
-            {
-                var md = new MarkdownSharp.Markdown();
-                if (options.HasFlag(PostViewModelOptions.Excerpt))
-                {
-                    excerptHtml = new HtmlString(md.Transform(post.Body.Substring(0, breakIndex > 0 ? breakIndex : post.Body.Length)));
-                }
-
-                if (options.HasFlag(PostViewModelOptions.FullBody))
-                {
-                    var bodyMd = breakIndex > 0 ? post.Body.Remove(breakIndex, 3) : post.Body;
-                    fullHtml = new HtmlString(md.Transform(bodyMd));
-                }
-            }
-
             return new PostViewModel
             {
                 Id = post.Id.Value,
                 Title = post.Title,
                 CreationDate = post.CreationDate,
                 ModifiedDate = post.ModifiedDate,
-                BodyHtml = fullHtml,
-                BodyExcerpt = excerptHtml,
-                Excerpted = breakIndex > -1,
+                BodyHtml = MvcHtmlString.Create(post.Body),
                 Slug = post.Slug
             };
         }
