@@ -25,6 +25,34 @@ main {
   margin: auto;
   border: 1px green;
 }
+main article {
+  min-height: 200px;
+}
+main article header {
+  margin-bottom: 50px;
+}
+main article header h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+main article header h1.title {
+  font-family: 'Lobster', cursie;
+  min-width: 200px;
+}
+main article header h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+main article header h2.subtitle {
+  font-family: 'Merriweather', serif;
+  min-width: 200px;
+  min-height: 30px;
+}
+main article section {
+  font-family: 'Merriweather', serif;
+  min-height: 200px;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
   padding-left: 15px;
@@ -90,9 +118,8 @@ article.content header h1 {
   margin-bottom: 25px;
 }
 article.content header h1.title {
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', cursie;
   min-width: 200px;
-  min-height: 50px;
 }
 article.content header h2 {
   font-size: 30px;

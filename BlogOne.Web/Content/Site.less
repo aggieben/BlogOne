@@ -29,6 +29,10 @@ main {
     width: 800px;
     margin: auto;
     border: 1px green;
+
+    article {
+        .content-article
+    }
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -88,6 +92,47 @@ input[type="checkbox"].input-validation-error {
     }
 }
 
+#post-controls {
+    button {
+
+    }
+}
+
+.content-article() {
+    min-height: 200px;
+
+    header {
+        margin-bottom: 50px;
+
+        h1 {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 25px;
+
+            &.title {
+                font-family: 'Lobster', cursie;
+                min-width: 200px;
+            }
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 300;
+
+            &.subtitle {
+                font-family: 'Merriweather', serif;
+                min-width: 200px;
+                min-height: 30px;
+            }
+        }
+    }
+
+    section {
+        font-family: 'Merriweather', serif;
+        min-height: 200px;
+    }
+}
+
 article {
     margin-bottom: 20px;
     /*header, footer {
@@ -106,39 +151,11 @@ article {
         padding: 0 10px;
     }
 
+    // this is for the editor version of content article.
+    // TODO: make this more sensible in structure and semantics
     &.content {
         min-height: 200px;
 
-        header {
-            margin-bottom: 50px;
-
-            h1 {
-                font-size: 50px;
-                font-weight: 700;
-                margin-bottom: 25px;
-
-                &.title {
-                    font-family: 'Lobster', cursive;
-                    min-width: 200px;
-                    min-height: 50px;
-                }
-            }
-
-            h2 {
-                font-size: 30px;
-                font-weight: 300;
-
-                &.subtitle {
-                    font-family: 'Merriweather', serif;
-                    min-width: 200px;
-                    min-height: 30px;
-                }
-            }
-        }
-
-        section {
-            font-family: 'Merriweather', serif;
-            min-height: 200px;
-        }
+        .content-article
     }
 }

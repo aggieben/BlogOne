@@ -171,6 +171,7 @@ namespace BlogOne.Web.Controllers
             {
                 Id = post.Id.Value,
                 Title = post.Title,
+                Subtitle = post.Subtitle,
                 CreationDate = post.CreationDate,
                 ModifiedDate = post.ModifiedDate,
                 BodyHtml = MvcHtmlString.Create(post.Body),

@@ -2,7 +2,8 @@
 
 <article>
     <header>
-        <h2>@Html.ActionLink(Model.Title, "Details", "Post", new { slug = Model.Slug }, null)</h2>
+        <h1 class="title">@Html.ActionLink(Model.Title, "Details", "Post", new { slug = Model.Slug }, null)</h1>
+        <h2 class="subtitle"></h2>
         <span>@(Model.ModifiedDate.HasValue ? String.Format("Updated {0:g}", Model.ModifiedDate.Value) : String.Format("Posted {0:g}", Model.CreationDate))</span>
         <span>@Html.ActionLink("Comments", "Details", "Post", null, null, "disqus_thread", new { slug = Model.Slug }, null)</span>
     </header>
@@ -10,4 +11,3 @@
         @Html.ActionLink("read more...", "Details", "Post", new { slug = Model.Slug }, null)
     </footer>
 </article>
-

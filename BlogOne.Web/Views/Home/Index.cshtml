@@ -6,11 +6,19 @@
 @foreach (var post in Model)
 {
     <div>
-        @Html.Partial("_PostExcerptPartial", post)
+        <article>
+            <header>
+                <h1 class="title">@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</h1>
+                <h2 class="subtitle">@post.Subtitle</h2>
+            </header>
+            <footer>
+                <span>@(post.ModifiedDate.HasValue ? String.Format("Updated {0:g}", post.ModifiedDate.Value) : String.Format("Posted {0:g}", post.CreationDate))</span>
+            </footer>
+        </article>
     </div>
 }
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'bencollins'; // required: replace example with your forum shortname
 
@@ -21,4 +29,4 @@
         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
-</script>
+</script>*@
