@@ -5,5 +5,6 @@
     [DefaultUserName] NVARCHAR(128) NOT NULL, 
     [LoginProvider] NVARCHAR(128) NOT NULL, 
     [ProviderKey] NVARCHAR(1024) NOT NULL, 
-    [CreationDate] DATETIME NOT NULL DEFAULT (getutcdate())
+    [CreationDate] DATETIME NOT NULL DEFAULT (getutcdate()), 
+    [ModifiedDate] DATETIME NULL
 )
