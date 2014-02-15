@@ -17,25 +17,27 @@
                 @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
                 <a href="//@String.Format("{0}{1}#disqus_thread", Request.Url.Host, Request.Url.AbsolutePath)">Comments</a>
             }
+            |
+            <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+            <script type="text/javascript">
+                //google
+                (function () {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/platform.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+
+                //twitter
+                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
+            </script>
         </div>
     </header>
     <section>
         @Model.BodyHtml
     </section>
     <footer>
-        <a class="g-plus" data-action="share" data-annotation="bubble" data-height="15"></a>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-        <script type="text/javascript">
-            //google
-            (function () {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/platform.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-            })();
-
-            //twitter
-            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
-        </script>
+        
     </footer>
 </article>
 @*<div id="disqus_thread"></div>

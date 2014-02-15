@@ -1,5 +1,7 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
 
+@basecolor: black;
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -157,5 +159,25 @@ article {
         min-height: 200px;
 
         .content-article
+    }
+
+    &.excerpt {
+        header {
+            h1.title {
+                margin-bottom: 10px;
+                a {
+                    &:link {
+                        color: @basecolor;
+                        text-decoration: none;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            h2 {
+                margin-top: 10px;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
+﻿@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
 body {
   padding-top: 50px;
   padding-bottom: 20px;
@@ -133,4 +133,17 @@ article.content header h2.subtitle {
 article.content section {
   font-family: 'Merriweather', serif;
   min-height: 200px;
+}
+article.excerpt header h1.title {
+  margin-bottom: 10px;
+}
+article.excerpt header h1.title a:link {
+  color: #000000;
+  text-decoration: none;
+}
+article.excerpt header h1.title a:hover {
+  text-decoration: underline;
+}
+article.excerpt header h2 {
+  margin-top: 10px;
 }
