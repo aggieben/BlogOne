@@ -20,6 +20,26 @@
 </head>
 <body>
     <div class="container">
+        <img class="profile" alt="Ben Collins" src="https://plus.google.com/s2/photos/profile/114496887237669338071?sz=50" />
+        <section class="top-bar">
+            <nav>
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <a href="~/admin">admin</a>
+                        }
+                        else
+                        {
+                            <a href="~/admin/login">login</a>
+                        }
+                    </li>
+                </ul>
+
+            </nav>
+        </section>
         <section class="left-sidebar">
             @using (profiler.Step("left section"))
             {
@@ -45,5 +65,6 @@
     {
         @MiniProfiler.RenderIncludes(position: RenderPosition.Right)
     }
+    @Scripts.Render("~/Scripts/navigation.js")
 </body>
 </html>

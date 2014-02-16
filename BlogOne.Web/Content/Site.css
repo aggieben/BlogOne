@@ -1,11 +1,16 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
 body {
-  padding-top: 50px;
+  padding-top: 0px;
+  margin: 0px;
   padding-bottom: 20px;
 }
 .container {
   max-width: 100%;
   margin: auto;
+}
+.top-bar {
+  width: 100%;
+  height: 60px;
 }
 .left-sidebar {
   float: left;
@@ -39,10 +44,12 @@ main article header h1 {
 main article header h1.title {
   font-family: 'Lobster', cursie;
   min-width: 200px;
+  min-height: 50px;
 }
 main article header h2 {
   font-size: 30px;
   font-weight: 300;
+  margin-top: 0px;
 }
 main article header h2.subtitle {
   font-family: 'Merriweather', serif;
@@ -90,6 +97,45 @@ input[type="checkbox"].input-validation-error {
 .form-group .status-text.success {
   color: #306d17;
 }
+.profile {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+section.top-bar {
+  margin-top: -60px;
+}
+section.top-bar nav {
+  width: 100%;
+  background-color: #666;
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+  height: 60px;
+}
+section.top-bar nav ul {
+  margin: 5px 0 0 100px;
+  padding: 0;
+}
+section.top-bar nav ul li {
+  width: 100px;
+  display: inline-block;
+  list-style: none;
+  font-size: 24px;
+}
+section.top-bar nav ul li a {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+section.top-bar nav ul li a:link,
+section.top-bar nav ul li a:visited {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+}
 article {
   margin-bottom: 20px;
   /*header, footer {
@@ -120,10 +166,12 @@ article.content header h1 {
 article.content header h1.title {
   font-family: 'Lobster', cursie;
   min-width: 200px;
+  min-height: 50px;
 }
 article.content header h2 {
   font-size: 30px;
   font-weight: 300;
+  margin-top: 0px;
 }
 article.content header h2.subtitle {
   font-family: 'Merriweather', serif;

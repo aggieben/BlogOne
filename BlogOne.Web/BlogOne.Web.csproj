@@ -225,6 +225,12 @@
     <Content Include="Scripts\editing.min.js">
       <DependentUpon>editing.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\navigation.js">
+      <DependentUpon>navigation.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\navigation.min.js">
+      <DependentUpon>navigation.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\_drafting.js" />
     <Content Include="Scripts\Markdown.Converter.js" />
     <Content Include="Scripts\Markdown.Editor.js" />
@@ -316,6 +322,7 @@
     <Content Include="Views\Post\_Editor.cshtml" />
     <Content Include="Scripts\xmedium.coffee" />
     <Content Include="Scripts\popover.coffee" />
+    <Content Include="Scripts\navigation.coffee" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
