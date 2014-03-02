@@ -14,7 +14,7 @@
             @if (Request.IsAuthenticated)
             {
                 @: |
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
+                @Html.ActionLink("Edit", "Edit", new { shortcode = Model.Shortcode }) @:|
                 <a href="//@String.Format("{0}{1}#disqus_thread", Request.Url.Host, Request.Url.AbsolutePath)">Comments</a>
             }
             |

@@ -4,7 +4,7 @@
   <SourceModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{22327701-8d54-40eb-a336-09ec4456eb5f}</ProjectGuid>
-      <Name>BenCollins.Database</Name>
+      <Name>BlogOne.Database</Name>
     </ProjectBasedModelProvider>
   </SourceModelProvider>
   <TargetModelProvider>

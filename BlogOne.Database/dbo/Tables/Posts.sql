@@ -10,7 +10,7 @@
     [Draft] BIT NOT NULL DEFAULT ((1)), 
     [ModifiedDate] DATETIME NULL, 
     [Subtitle] NVARCHAR(256) NULL, 
-    [Shortcode] NCHAR(10) NOT NULL
+    [Shortcode] NCHAR(10) NULL
 )
 
 GO

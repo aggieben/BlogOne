@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿using BlogOne.Web.Data;
 using BlogOne.Web.Extensions;
-using BlogOne.Web.Data;
 using BlogOne.Web.Model;
 using BlogOne.Web.ViewModel;
-using StackExchange.Profiling;
+using System;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace BlogOne.Web.Controllers
 {
@@ -116,24 +112,22 @@ namespace BlogOne.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("post/{id}/publish")]
-        public ActionResult Publish(int id)
+        [Route("post/{shortcode}/publish")]
+        public ActionResult Publish(string shortcode)
         {
-            var post = _postRepository.FindById(id);
+            var post = _postRepository.FindByShortcode(shortcode);
             post.Draft = false;
             _postRepository.Update(post);
 
             return new EmptyResult();
         }
 
-        //
-        // POST: /Post/Edit/5
         [HttpPost]
         [ValidateInput(false)]
-        [Route("post/{id}/edit")]
-        public ActionResult Edit(int id, FormCollection collection)
+        [Route("post/{shortcode}/edit")]
+        public ActionResult Edit(string shortcode, FormCollection collection)
         {
-            var post = _postRepository.FindById(id);
+            var post = _postRepository.FindByShortcode(shortcode);
 
             string title = collection["Title"];
 
@@ -146,13 +140,11 @@ namespace BlogOne.Web.Controllers
             return RedirectToAction("Details", new { slug = post.Slug });
         }        
 
-        //
-        // POST: /Post/Delete/5
         [HttpPost]
-        [Route("post/{id}/delete")]
-        public ActionResult Delete(int id)
+        [Route("post/{shortcode}/delete")]
+        public ActionResult Delete(string shortcode)
         {
-            var post = _postRepository.FindById(id);
+            var post = _postRepository.FindByShortcode(shortcode);
             _postRepository.Remove(post);
 
             return new EmptyResult();
@@ -175,7 +167,8 @@ namespace BlogOne.Web.Controllers
                 CreationDate = post.CreationDate,
                 ModifiedDate = post.ModifiedDate,
                 BodyHtml = MvcHtmlString.Create(post.Body),
-                Slug = post.Slug
+                Slug = post.Slug,
+                Shortcode = post.Shortcode,
             };
         }
     }

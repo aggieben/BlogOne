@@ -14,5 +14,6 @@ namespace BlogOne.Web.ViewModel
         public HtmlString BodyExcerpt { get; set; }
         public bool Excerpted { get; set; }
         public string Slug { get; set; }
+        public string Shortcode { get; set; }
     }
 }
