@@ -195,6 +195,53 @@
     <Compile Include="ViewModel\PostViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\highlight_styles\arta.css" />
+    <Content Include="Content\highlight_styles\ascetic.css" />
+    <Content Include="Content\highlight_styles\atelier-dune.dark.css" />
+    <Content Include="Content\highlight_styles\atelier-dune.light.css" />
+    <Content Include="Content\highlight_styles\atelier-forest.dark.css" />
+    <Content Include="Content\highlight_styles\atelier-forest.light.css" />
+    <Content Include="Content\highlight_styles\atelier-heath.dark.css" />
+    <Content Include="Content\highlight_styles\atelier-heath.light.css" />
+    <Content Include="Content\highlight_styles\atelier-lakeside.dark.css" />
+    <Content Include="Content\highlight_styles\atelier-lakeside.light.css" />
+    <Content Include="Content\highlight_styles\atelier-seaside.dark.css" />
+    <Content Include="Content\highlight_styles\atelier-seaside.light.css" />
+    <Content Include="Content\highlight_styles\brown_paper.css" />
+    <Content Include="Content\highlight_styles\brown_papersq.png" />
+    <Content Include="Content\highlight_styles\dark.css" />
+    <Content Include="Content\highlight_styles\default.css" />
+    <Content Include="Content\highlight_styles\docco.css" />
+    <Content Include="Content\highlight_styles\far.css" />
+    <Content Include="Content\highlight_styles\foundation.css" />
+    <Content Include="Content\highlight_styles\github.css" />
+    <Content Include="Content\highlight_styles\googlecode.css" />
+    <Content Include="Content\highlight_styles\idea.css" />
+    <Content Include="Content\highlight_styles\ir_black.css" />
+    <Content Include="Content\highlight_styles\magula.css" />
+    <Content Include="Content\highlight_styles\mono-blue.css" />
+    <Content Include="Content\highlight_styles\monokai.css" />
+    <Content Include="Content\highlight_styles\monokai_sublime.css" />
+    <Content Include="Content\highlight_styles\obsidian.css" />
+    <Content Include="Content\highlight_styles\paraiso.dark.css" />
+    <Content Include="Content\highlight_styles\paraiso.light.css" />
+    <Content Include="Content\highlight_styles\pojoaque.css" />
+    <Content Include="Content\highlight_styles\pojoaque.jpg" />
+    <Content Include="Content\highlight_styles\railscasts.css" />
+    <Content Include="Content\highlight_styles\rainbow.css" />
+    <Content Include="Content\highlight_styles\school_book.css" />
+    <Content Include="Content\highlight_styles\school_book.png" />
+    <Content Include="Content\highlight_styles\solarized_dark.css" />
+    <Content Include="Content\highlight_styles\solarized_light.css" />
+    <Content Include="Content\highlight_styles\sunburst.css" />
+    <Content Include="Content\highlight_styles\tomorrow-night-blue.css" />
+    <Content Include="Content\highlight_styles\tomorrow-night-bright.css" />
+    <Content Include="Content\highlight_styles\tomorrow-night-eighties.css" />
+    <Content Include="Content\highlight_styles\tomorrow-night.css" />
+    <Content Include="Content\highlight_styles\tomorrow.css" />
+    <Content Include="Content\highlight_styles\vs.css" />
+    <Content Include="Content\highlight_styles\xcode.css" />
+    <Content Include="Content\highlight_styles\zenburn.css" />
     <Content Include="Content\icomoon\icomoon.dev.svg" />
     <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
@@ -225,6 +272,7 @@
     <Content Include="Scripts\editing.min.js">
       <DependentUpon>editing.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\highlight.pack.js" />
     <Content Include="Scripts\navigation.js">
       <DependentUpon>navigation.coffee</DependentUpon>
     </Content>
