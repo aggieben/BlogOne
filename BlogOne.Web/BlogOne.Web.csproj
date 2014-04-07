@@ -245,6 +245,7 @@
     <Content Include="Content\icomoon\icomoon.dev.svg" />
     <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
+    <Content Include="Content\img\photo.jpg" />
     <Content Include="Content\medium.css" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.fw.png" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.png" />
