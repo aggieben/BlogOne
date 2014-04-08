@@ -306,6 +306,7 @@
     <Content Include="Content\popover.less" />
     <Content Include="Scripts\drafting.coffee" />
     <Content Include="Scripts\editing.coffee" />
+    <None Include="Properties\PublishProfiles\bencollins.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
