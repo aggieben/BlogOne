@@ -35,6 +35,7 @@ namespace BlogOne.Web.Controllers
         public ViewResult Index()
         {
             var posts = _postRepository.FindAll();
+            _postRepository.Update(posts.Where(p => p.Dirty));
             return View(posts);
         }
 

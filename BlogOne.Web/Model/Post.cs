@@ -17,7 +17,9 @@ namespace BlogOne.Web.Model
 
         public Post()
         {
+            if (Shortcode != null) return;
             Shortcode = WebHelper.GetShortcode(10);
+            Dirty = true;
         }
     }
 }

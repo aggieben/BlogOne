@@ -12,5 +12,7 @@ namespace BlogOne.Web.Model
         [Computed]
         public DateTime CreationDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
+
+        internal bool Dirty { get; set; }
     }
 }
