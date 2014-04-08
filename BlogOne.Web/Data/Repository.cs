@@ -48,6 +48,12 @@ namespace BlogOne.Web.Data
                 UpdateImpl(item);
         }
 
+        public void Update(IEnumerable<T> items)
+        {
+            using (MiniProfiler.Current.Step("Repository.Update*"))
+                UpdateImpl(items);
+        }
+
         public T FindBySid(Guid id)
         {
             using (MiniProfiler.Current.Step("Repository.FindBySid"))
@@ -64,6 +70,15 @@ namespace BlogOne.Web.Data
         {
             using (MiniProfiler.Current.Step("Repository.FindAll"))
                 return FindAllImpl(page, pageSize);
+        }
+
+        public void UpdateImpl(IEnumerable<T> items)
+        {
+            using (MiniProfiler.Current.Step("Repository.Update*"))
+                foreach (var t in items)
+                {
+                    UpdateImpl(t);
+                }
         }
 
         protected abstract void AddImpl(T item);
