@@ -195,6 +195,14 @@
     <Compile Include="ViewModel\PostViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\sm\medium.js\medium.css">
+      <Link>Content\medium.css</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\medium.js\medium.js">
+      <Link>Scripts\medium.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\highlight_styles\arta.css" />
     <Content Include="Content\highlight_styles\ascetic.css" />
     <Content Include="Content\highlight_styles\atelier-dune.dark.css" />
@@ -246,7 +254,6 @@
     <Content Include="Content\icomoon\icomoon.svg" />
     <Content Include="Content\img\gplus-icon.png" />
     <Content Include="Content\img\photo.jpg" />
-    <Content Include="Content\medium.css" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.fw.png" />
     <Content Include="Content\pagedown\Markdown.Editor.Icons.png" />
     <Content Include="Content\img\sidebar-profile-208.png" />
@@ -307,6 +314,12 @@
     <Content Include="Scripts\drafting.coffee" />
     <Content Include="Scripts\editing.coffee" />
     <None Include="Properties\PublishProfiles\bencollins.pubxml" />
+    <Content Include="Scripts\drafting.min.js.map">
+      <DependentUpon>drafting.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\editing.min.js.map">
+      <DependentUpon>editing.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -317,7 +330,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\less-1.4.2.js" />
     <Content Include="Scripts\less-1.4.2.min.js" />
-    <Content Include="Scripts\medium.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\popover.js">
       <DependentUpon>popover.coffee</DependentUpon>
@@ -373,6 +385,15 @@
     <Content Include="Scripts\xmedium.coffee" />
     <Content Include="Scripts\popover.coffee" />
     <Content Include="Scripts\navigation.coffee" />
+    <Content Include="Scripts\navigation.min.js.map">
+      <DependentUpon>navigation.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\popover.min.js.map">
+      <DependentUpon>popover.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\xmedium.min.js.map">
+      <DependentUpon>xmedium.min.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
