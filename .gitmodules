@@ -7,3 +7,6 @@
 [submodule "sm/grandejs"]
 	path = sm/grandejs
 	url = https://github.com/aggieben/grande.js
+[submodule "sm/medium.js"]
+	path = sm/medium.js
+	url = git@github.com:aggieben/Medium.js.git
