@@ -16,33 +16,26 @@
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/Scripts/stringformat.js")
         @Scripts.Render("~/Scripts/utility.js")
+        @Scripts.Render("~/Scripts/svg-injector.min.js")
     }
 </head>
 <body>
-    <div class="container">
-        <img class="profile" alt="Ben Collins" src="~/Content/img/photo.jpg" height="50" />
-        <section class="top-bar">
-            <nav>
-                <ul>
-                    <li><a href="/">home</a></li>
-                    <li><a href="#">about</a></li>
-                    <li>
-                        @if (Request.IsAuthenticated)
-                        {
-                            <a href="~/admin">admin</a>
-                        }
-                        else
-                        {
-                            <a href="~/admin/login">login</a>
-                        }
-                    </li>
-                </ul>
-
-            </nav>
-        </section>
+    <div class="container">        
         <section class="left-sidebar">
             @using (profiler.Step("left section"))
             {
+                <div class="tile" data-href="/about" title="about">
+                    <img src="~/Content/img/headshot-greyscale.jpg"/>
+                </div>
+                <div class="green tile" data-href="/" title="home">
+                    <img class="inject" src="~/Content/img/open-iconic/home.svg" alt="home"/>
+                </div>
+                <div class="red tile" data-href="/archive" title="archive">
+                    <img class="inject" src="~/Content/img/open-iconic/box.svg" alt="box" />
+                </div>
+                <div class="blue tile" data-href="/projects" title="projects">
+                    <img class="inject" src="~/Content/img/open-iconic/beaker.svg" alt="beaker"/>
+                </div>
                 @RenderSection("left", required: false)
             }
         </section>
@@ -66,5 +59,15 @@
         @MiniProfiler.RenderIncludes(position: RenderPosition.Right)
     }
     @Scripts.Render("~/Scripts/navigation.js")
+    <script type="text/javascript">
+        $(function() {
+            var svgs = document.querySelectorAll('img.inject');
+            SVGInjector(svgs);
+
+            $('.tile').on('click', function() {
+                window.location.href = $(this).data('href');
+            });
+        })
+    </script>
 </body>
 </html>

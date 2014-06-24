@@ -111,7 +111,7 @@ input[type="checkbox"].input-validation-error {
     min-height: 200px;
 
     header {
-        margin-bottom: 50px;
+        
 
         h1 {
             font-size: 50px;
@@ -133,7 +133,7 @@ input[type="checkbox"].input-validation-error {
             &.subtitle {
                 font-family: 'Merriweather', serif;
                 min-width: 200px;
-                min-height: 30px;
+                /*min-height: 30px;*/
             }
         }
     }
@@ -151,44 +151,43 @@ input[type="checkbox"].input-validation-error {
     cursor: pointer;
 }
 
-section.top-bar {
-    margin-top: -(@navheight + 10);
+.tile {
+    height: 200px;
+    width: 200px;
 
-    nav {
-        width: 100%;
-        background-color: #666;
-        display: inline-block;
-        vertical-align: top;
-        list-style: none;
-        height: @navheight + 10;    
+    &.red {
+        background-color: tomato;
+    }
+    &.blue {
+        background-color: cadetblue;
+    }
+    &.green {
+        background-color: mediumseagreen;
+    }
 
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
 
-        ul {
-            margin: 5px 0 0 100px;
-            padding: 0;
+    svg {
+        margin: 20%;
+        height: 50%;
+        width: 50%;
+    }
 
-            li {
-                width: 100px;
-                display: inline-block;
-                list-style: none;
-                font-size: 24px;
-
-                a {
-                    display: inline-block;
-                    width: 100%;
-                    height: @navheight;
-                    line-height: @navheight;
-
-                    &:link, &:visited {
-                        color:#FFFFFF; 
-                        text-align:center; 
-                        text-decoration:none; 
-                    }
-                }
-            }
+    &:hover {
+        path {
+            fill: grey;
         }
     }
+
+    path {
+        fill: lightgray;
+    }
 }
+
+.tile 
 
 article {
     margin-bottom: 20px;

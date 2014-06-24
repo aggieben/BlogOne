@@ -33,9 +33,6 @@ main {
 main article {
   min-height: 200px;
 }
-main article header {
-  margin-bottom: 50px;
-}
 main article header h1 {
   font-size: 50px;
   font-weight: 700;
@@ -54,7 +51,7 @@ main article header h2 {
 main article header h2.subtitle {
   font-family: 'Merriweather', serif;
   min-width: 200px;
-  min-height: 30px;
+  /*min-height: 30px;*/
 }
 main article section {
   font-family: 'Merriweather', serif;
@@ -103,95 +100,87 @@ input[type="checkbox"].input-validation-error {
   left: 5px;
   cursor: pointer;
 }
-section.top-bar {
-  margin-top: -60px;
+.tile {
+  height: 200px;
+  width: 200px;
 }
-section.top-bar nav {
-  width: 100%;
-  background-color: #666;
-  display: inline-block;
-  vertical-align: top;
-  list-style: none;
-  height: 60px;
+.tile.red {
+  background-color: tomato;
 }
-section.top-bar nav ul {
-  margin: 5px 0 0 100px;
-  padding: 0;
+.tile.blue {
+  background-color: cadetblue;
 }
-section.top-bar nav ul li {
-  width: 100px;
-  display: inline-block;
-  list-style: none;
-  font-size: 24px;
+.tile.green {
+  background-color: mediumseagreen;
 }
-section.top-bar nav ul li a {
-  display: inline-block;
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
+.tile img {
+  max-height: 100%;
+  max-width: 100%;
 }
-section.top-bar nav ul li a:link,
-section.top-bar nav ul li a:visited {
-  color: #FFFFFF;
-  text-align: center;
-  text-decoration: none;
+.tile svg {
+  margin: 20%;
+  height: 50%;
+  width: 50%;
 }
-article {
+.tile:hover path {
+  fill: grey;
+}
+.tile path {
+  fill: lightgray;
+}
+.tile article {
   margin-bottom: 20px;
   /*header, footer {
         padding: 5px 10px;
         background-color: #f5f5f5;
     }*/
 }
-article header {
+.tile article header {
   margin-bottom: 10px;
 }
-article footer {
+.tile article footer {
   margin-top: 50px;
 }
-article div.content {
+.tile article div.content {
   padding: 0 10px;
 }
-article.content {
+.tile article.content {
   min-height: 200px;
 }
-article.content header {
-  margin-bottom: 50px;
-}
-article.content header h1 {
+.tile article.content header h1 {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 25px;
 }
-article.content header h1.title {
+.tile article.content header h1.title {
   font-family: 'Lobster', cursie;
   min-width: 200px;
   min-height: 50px;
 }
-article.content header h2 {
+.tile article.content header h2 {
   font-size: 30px;
   font-weight: 300;
   margin-top: 0px;
 }
-article.content header h2.subtitle {
+.tile article.content header h2.subtitle {
   font-family: 'Merriweather', serif;
   min-width: 200px;
-  min-height: 30px;
+  /*min-height: 30px;*/
 }
-article.content section {
+.tile article.content section {
   font-family: 'Merriweather', serif;
   min-height: 200px;
 }
-article.excerpt header h1.title {
+.tile article.excerpt header h1.title {
   margin-bottom: 10px;
 }
-article.excerpt header h1.title a:link {
+.tile article.excerpt header h1.title a:link {
   color: #000000;
   text-decoration: none;
 }
-article.excerpt header h1.title a:hover {
+.tile article.excerpt header h1.title a:hover {
   text-decoration: underline;
 }
-article.excerpt header h2 {
+.tile article.excerpt header h2 {
   margin-top: 10px;
 }
