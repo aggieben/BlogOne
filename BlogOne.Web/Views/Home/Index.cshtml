@@ -11,6 +11,7 @@
                 <h1 class="title">@Html.ActionLink(post.Title, "Details", "Post", new { slug = post.Slug }, null)</h1>
                 <h2 class="subtitle">@post.Subtitle</h2>
             </header>
+            <div>@(post.Excerpted?post.BodyExcerpt:new HtmlString(String.Empty))</div>
             <footer>
                 <span>@(post.ModifiedDate.HasValue ? String.Format("Updated {0:g}", post.ModifiedDate.Value) : String.Format("Posted {0:g}", post.CreationDate))</span>
             </footer>
