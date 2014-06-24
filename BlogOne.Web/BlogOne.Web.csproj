@@ -251,6 +251,7 @@
     <Content Include="Content\highlight_styles\xcode.css" />
     <Content Include="Content\highlight_styles\zenburn.css" />
     <Content Include="Content\img\gplus-icon.png" />
+    <Content Include="Content\img\headshot-greyscale.jpg" />
     <Content Include="Content\img\open-iconic\account-login.svg" />
     <Content Include="Content\img\open-iconic\account-logout.svg" />
     <Content Include="Content\img\open-iconic\action-redo.svg" />
