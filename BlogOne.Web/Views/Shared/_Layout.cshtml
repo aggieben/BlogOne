@@ -25,17 +25,26 @@
             @using (profiler.Step("left section"))
             {
                 <div class="tile" data-href="/about" title="about">
-                    <img src="~/Content/img/headshot-greyscale.jpg"/>
+                    <img src="~/Content/img/headshot-greyscale.jpg" alt="I'm watching you..'"/>
+                    <span class="subtitle">Ben Collins</span>
                 </div>
-                <div class="green tile" data-href="/" title="home">
-                    <img class="inject" src="~/Content/img/open-iconic/home.svg" alt="home"/>
+                <div class="containertile">
+                    <div class="smalltile" data-href="/" title="home">
+                        <img class="inject" src="~/Content/img/open-iconic/home.svg" alt="home" />
+                    </div>
+                    <div class="smalltile" data-href="/archive" title="archive">
+                        <img class="inject" src="~/Content/img/open-iconic/box.svg" alt="box" />
+                    </div>
+                    <div class="smalltile" data-href="/projects" title="projects">
+                        <img class="inject" src="~/Content/img/open-iconic/beaker.svg" alt="beaker" />
+                    </div>
+                    <div class="smalltile"></div>
                 </div>
-                <div class="red tile" data-href="/archive" title="archive">
-                    <img class="inject" src="~/Content/img/open-iconic/box.svg" alt="box" />
-                </div>
-                <div class="blue tile" data-href="/projects" title="projects">
-                    <img class="inject" src="~/Content/img/open-iconic/beaker.svg" alt="beaker"/>
-                </div>
+                <script type="text/javascript">
+                    var svgs = document.querySelectorAll('img.inject');
+                    SVGInjector(svgs);
+                </script>
+                
                 @RenderSection("left", required: false)
             }
         </section>
@@ -61,9 +70,6 @@
     @Scripts.Render("~/Scripts/navigation.js")
     <script type="text/javascript">
         $(function() {
-            var svgs = document.querySelectorAll('img.inject');
-            SVGInjector(svgs);
-
             $('.tile').on('click', function() {
                 window.location.href = $(this).data('href');
             });

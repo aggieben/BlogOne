@@ -7,11 +7,13 @@ body {
     padding-top: 0px;
     margin: 0px;
     padding-bottom: 20px;
+    background-color: #111;
 }
 
 .container {
-    max-width: 100%;
+    max-width: 80%;
     margin: auto;
+    margin-top: 50px;
 }
 
 .top-bar {
@@ -21,7 +23,7 @@ body {
 
 .left-sidebar {
     float: left;
-    width: 350px;
+    width: 250px;
     margin: 2px;
     border: 1px black;
 }
@@ -34,9 +36,10 @@ body {
 }
 
 main {
+    display: block;
     float: left;
     width: 800px;
-    margin: auto;
+    /*margin: auto;*/
     border: 1px green;
 
     article {
@@ -46,8 +49,8 @@ main {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;*/
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -151,21 +154,9 @@ input[type="checkbox"].input-validation-error {
     cursor: pointer;
 }
 
-.tile {
-    height: 200px;
-    width: 200px;
-
-    &.red {
-        background-color: tomato;
-    }
-    &.blue {
-        background-color: cadetblue;
-    }
-    &.green {
-        background-color: mediumseagreen;
-    }
-
+.has-svg-icon {
     img {
+        position: relative;
         max-height: 100%;
         max-width: 100%;
     }
@@ -176,25 +167,68 @@ input[type="checkbox"].input-validation-error {
         width: 50%;
     }
 
+    path {
+        fill: lightgray;
+    }
+
     &:hover {
         path {
             fill: grey;
         }
     }
+}
 
-    path {
-        fill: lightgray;
+.tile {
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+    background-color: #222;
+    color: #ccc;
+    margin-bottom: 12px;
+
+    .subtitle {
+
+        background-color: rgba(0,0,0,0.7);
+        position: relative;
+        font-size: medium;
+        top: -29px;
+        padding: 5px;
+        width: 100%;
+        left: 121px;
+    }
+    
+    .has-svg-icon;
+}
+
+.containertile {
+    height: 200px;
+    width: 200px;
+    cursor: auto;
+    background-color: #111;
+    margin-bottom: 12px;
+
+    .smalltile {
+        height: 94px;
+        width: 94px;
+        cursor: pointer;
+        background-color: #222;
+        float: left;
+        margin-bottom: 12px;
+
+        .has-svg-icon;
+
+        &:nth-child(2n) {
+            margin-left: 12px;
+        }
     }
 }
 
-.tile 
-
 article {
     margin-bottom: 20px;
-    /*header, footer {
-        padding: 5px 10px;
-        background-color: #f5f5f5;
-    }*/
+    background-color: #222;
+    padding-left: 20px;
+    padding-right: 20px;
+
     header {
         margin-bottom: 10px;
     }

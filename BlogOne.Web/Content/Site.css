@@ -3,10 +3,12 @@ body {
   padding-top: 0px;
   margin: 0px;
   padding-bottom: 20px;
+  background-color: #111;
 }
 .container {
-  max-width: 100%;
+  max-width: 80%;
   margin: auto;
+  margin-top: 50px;
 }
 .top-bar {
   width: 100%;
@@ -14,7 +16,7 @@ body {
 }
 .left-sidebar {
   float: left;
-  width: 350px;
+  width: 250px;
   margin: 2px;
   border: 1px black;
 }
@@ -25,9 +27,10 @@ body {
   border: 1px blue;
 }
 main {
+  display: block;
   float: left;
   width: 800px;
-  margin: auto;
+  /*margin: auto;*/
   border: 1px green;
 }
 main article {
@@ -59,8 +62,8 @@ main article section {
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+  /*padding-left: 15px;
+    padding-right: 15px;*/
 }
 /* Set width on the form input elements since they're 100% wide by default */
 input.post-title {
@@ -100,20 +103,41 @@ input[type="checkbox"].input-validation-error {
   left: 5px;
   cursor: pointer;
 }
+.has-svg-icon img {
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+.has-svg-icon svg {
+  margin: 20%;
+  height: 50%;
+  width: 50%;
+}
+.has-svg-icon path {
+  fill: lightgray;
+}
+.has-svg-icon:hover path {
+  fill: grey;
+}
 .tile {
   height: 200px;
   width: 200px;
+  cursor: pointer;
+  background-color: #222;
+  color: #ccc;
+  margin-bottom: 12px;
 }
-.tile.red {
-  background-color: tomato;
-}
-.tile.blue {
-  background-color: cadetblue;
-}
-.tile.green {
-  background-color: mediumseagreen;
+.tile .subtitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  font-size: medium;
+  top: -29px;
+  padding: 5px;
+  width: 100%;
+  left: 121px;
 }
 .tile img {
+  position: relative;
   max-height: 100%;
   max-width: 100%;
 }
@@ -122,65 +146,98 @@ input[type="checkbox"].input-validation-error {
   height: 50%;
   width: 50%;
 }
-.tile:hover path {
-  fill: grey;
-}
 .tile path {
   fill: lightgray;
 }
-.tile article {
-  margin-bottom: 20px;
-  /*header, footer {
-        padding: 5px 10px;
-        background-color: #f5f5f5;
-    }*/
+.tile:hover path {
+  fill: grey;
 }
-.tile article header {
+.containertile {
+  height: 200px;
+  width: 200px;
+  cursor: auto;
+  background-color: #111;
+  margin-bottom: 12px;
+}
+.containertile .smalltile {
+  height: 94px;
+  width: 94px;
+  cursor: pointer;
+  background-color: #222;
+  float: left;
+  margin-bottom: 12px;
+}
+.containertile .smalltile img {
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+.containertile .smalltile svg {
+  margin: 20%;
+  height: 50%;
+  width: 50%;
+}
+.containertile .smalltile path {
+  fill: lightgray;
+}
+.containertile .smalltile:hover path {
+  fill: grey;
+}
+.containertile .smalltile:nth-child(2n) {
+  margin-left: 12px;
+}
+article {
+  margin-bottom: 20px;
+  background-color: #222;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+article header {
   margin-bottom: 10px;
 }
-.tile article footer {
+article footer {
   margin-top: 50px;
 }
-.tile article div.content {
+article div.content {
   padding: 0 10px;
 }
-.tile article.content {
+article.content {
   min-height: 200px;
 }
-.tile article.content header h1 {
+article.content header h1 {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 25px;
 }
-.tile article.content header h1.title {
+article.content header h1.title {
   font-family: 'Lobster', cursie;
   min-width: 200px;
   min-height: 50px;
 }
-.tile article.content header h2 {
+article.content header h2 {
   font-size: 30px;
   font-weight: 300;
   margin-top: 0px;
 }
-.tile article.content header h2.subtitle {
+article.content header h2.subtitle {
   font-family: 'Merriweather', serif;
   min-width: 200px;
   /*min-height: 30px;*/
 }
-.tile article.content section {
+article.content section {
   font-family: 'Merriweather', serif;
   min-height: 200px;
 }
-.tile article.excerpt header h1.title {
+article.excerpt header h1.title {
   margin-bottom: 10px;
 }
-.tile article.excerpt header h1.title a:link {
+article.excerpt header h1.title a:link {
   color: #000000;
   text-decoration: none;
 }
-.tile article.excerpt header h1.title a:hover {
+article.excerpt header h1.title a:hover {
   text-decoration: underline;
 }
-.tile article.excerpt header h2 {
+article.excerpt header h2 {
   margin-top: 10px;
 }
