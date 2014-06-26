@@ -16,6 +16,10 @@ a:link {
     color: #aaa;
 }
 
+a:hover {
+    color: #fff;
+}
+
 a:visited {
     color: #666;
 }
@@ -59,52 +63,6 @@ main {
 
 input.post-title {
     width: 100%;
-}
-
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
-}
-
-.field-validation-valid {
-    display: none;
-}
-
-input.input-validation-error {
-    border: 1px solid #b94a48;
-}
-
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
-}
-
-.validation-summary-errors {
-    color: #b94a48;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
-.form-group {
-    .btn {
-        margin-right: 15px;
-    }
-
-    .status-text {
-        &.failure {
-            color: #b94a48;
-        }
-        &.success {
-            color: #306d17;
-        }
-    }
-}
-
-#post-controls {
-    button {
-
-    }
 }
 
 .content-article() {
@@ -261,6 +219,46 @@ article {
             h2 {
                 margin-top: 10px;
             }
+        }
+    }
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.form-group {
+    .btn {
+        margin-right: 15px;
+    }
+
+    .status-text {
+        &.failure {
+            color: #b94a48;
+        }
+        &.success {
+            color: #306d17;
         }
     }
 }
