@@ -203,6 +203,16 @@
       <Link>Scripts\medium.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\fonts.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts.min.css">
+      <DependentUpon>fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\leaguegothic-condensed-italic-webfont.svg" />
+    <Content Include="Content\fonts\leaguegothic-condensed-regular-webfont.svg" />
+    <Content Include="Content\fonts\leaguegothic-italic-webfont.svg" />
+    <Content Include="Content\fonts\leaguegothic-regular-webfont.svg" />
     <Content Include="Content\highlight_styles\arta.css" />
     <Content Include="Content\highlight_styles\ascetic.css" />
     <Content Include="Content\highlight_styles\atelier-dune.dark.css" />
@@ -483,7 +493,6 @@
     <Content Include="Content\pagedown\Markdown.Editor.min.css">
       <DependentUpon>Markdown.Editor.less</DependentUpon>
     </Content>
-    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.svg" />
     <Content Include="Content\popover.css">
       <DependentUpon>popover.less</DependentUpon>
     </Content>
@@ -525,14 +534,31 @@
     </Content>
     <Content Include="Content\Site.less" />
     <Content Include="Content\pagedown\Markdown.Editor.less" />
-    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.eot" />
-    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.otf" />
-    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.ttf" />
-    <Content Include="Content\fonts\MonoSocialIconsFont-1.10.woff" />
-    <Content Include="Content\fonts\medium-icons.woff" />
     <Content Include="Content\popover.less" />
     <Content Include="Scripts\drafting.coffee" />
     <Content Include="Scripts\editing.coffee" />
+    <Content Include="Content\fonts\leaguegothic-condensed-italic-webfont.eot" />
+    <Content Include="Content\fonts\leaguegothic-condensed-italic-webfont.ttf" />
+    <Content Include="Content\fonts\leaguegothic-condensed-italic-webfont.woff" />
+    <Content Include="Content\fonts\leaguegothic-condensed-regular-webfont.eot" />
+    <Content Include="Content\fonts\leaguegothic-condensed-regular-webfont.ttf" />
+    <Content Include="Content\fonts\leaguegothic-condensed-regular-webfont.woff" />
+    <Content Include="Content\fonts\leaguegothic-italic-webfont.eot" />
+    <Content Include="Content\fonts\leaguegothic-italic-webfont.ttf" />
+    <Content Include="Content\fonts\leaguegothic-italic-webfont.woff" />
+    <Content Include="Content\fonts\leaguegothic-regular-webfont.eot" />
+    <Content Include="Content\fonts\leaguegothic-regular-webfont.ttf" />
+    <Content Include="Content\fonts\leaguegothic-regular-webfont.woff" />
+    <Content Include="Content\fonts\Raleway-Bold.otf" />
+    <Content Include="Content\fonts\Raleway-ExtraBold.otf" />
+    <Content Include="Content\fonts\Raleway-ExtraLight.otf" />
+    <Content Include="Content\fonts\Raleway-Heavy.otf" />
+    <Content Include="Content\fonts\Raleway-Light.otf" />
+    <Content Include="Content\fonts\Raleway-Medium.otf" />
+    <Content Include="Content\fonts\Raleway-Regular.otf" />
+    <Content Include="Content\fonts\Raleway-SemiBold.otf" />
+    <Content Include="Content\fonts\Raleway-Thin.otf" />
+    <Content Include="Content\fonts.less" />
     <None Include="Properties\PublishProfiles\bencollins.pubxml" />
     <Content Include="Scripts\drafting.min.js.map">
       <DependentUpon>drafting.min.js</DependentUpon>

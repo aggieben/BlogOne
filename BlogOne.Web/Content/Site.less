@@ -1,13 +1,15 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Lobster|Merriweather:400,900italic,900,700italic,700,400italic,300italic,300&subset=latin,latin-ext);
-
-@basecolor: black;
+﻿@basecolor: black;
 @navheight: 50px;
+
+@import "fonts.less";
+/* Regular */
 
 body {
     padding-top: 0px;
     margin: 0px;
     padding-bottom: 20px;
     background-color: #111;
+    font-family: 'Raleway', sans-serif;
 }
 
 .container {
@@ -112,19 +114,27 @@ input[type="checkbox"].input-validation-error {
 
 .content-article() {
     min-height: 200px;
+    color: #aaa;
+    font-size: larger;
 
     header {
-        
-
         h1 {
             font-size: 50px;
             font-weight: 700;
             margin-bottom: 25px;
 
             &.title {
-                font-family: 'Lobster', cursie;
+ 
                 min-width: 200px;
                 min-height: 50px;
+            }
+
+            a:link {
+                color: #aaa;
+            }
+
+            a:visited {
+                color: #666;
             }
         }
 
@@ -134,15 +144,12 @@ input[type="checkbox"].input-validation-error {
             margin-top: 0px;
 
             &.subtitle {
-                font-family: 'Merriweather', serif;
                 min-width: 200px;
-                /*min-height: 30px;*/
             }
         }
     }
 
     section {
-        font-family: 'Merriweather', serif;
         min-height: 200px;
     }
 }
@@ -187,14 +194,14 @@ input[type="checkbox"].input-validation-error {
     margin-bottom: 12px;
 
     .subtitle {
-
+        /* the positioning below will have to change, eventually, if other subtitles will be used */
         background-color: rgba(0,0,0,0.7);
         position: relative;
         font-size: medium;
-        top: -29px;
+        top: -27px;
         padding: 5px;
         width: 100%;
-        left: 121px;
+        left: 108px;
     }
     
     .has-svg-icon;
