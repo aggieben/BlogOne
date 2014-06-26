@@ -70,7 +70,7 @@
     @Scripts.Render("~/Scripts/navigation.js")
     <script type="text/javascript">
         $(function() {
-            $('.tile').on('click', function() {
+            $('.tile,.smalltile').on('click', function() {
                 window.location.href = $(this).data('href');
             });
         })
