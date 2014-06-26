@@ -10,6 +10,7 @@ body {
     padding-bottom: 20px;
     background-color: #111;
     font-family: 'Raleway', sans-serif;
+    color: #aaa;
 }
 
 a:link {
@@ -106,6 +107,8 @@ input.post-title {
 }
 
 .has-svg-icon {
+    text-align: center;
+
     img {
         position: relative;
         max-height: 100%;
@@ -113,7 +116,7 @@ input.post-title {
     }
 
     svg {
-        margin: 20%;
+        margin: 15% 25% 0 25%;
         height: 50%;
         width: 50%;
     }
@@ -122,9 +125,27 @@ input.post-title {
         fill: lightgray;
     }
 
+    span {
+        opacity: 0.0;
+    }
+
     &:hover {
-        path {
-            fill: grey;
+        /*path {
+            fill: #fff;
+
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }*/
+
+        span {
+            opacity: 1.0;
+
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
         }
     }
 }
@@ -139,13 +160,14 @@ input.post-title {
 
     .subtitle {
         /* the positioning below will have to change, eventually, if other subtitles will be used */
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.4);
         position: relative;
         font-size: medium;
         top: -27px;
         padding: 5px;
-        width: 100%;
-        left: 108px;
+        left: 54px;
+
+        opacity: 1.0;
     }
     
     .has-svg-icon;

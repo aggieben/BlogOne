@@ -24,21 +24,25 @@
         <section class="left-sidebar">
             @using (profiler.Step("left section"))
             {
-                <div class="tile" data-href="/about" title="about">
+                <div class="tile" data-href="/about">
                     <img src="~/Content/img/headshot-greyscale.jpg" alt="I'm watching you..'"/>
                     <span class="subtitle">Ben Collins</span>
                 </div>
                 <div class="containertile">
-                    <div class="smalltile" data-href="/" title="home">
+                    <div class="smalltile" data-href="/">
                         <img class="inject" src="~/Content/img/open-iconic/home.svg" alt="home" />
+                        <span>home</span>
                     </div>
-                    <div class="smalltile" data-href="/archive" title="archive">
+                    <div class="smalltile" data-href="/archive">
                         <img class="inject" src="~/Content/img/open-iconic/box.svg" alt="box" />
-                    </div>
-                    <div class="smalltile" data-href="/projects" title="projects">
-                        <img class="inject" src="~/Content/img/open-iconic/code.svg" alt="code" />
+                        <span>archive</span>
                     </div>
                     <div class="smalltile"></div>
+                    <div class="smalltile" data-href="/projects">
+                        <img class="inject" src="~/Content/img/open-iconic/code.svg" alt="code" />
+                        <span>projects</span>
+                    </div>
+
                 </div>
                 <script type="text/javascript">
                     var svgs = document.querySelectorAll('img.inject');

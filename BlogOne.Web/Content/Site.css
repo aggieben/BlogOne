@@ -90,6 +90,7 @@ body {
   padding-bottom: 20px;
   background-color: #111;
   font-family: 'Raleway', sans-serif;
+  color: #aaa;
 }
 a:link {
   color: #aaa;
@@ -162,21 +163,41 @@ input.post-title {
   left: 5px;
   cursor: pointer;
 }
+.has-svg-icon {
+  text-align: center;
+}
 .has-svg-icon img {
   position: relative;
   max-height: 100%;
   max-width: 100%;
 }
 .has-svg-icon svg {
-  margin: 20%;
+  margin: 15% 25% 0 25%;
   height: 50%;
   width: 50%;
 }
 .has-svg-icon path {
   fill: lightgray;
 }
-.has-svg-icon:hover path {
-  fill: grey;
+.has-svg-icon span {
+  opacity: 0.0;
+}
+.has-svg-icon:hover {
+  /*path {
+            fill: #fff;
+
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }*/
+}
+.has-svg-icon:hover span {
+  opacity: 1.0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 .tile {
   height: 200px;
@@ -185,16 +206,17 @@ input.post-title {
   background-color: #222;
   color: #ccc;
   margin-bottom: 12px;
+  text-align: center;
 }
 .tile .subtitle {
   /* the positioning below will have to change, eventually, if other subtitles will be used */
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   position: relative;
   font-size: medium;
   top: -27px;
   padding: 5px;
-  width: 100%;
-  left: 108px;
+  left: 54px;
+  opacity: 1.0;
 }
 .tile img {
   position: relative;
@@ -202,15 +224,32 @@ input.post-title {
   max-width: 100%;
 }
 .tile svg {
-  margin: 20%;
+  margin: 15% 25% 0 25%;
   height: 50%;
   width: 50%;
 }
 .tile path {
   fill: lightgray;
 }
-.tile:hover path {
-  fill: grey;
+.tile span {
+  opacity: 0.0;
+}
+.tile:hover {
+  /*path {
+            fill: #fff;
+
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }*/
+}
+.tile:hover span {
+  opacity: 1.0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 .containertile {
   height: 200px;
@@ -226,6 +265,7 @@ input.post-title {
   background-color: #222;
   float: left;
   margin-bottom: 12px;
+  text-align: center;
 }
 .containertile .smalltile img {
   position: relative;
@@ -233,15 +273,32 @@ input.post-title {
   max-width: 100%;
 }
 .containertile .smalltile svg {
-  margin: 20%;
+  margin: 15% 25% 0 25%;
   height: 50%;
   width: 50%;
 }
 .containertile .smalltile path {
   fill: lightgray;
 }
-.containertile .smalltile:hover path {
-  fill: grey;
+.containertile .smalltile span {
+  opacity: 0.0;
+}
+.containertile .smalltile:hover {
+  /*path {
+            fill: #fff;
+
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }*/
+}
+.containertile .smalltile:hover span {
+  opacity: 1.0;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 .containertile .smalltile:nth-child(2n) {
   margin-left: 12px;
