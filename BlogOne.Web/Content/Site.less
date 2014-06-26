@@ -12,6 +12,14 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+a:link {
+    color: #aaa;
+}
+
+a:visited {
+    color: #666;
+}
+
 .container {
     max-width: 80%;
     margin: auto;
@@ -47,19 +55,6 @@ main {
     article {
         .content-article
     }
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    //max-width: 280px;
 }
 
 input.post-title {
@@ -127,14 +122,6 @@ input[type="checkbox"].input-validation-error {
  
                 min-width: 200px;
                 min-height: 50px;
-            }
-
-            a:link {
-                color: #aaa;
-            }
-
-            a:visited {
-                color: #666;
             }
         }
 
@@ -235,6 +222,7 @@ article {
     background-color: #222;
     padding-left: 20px;
     padding-right: 20px;
+    overflow: hidden;
 
     header {
         margin-bottom: 10px;

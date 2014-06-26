@@ -91,6 +91,12 @@ body {
   background-color: #111;
   font-family: 'Raleway', sans-serif;
 }
+a:link {
+  color: #aaa;
+}
+a:visited {
+  color: #666;
+}
 .container {
   max-width: 80%;
   margin: auto;
@@ -133,12 +139,6 @@ main article header h1.title {
   min-width: 200px;
   min-height: 50px;
 }
-main article header h1 a:link {
-  color: #aaa;
-}
-main article header h1 a:visited {
-  color: #666;
-}
 main article header h2 {
   font-size: 30px;
   font-weight: 300;
@@ -150,12 +150,6 @@ main article header h2.subtitle {
 main article section {
   min-height: 200px;
 }
-/* Set padding to keep content from hitting the edges */
-.body-content {
-  /*padding-left: 15px;
-    padding-right: 15px;*/
-}
-/* Set width on the form input elements since they're 100% wide by default */
 input.post-title {
   width: 100%;
 }
@@ -282,6 +276,7 @@ article {
   background-color: #222;
   padding-left: 20px;
   padding-right: 20px;
+  overflow: hidden;
 }
 article header {
   margin-bottom: 10px;
@@ -305,12 +300,6 @@ article.content header h1 {
 article.content header h1.title {
   min-width: 200px;
   min-height: 50px;
-}
-article.content header h1 a:link {
-  color: #aaa;
-}
-article.content header h1 a:visited {
-  color: #666;
 }
 article.content header h2 {
   font-size: 30px;
