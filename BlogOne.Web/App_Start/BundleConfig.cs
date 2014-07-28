@@ -20,6 +20,13 @@ namespace BlogOne.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/editor").Include(
+                      "~/Scripts/rangy/rangy-core.js",
+                      "~/Scripts/rangy/rangy-cssclassapplier.js",
+                      "~/Scripts/rangy/rangy-highlighter.js",
+                      "~/Scripts/rangy/rangy-selectionsaverestore.js",
+                      "~/Scripts/rangy/rangy-serializerjs",
+                      "~/Scripts/rangy/rangy-textrange.js",
+                      "~/Scripts/undo.js",
                       "~/Scripts/medium.js",
                       "~/Scripts/xmedium.js",
                       "~/Scripts/popover.js",

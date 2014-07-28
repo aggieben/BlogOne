@@ -203,6 +203,34 @@
       <Link>Scripts\medium.js</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-core.js">
+      <Link>Scripts\rangy\rangy-core.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-cssclassapplier.js">
+      <Link>Scripts\rangy\rangy-cssclassapplier.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-highlighter.js">
+      <Link>Scripts\rangy\rangy-highlighter.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-selectionsaverestore.js">
+      <Link>Scripts\rangy\rangy-selectionsaverestore.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-serializer.js">
+      <Link>Scripts\rangy\rangy-serializer.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\rangy.js\dev\rangy-textrange.js">
+      <Link>Scripts\rangy\rangy-textrange.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\sm\undo.js\undo.js">
+      <Link>Scripts\undo.js</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\fonts.css">
       <DependentUpon>fonts.less</DependentUpon>
     </Content>

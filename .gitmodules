@@ -10,3 +10,9 @@
 [submodule "sm/medium.js"]
 	path = sm/medium.js
 	url = git@github.com:aggieben/Medium.js.git
+[submodule "sm/rangy.js"]
+	path = sm/rangy.js
+	url = git@github.com:timdown/rangy.git
+[submodule "sm/undo.js"]
+	path = sm/undo.js
+	url = git@github.com:jzaefferer/undo.git
