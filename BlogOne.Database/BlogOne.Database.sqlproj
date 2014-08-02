@@ -70,6 +70,7 @@
     <Build Include="dbo\Tables\Tags.sql" />
     <Build Include="dbo\Tables\PostTags.sql" />
     <Build Include="dbo\DefaultAppPool.sql" />
+    <Build Include="dbo\Tables\ShortUrls.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlAzureSchemaCompare.scmp" />
