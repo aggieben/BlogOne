@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BlogOne.Common.Data;
 using BlogOne.Web.Model;
+using System.Collections.Generic;
 
 namespace BlogOne.Web.Data
 {

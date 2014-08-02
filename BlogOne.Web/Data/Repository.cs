@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
-using Dapper;
+﻿using BlogOne.Common.Data;
 using StackExchange.Profiling;
 using StackExchange.Profiling.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 
 namespace BlogOne.Web.Data

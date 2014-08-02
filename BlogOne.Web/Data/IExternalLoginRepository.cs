@@ -1,4 +1,5 @@
-﻿using BlogOne.Web.Model;
+﻿using BlogOne.Common.Data;
+using BlogOne.Web.Model;
 
 namespace BlogOne.Web.Data
 {

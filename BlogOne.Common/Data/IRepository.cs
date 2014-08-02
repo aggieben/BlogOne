@@ -1,9 +1,7 @@
-﻿using BlogOne.Web.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
-namespace BlogOne.Web.Data
+namespace BlogOne.Common.Data
 {
     public interface IRepository<T>
     {
