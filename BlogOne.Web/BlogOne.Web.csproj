@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BenCollins.Web</RootNamespace>
     <AssemblyName>BenCollins.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,13 +52,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -82,9 +83,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -106,6 +105,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -195,42 +195,6 @@
     <Compile Include="ViewModel\PostViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\sm\medium.js\medium.css">
-      <Link>Content\medium.css</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\medium.js\medium.js">
-      <Link>Scripts\medium.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-core.js">
-      <Link>Scripts\rangy\rangy-core.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-cssclassapplier.js">
-      <Link>Scripts\rangy\rangy-cssclassapplier.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-highlighter.js">
-      <Link>Scripts\rangy\rangy-highlighter.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-selectionsaverestore.js">
-      <Link>Scripts\rangy\rangy-selectionsaverestore.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-serializer.js">
-      <Link>Scripts\rangy\rangy-serializer.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\rangy.js\dev\rangy-textrange.js">
-      <Link>Scripts\rangy\rangy-textrange.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\sm\undo.js\undo.js">
-      <Link>Scripts\undo.js</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\fonts.css">
       <DependentUpon>fonts.less</DependentUpon>
     </Content>
@@ -616,12 +580,6 @@
     <Content Include="Scripts\stringformat.min.js" />
     <Content Include="Scripts\stringformat.js" />
     <Content Include="Scripts\utility.js" />
-    <Content Include="Scripts\xmedium.js">
-      <DependentUpon>xmedium.coffee</DependentUpon>
-    </Content>
-    <Content Include="Scripts\xmedium.min.js">
-      <DependentUpon>xmedium.coffee</DependentUpon>
-    </Content>
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -656,7 +614,6 @@
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
     <Content Include="Views\Post\_Editor.cshtml" />
-    <Content Include="Scripts\xmedium.coffee" />
     <Content Include="Scripts\popover.coffee" />
     <Content Include="Scripts\navigation.coffee" />
     <Content Include="Scripts\navigation.min.js.map">
@@ -664,9 +621,6 @@
     </Content>
     <Content Include="Scripts\popover.min.js.map">
       <DependentUpon>popover.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\xmedium.min.js.map">
-      <DependentUpon>xmedium.min.js</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -677,6 +631,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BlogOne.Common\BlogOne.Common.csproj">
+      <Project>{551241eb-4961-438a-963a-5a31131f700a}</Project>
+      <Name>BlogOne.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sm\miniprofiler-dotnet\StackExchange.Profiling.Mvc\StackExchange.Profiling.Mvc.csproj">
       <Project>{074bcd84-3e44-4140-9918-c09fcbeec09f}</Project>
       <Name>StackExchange.Profiling.Mvc</Name>
@@ -723,6 +681,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy /y /e "$(TargetDir)\Content" "$(ProjectDir)\Content"
+
 xcopy /y /e "$(TargetDir)\Scripts" "$(ProjectDir)\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

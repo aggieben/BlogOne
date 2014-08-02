@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -219,6 +220,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlogOne.Common\BlogOne.Common.csproj">
+      <Project>{551241eb-4961-438a-963a-5a31131f700a}</Project>
+      <Name>BlogOne.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sm\munq\IocContainer\Munq.IocContainer\Munq.IocContainer.csproj">
+      <Project>{3a5bc8f1-5817-4b0e-a82b-d92ffc5be440}</Project>
+      <Name>Munq.IocContainer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
