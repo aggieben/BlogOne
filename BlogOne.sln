@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchange.Profiling.Mvc
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BlogOne.Database", "BlogOne.Database\BlogOne.Database.sqlproj", "{22327701-8D54-40EB-A336-09EC4456EB5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Web", "BlogOne.Web\BlogOne.Web.csproj", "{845CBF4B-75BE-435E-9BB4-6281B192BE22}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Shortner", "BlogOne.Shortner\BlogOne.Shortner.csproj", "{78AE9701-BF1F-4246-AD8E-682EF750D450}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Shortner.Tests", "BlogOne.Shortner.Tests\BlogOne.Shortner.Tests.csproj", "{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}"
@@ -22,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchange.Redis", "sm\StackExchange.Redis\StackExchange.Redis\StackExchange.Redis.csproj", "{7CEC07F2-8C03-4C42-B048-738B215824C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Common", "BlogOne.Common\BlogOne.Common.csproj", "{551241EB-4961-438A-963A-5A31131F700A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Web", "BlogOne.Web\BlogOne.Web.csproj", "{845CBF4B-75BE-435E-9BB4-6281B192BE22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,14 +67,6 @@ Global
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Verbose|Any CPU.Build.0 = Release|Any CPU
 		{22327701-8D54-40EB-A336-09EC4456EB5F}.Verbose|Any CPU.Deploy.0 = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Log Output|Any CPU.ActiveCfg = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Log Output|Any CPU.Build.0 = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
-		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Verbose|Any CPU.Build.0 = Release|Any CPU
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Log Output|Any CPU.ActiveCfg = Release|Any CPU
@@ -107,6 +99,14 @@ Global
 		{551241EB-4961-438A-963A-5A31131F700A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{551241EB-4961-438A-963A-5A31131F700A}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
 		{551241EB-4961-438A-963A-5A31131F700A}.Verbose|Any CPU.Build.0 = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Log Output|Any CPU.ActiveCfg = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Log Output|Any CPU.Build.0 = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
+		{845CBF4B-75BE-435E-9BB4-6281B192BE22}.Verbose|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
