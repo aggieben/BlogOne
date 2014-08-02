@@ -1,30 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BlogOne.Shortner.Controllers
 {
+    [Route("{action=Index}/{urlId?}")]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public HomeController
+
+        [Route("{urlId?}"), HttpGet]
+        public ActionResult Index(string urlId = null)
         {
-            return View();
-        }
+            if (String.IsNullOrWhiteSpace(urlId))
+            {
+                return View();
+            }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return Redirect(null);
         }
     }
 }
