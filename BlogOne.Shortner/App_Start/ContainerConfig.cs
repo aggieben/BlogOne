@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using BlogOne.Common.Cache;
+using BlogOne.Common.Data;
 using Munq;
 
 namespace BlogOne.Shortner.App_Start
@@ -23,6 +24,9 @@ namespace BlogOne.Shortner.App_Start
             // caches
             ioc.Register(c => new CacheProvider(HttpContext.Current.Cache));
             ioc.Register(c => c.Resolve<CacheProvider>().GetCache(WebConfigurationManager.AppSettings["redisConfig"]));
+
+            // database
+            ioc.Register<IDbConnectionFactory>(c => new SqlConnectionFactory(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
 
             // repositories
             //ioc.Register<IExternalLoginRepository, ExternalLoginRepository>();
