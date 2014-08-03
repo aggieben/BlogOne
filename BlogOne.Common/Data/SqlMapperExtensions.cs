@@ -1,15 +1,13 @@
-﻿using System;
+﻿using StackExchange.Profiling.Helpers.Dapper;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Collections.Concurrent;
 using System.Reflection.Emit;
+using System.Text;
 using System.Threading;
-using System.Runtime.CompilerServices;
-using Dapper;
 
 namespace Dapper.Contrib.Extensions
 {
@@ -27,7 +25,8 @@ namespace Dapper.Contrib.Extensions
         private static readonly ConcurrentDictionary<RuntimeTypeHandle, string> GetQueries = new ConcurrentDictionary<RuntimeTypeHandle, string>();
         private static readonly ConcurrentDictionary<RuntimeTypeHandle, string> TypeTableName = new ConcurrentDictionary<RuntimeTypeHandle, string>();
 
-        private static readonly Dictionary<string, ISqlAdapter> AdapterDictionary = new Dictionary<string, ISqlAdapter>() {
+        private static readonly Dictionary<string, ISqlAdapter> AdapterDictionary = new Dictionary<string, ISqlAdapter>
+                                                                                        {
                                                                                             {"sqlconnection", new SqlServerAdapter()},
                                                                                             {"npgsqlconnection", new PostgresAdapter()}
                                                                                         };

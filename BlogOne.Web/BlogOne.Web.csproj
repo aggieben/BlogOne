@@ -166,7 +166,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="Dapper\SqlMapperExtensions.cs" />
     <Compile Include="Data\IPostRepository.cs" />
     <Compile Include="Data\PostRepository.cs" />
     <Compile Include="Data\ExternalLoginRepository.cs" />
