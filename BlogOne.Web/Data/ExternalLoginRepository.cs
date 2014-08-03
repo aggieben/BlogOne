@@ -1,15 +1,12 @@
 ﻿using BlogOne.Common.Data;
 using BlogOne.Web.Model;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Dapper;
 using Dapper.Contrib.Extensions;
-using System.Data;
-using BlogOne.Web.Extensions;
 using StackExchange.Profiling;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace BlogOne.Web.Data
 {

@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.13\lib\net45\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="StackExchange.Exceptional">
       <HintPath>..\packages\StackExchange.Exceptional.1.0.110\lib\StackExchange.Exceptional.dll</HintPath>
