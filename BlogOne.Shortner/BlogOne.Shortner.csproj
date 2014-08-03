@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StackExchange.Exceptional">
+      <HintPath>..\packages\StackExchange.Exceptional.1.0.110\lib\StackExchange.Exceptional.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
