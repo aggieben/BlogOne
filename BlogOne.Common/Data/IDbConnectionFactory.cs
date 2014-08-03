@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogOne.Web.Data
+namespace BlogOne.Common.Data
 {
     public interface IDbConnectionFactory
     {

@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace BlogOne.Web.Data
+namespace BlogOne.Common.Data
 {
     public class SqlConnectionFactory : IDbConnectionFactory
     {

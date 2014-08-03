@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 
-namespace BlogOne.Web.Data
+namespace BlogOne.Common.Data
 {
     public abstract class Repository<T> : IRepository<T>
     {

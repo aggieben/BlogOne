@@ -169,10 +169,8 @@
     <Compile Include="Dapper\SqlMapperExtensions.cs" />
     <Compile Include="Data\IPostRepository.cs" />
     <Compile Include="Data\PostRepository.cs" />
-    <Compile Include="Data\SqlConnectionFactory.cs" />
     <Compile Include="Data\ExternalLoginRepository.cs" />
     <Compile Include="Data\IExternalLoginRepository.cs" />
-    <Compile Include="Data\Repository.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">

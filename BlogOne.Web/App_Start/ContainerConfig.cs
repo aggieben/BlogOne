@@ -1,5 +1,6 @@
 using System.Web.Configuration;
 using System.Web.Mvc;
+using BlogOne.Common.Data;
 using BlogOne.Web.Controllers;
 using BlogOne.Web.Data;
 using Munq;
