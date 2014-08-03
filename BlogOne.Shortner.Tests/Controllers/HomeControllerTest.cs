@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using BlogOne.Shortner.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BlogOne.Shortner;
-using BlogOne.Shortner.Controllers;
+using System.Web.Mvc;
 
 namespace BlogOne.Shortner.Tests.Controllers
 {
