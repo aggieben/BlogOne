@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
+using BlogOne.Common.Cache;
 using Munq;
 
 namespace BlogOne.Shortner.App_Start
@@ -19,7 +20,9 @@ namespace BlogOne.Shortner.App_Start
         {
             var ioc = new IocContainer();
 
-            
+            // caches
+            ioc.Register(c => new CacheProvider(HttpContext.Current.Cache));
+            ioc.Register(c => c.Resolve<CacheProvider>().GetCache(WebConfigurationManager.AppSettings["redisConfig"]));
 
             // repositories
             //ioc.Register<IExternalLoginRepository, ExternalLoginRepository>();
