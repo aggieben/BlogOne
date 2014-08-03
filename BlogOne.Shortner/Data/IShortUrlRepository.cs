@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlogOne.Common.Data;
+using BlogOne.Shortner.Model;
 using BlogOne.Shortner.Models;
 
 namespace BlogOne.Shortner.Data

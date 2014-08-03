@@ -1,4 +1,5 @@
-﻿using BlogOne.Common.Data;
+﻿using System.Web.Mvc;
+using BlogOne.Common.Data;
 using BlogOne.Shortner.Model;
 using Dapper;
 using Dapper.Contrib.Extensions;
@@ -23,6 +24,12 @@ namespace BlogOne.Shortner.Data
 
         protected override void RemoveImpl(ShortUrl item)
         {
+            const string sql = @"
+delete 
+  from ShortUrls
+ where item.Id = {=Id}
+";
+
             using (var db = Connection)
             {
                 if (item.Id.HasValue)
@@ -31,11 +38,6 @@ namespace BlogOne.Shortner.Data
                 }
                 else
                 {
-                    const string sql = @"
-delete 
-  from ShortUrls
- where item.Id = {=Id}
-";
                     if (0 <= db.Execute(sql, new {item.Id}))
                     {
                         throw new DataException("Failed to remove entity");
@@ -46,6 +48,12 @@ delete
 
         protected override void UpdateImpl(ShortUrl item)
         {
+            const string sql = @"
+  select *
+    from ShortUrls
+   where Id = {=Id}
+";
+
             using (var db = Connection)
             {
                 if (item.Id.HasValue)
@@ -57,11 +65,6 @@ delete
                 }
                 else
                 {
-                    const string sql = @"
-  select *
-    from ShortUrls
-   where Id = {=Id}
-";
                     var entity = db.Query<ShortUrl>(sql, new {item.Id }).FirstOrDefault();
                     if (entity != null)
                     {
@@ -76,22 +79,51 @@ delete
 
         protected override ShortUrl FindBySidImpl(Guid id)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+  select *
+    from ShortUrls
+   where Sid = {=Sid}
+";
+            using (var db = Connection)
+            {
+                return db.Query<ShortUrl>(sql, new {Sid = id}).FirstOrDefault();
+            }
         }
 
         protected override ShortUrl FindByIdImpl(int id)
         {
-            throw new NotImplementedException();
+            using (var db = Connection)
+            {
+                return db.Get<ShortUrl>(id);
+            }
         }
 
         protected override IEnumerable<ShortUrl> FindAllImpl(int page, int pageSize)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+  select *
+    from ShortUrls
+order by CreationDate desc
+offset {=skip} rows fetch next {=size} rows only
+";
+            using (var db = Connection)
+            {
+                return db.Query<ShortUrl>(sql, new {skip = page*pageSize, size = pageSize});
+            }
         }
 
         public ShortUrl FindByShortCode(string shortCode)
         {
-            throw new NotImplementedException();
+            const string sql = @"
+  select * 
+    from ShortUrls
+   where ShortCode = {=shortCode}
+";
+
+            using (var db = Connection)
+            {
+                return db.Query<ShortUrl>(sql, new {shortCode}).FirstOrDefault();
+            }
         }
     }
 }
