@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using BlogOne.Common.Extensions;
+using System;
 using System.Text.RegularExpressions;
-using System.Web;
 
 namespace BlogOne.Web.Extensions
 {
-    public static  class StringExtensions
+    public static class StringExtensions
     {
-        public static string f(this string str, params object[] args)
-        {
-            if (str.HasValue())
-            {
-                return String.Format(str, args);
-            }
-
-            return str;
-        }    
-    
         public static string AsSlug(this string str)
         {
-            if (!str.HasValue()) 
+            if (!str.HasValue())
                 return str;
 
             var tmp = Regex.Replace(str.Trim(), @"[^\w\s\-]", String.Empty).Replace(' ', '-');

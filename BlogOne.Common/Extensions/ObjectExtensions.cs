@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BlogOne.Web.Extensions
+﻿
+namespace BlogOne.Common.Extensions
 {
     public static class ObjectExtensions
     {

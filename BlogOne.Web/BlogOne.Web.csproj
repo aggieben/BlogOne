@@ -170,7 +170,6 @@
     <Compile Include="Data\PostRepository.cs" />
     <Compile Include="Data\ExternalLoginRepository.cs" />
     <Compile Include="Data\IExternalLoginRepository.cs" />
-    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
