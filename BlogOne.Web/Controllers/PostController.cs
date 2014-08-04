@@ -1,4 +1,5 @@
-﻿using BlogOne.Web.Data;
+﻿using BlogOne.Common.Extensions;
+using BlogOne.Web.Data;
 using BlogOne.Web.Extensions;
 using BlogOne.Web.Model;
 using BlogOne.Web.ViewModel;

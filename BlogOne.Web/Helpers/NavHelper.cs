@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using BlogOne.Common.Extensions;
+using System;
 using System.Web;
 using System.Web.Mvc;
-using BlogOne.Web.Extensions;
 
 namespace BlogOne.Web.Helpers
 {
