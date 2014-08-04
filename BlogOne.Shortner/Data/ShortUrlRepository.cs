@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Web.Caching;
+using System.Web.Mvc;
+using BlogOne.Common.Cache;
 using BlogOne.Common.Data;
 using BlogOne.Shortner.Model;
 using Dapper;
@@ -12,7 +14,12 @@ namespace BlogOne.Shortner.Data
 {
     public class ShortUrlRepository : Repository<ShortUrl>, IShortUrlRepository
     {
-        public ShortUrlRepository(IDbConnectionFactory factory) : base(factory) { }
+        private readonly ICache _cache;
+
+        public ShortUrlRepository(IDbConnectionFactory factory, ICache cache) : base(factory)
+        {
+            _cache = cache;
+        }
 
         protected override void AddImpl(ShortUrl item)
         {
@@ -120,10 +127,16 @@ offset {=skip} rows fetch next {=size} rows only
    where ShortCode = {=shortCode}
 ";
 
-            using (var db = Connection)
+            var result = _cache.Get<ShortUrl>(String.Format("ShortUrl/{0}", shortCode));
+            if (result == null)
             {
-                return db.Query<ShortUrl>(sql, new {shortCode}).FirstOrDefault();
+                using (var db = Connection)
+                {
+                    result = db.Query<ShortUrl>(sql, new { shortCode }).FirstOrDefault();
+                }
             }
+
+            return result;
         }
     }
 }
