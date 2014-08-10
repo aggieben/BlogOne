@@ -80,6 +80,7 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\SqlConnectionFactory.cs" />
     <Compile Include="Data\SqlMapperExtensions.cs" />
+    <Compile Include="Extensions\NumericExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
