@@ -1,4 +1,5 @@
-﻿using BlogOne.Shortener.Model;
+﻿using System;
+using BlogOne.Shortener.Model;
 
 namespace BlogOne.Shortner.Model
 {

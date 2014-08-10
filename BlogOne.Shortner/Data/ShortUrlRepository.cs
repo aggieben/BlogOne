@@ -1,7 +1,9 @@
-﻿using System.Web.Caching;
+﻿using System.Transactions;
+using System.Web.Caching;
 using System.Web.Mvc;
 using BlogOne.Common.Cache;
 using BlogOne.Common.Data;
+using BlogOne.Common.Extensions;
 using BlogOne.Shortner.Model;
 using Dapper;
 using Dapper.Contrib.Extensions;
@@ -23,9 +25,13 @@ namespace BlogOne.Shortner.Data
 
         protected override void AddImpl(ShortUrl item)
         {
+           // using (var scope = new TransactionScope())
             using (var db = Connection)
             {
-                db.Insert(item);
+                var id = db.Insert(item);
+                var su = FindById(id);
+                su.ShortCode = id.ToBase62();
+                Update(su);
             }
         }
 
@@ -121,18 +127,20 @@ offset {=skip} rows fetch next {=size} rows only
 
         public ShortUrl FindByShortCode(string shortCode)
         {
-            const string sql = @"
+            var sql = @"
   select * 
     from ShortUrls
-   where ShortCode = {=shortCode}
+   where Id = {=Id}
 ";
 
-            var result = _cache.Get<ShortUrl>(String.Format("ShortUrl/{0}", shortCode));
+            var id = shortCode.FromBase62();
+
+            var result = _cache.Get<ShortUrl>(String.Format("ShortUrl/{0}", id));
             if (result == null)
             {
                 using (var db = Connection)
                 {
-                    result = db.Query<ShortUrl>(sql, new { shortCode }).FirstOrDefault();
+                    result = db.Query<ShortUrl>(sql, new {Id = id}).FirstOrDefault();
                 }
             }
 
