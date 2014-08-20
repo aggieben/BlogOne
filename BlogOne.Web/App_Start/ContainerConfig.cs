@@ -23,9 +23,9 @@ namespace BlogOne.Web {
             ioc.Register<IPostRepository, PostRepository>();
 
             // controllers
-            ioc.Register<HomeController>(c => new HomeController(c.Resolve<IPostRepository>()));
-            ioc.Register<AdminController>(c => new AdminController(c.Resolve<IExternalLoginRepository>(), c.Resolve<IPostRepository>()));
-            ioc.Register<PostController>(c => new PostController(c.Resolve<IPostRepository>()));
+            ioc.Register(c => new HomeController(c.Resolve<IPostRepository>()));
+            ioc.Register(c => new AdminController(c.Resolve<IExternalLoginRepository>(), c.Resolve<IPostRepository>()));
+            ioc.Register(c => new PostController(c.Resolve<IPostRepository>()));
 
             return ioc;
         }

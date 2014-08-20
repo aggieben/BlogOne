@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using BlogOne.Web.Data;
+﻿using BlogOne.Web.Data;
 using BlogOne.Web.Identity;
 using BlogOne.Web.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using BlogOne.Web.ViewModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace BlogOne.Web.Controllers
 {
