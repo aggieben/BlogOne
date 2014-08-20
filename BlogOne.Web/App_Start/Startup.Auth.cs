@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Configuration;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 
 namespace BlogOne.Web
@@ -32,7 +34,12 @@ namespace BlogOne.Web
             //   appId: "",
             //   appSecret: "");
 
-            app.UseGoogleAuthentication();
+            var googleOptions = new GoogleOAuth2AuthenticationOptions
+            {
+                ClientId = ConfigurationManager.AppSettings["Google:ClientId"],
+                ClientSecret = ConfigurationManager.AppSettings["Google:ClientSecret"],
+            };
+            app.UseGoogleAuthentication(googleOptions);
         }
     }
 }
