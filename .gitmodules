@@ -19,3 +19,6 @@
 [submodule "sm\\StackExchange.Redis"]
 	path = sm\\StackExchange.Redis
 	url = https://github.com/StackExchange/StackExchange.Redis.git
+[submodule "sm/katana"]
+	path = sm/katana
+	url = https://git01.codeplex.com/forks/aggieben/katana
