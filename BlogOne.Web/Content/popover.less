@@ -1,0 +1,40 @@
+﻿.bo-popover {
+    min-height: 25px;
+    min-width: 50px;
+    z-index: 100;
+    position: absolute;
+    padding: 10px;
+    background-color: black;
+    border: 4px solid rgb(25,25,25);
+    border-radius: 4px;
+
+    &:after, &:before {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:before {
+        border-top-color: rgb(25,25,25);
+        border-width: 15px;
+        margin-left: -15px;
+    }
+
+    &:after {
+        border-top-color: black;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+
+    input {
+        border: 0;
+        background-color: black;
+        color: lightgray;
+        outline: none;
+    }
+}

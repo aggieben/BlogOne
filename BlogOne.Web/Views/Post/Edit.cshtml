@@ -1,0 +1,31 @@
+﻿@model BlogOne.Web.Model.Post
+
+@{
+    ViewBag.Title = "Edit Post";
+}
+
+@section head {
+    @Styles.Render("~/Content/medium.css")
+    @Styles.Render("~/Content/popover.css")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/editor")
+}
+
+@section left {
+
+}
+
+@section right {
+
+}
+
+<div id="post-controls">
+    <button class="publish">publish</button>
+    <button class="submit">submit for review</button>
+    <button class="share">share</button>
+    <button class="">delete</button>
+</div>
+@Html.Partial("_Editor", @Model)
+

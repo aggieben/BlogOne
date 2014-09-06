@@ -1,0 +1,83 @@
+﻿@using StackExchange.Profiling;
+@{
+    var profiler = MiniProfiler.Current;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    @using (profiler.Step("header stuff"))
+    {
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>@ViewBag.Title - Ben Collins</title>
+        @RenderSection("head", required: false);
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/Scripts/stringformat.js")
+        @Scripts.Render("~/Scripts/utility.js")
+        @Scripts.Render("~/Scripts/svg-injector.min.js")
+    }
+</head>
+<body>
+    <div class="container">        
+        <section class="left-sidebar">
+            @using (profiler.Step("left section"))
+            {
+                <div class="tile" data-href="/about">
+                    <img src="~/Content/img/headshot-greyscale.jpg" alt="I'm watching you..'"/>
+                    <span class="subtitle">Ben Collins</span>
+                </div>
+                <div class="containertile">
+                    <div class="smalltile" data-href="/">
+                        <img class="inject" src="~/Content/img/open-iconic/home.svg" alt="home" />
+                        <span>home</span>
+                    </div>
+                    <div class="smalltile" data-href="/archive">
+                        <img class="inject" src="~/Content/img/open-iconic/box.svg" alt="box" />
+                        <span>archive</span>
+                    </div>
+                    <div class="smalltile"></div>
+                    <div class="smalltile" data-href="/projects">
+                        <img class="inject" src="~/Content/img/open-iconic/code.svg" alt="code" />
+                        <span>projects</span>
+                    </div>
+
+                </div>
+                <script type="text/javascript">
+                    var svgs = document.querySelectorAll('img.inject');
+                    SVGInjector(svgs);
+                </script>
+                
+                @RenderSection("left", required: false)
+            }
+        </section>
+        <main class="body-content" role="main">
+            @using (profiler.Step("RenderBody"))
+            {
+                @RenderBody()
+            }
+        </main>
+        <section class="right-sidebar">
+            @using (profiler.Step("right section"))
+            {
+                @RenderSection("right", required: false)
+            }
+        </section>
+    </div>
+
+    @RenderSection("scripts", required: false)
+    @if (Request.IsAuthenticated)
+    {
+        @MiniProfiler.RenderIncludes(position: RenderPosition.Right)
+    }
+    @Scripts.Render("~/Scripts/navigation.js")
+    <script type="text/javascript">
+        $(function() {
+            $('.tile,.smalltile').on('click', function() {
+                window.location.href = $(this).data('href');
+            });
+        })
+    </script>
+</body>
+</html>

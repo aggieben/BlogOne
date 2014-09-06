@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="69048340-b67e-4876-b682-c0df807f3326" ChangeDateTime="11/20/2013 04:17:55">
+    <Property Name="ElementName" Value="[dbo].[AspNetRoles].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AspNetRoles]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Sid" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5c143618-7609-4db5-a35f-e7f22072e175" ChangeDateTime="11/20/2013 04:18:52">
+    <Property Name="ElementName" Value="[dbo].[AspNetUserClaims].[User_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AspNetUserClaims]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="738ae912-63fc-46ec-ab5e-5a91f5d91309" ChangeDateTime="11/20/2013 05:13:55">
+    <Property Name="ElementName" Value="[dbo].[AspNetUsers].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AspNetUsers]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a8f4c597-e3a2-48a1-b876-8fa992825e7d" ChangeDateTime="11/30/2013 07:50:16">
+    <Property Name="ElementName" Value="[dbo].[ExternalLogins].[ProviderName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ExternalLogins]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LoginProvider" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="94a7f0e8-08ba-44e2-9986-04a1b9a39bb7" ChangeDateTime="08/02/2014 06:26:29">
+    <Property Name="ElementName" Value="[dbo].[Table1].[CreationDAte]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CreationDate" />
+  </Operation>
+</Operations>

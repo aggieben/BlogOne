@@ -1,0 +1,37 @@
+﻿@model BlogOne.Web.Model.Post
+<article class="content" data-post-id="@(Model.HasValue() ? Model.Id : null)">
+    @Html.AntiForgeryToken()
+    <header>
+        <h1 class="editable title" data-medium-placeholder="Title">@(Model.HasValue() ? Model.Title : null)</h1>
+        <h2 class="editable subtitle" data-medium-placeholder="Subtitle">@(Model.HasValue() ? Model.Subtitle : null)</h2>
+    </header>
+    <section class="editable">
+        @(Model.HasValue() ? Html.Raw(Model.Body) : null)
+    </section>
+</article>
+
+<script>
+    $(function () {
+        new Medium({
+            element: document.querySelector('article.content header h1.editable'),
+            mode: 'inline'
+        })
+        new Medium({
+            element: document.querySelector('article.content header h2.editable'),
+            mode: 'inline'
+        })
+        new Medium({
+            element: document.querySelector('article.content section.editable'),
+            autofocus: true,
+            placeholder: 'Write your post.',
+            modifiers: {
+                188: XMedium.modifiers.linkify,     // comma
+                192: XMedium.modifiers.codefmt,     // g
+                222: XMedium.modifiers.gistins      // single quote
+            }
+        })
+    })
+</script>
+
+
+
