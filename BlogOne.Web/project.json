@@ -2,12 +2,10 @@
     "dependencies": {
         "Microsoft.AspNet.Server.IIS": "",
         "Microsoft.AspNet.Mvc": ""
-
     },
     "frameworks": {
-        "net45": {
-            "dependencies": { 
-                "MiniProfiler":  ""
+        "net451": {
+            "dependencies": {
             }
         },
         "k10": { }
