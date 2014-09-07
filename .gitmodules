@@ -1,0 +1,3 @@
+[submodule "sm/MiniProfiler"]
+	path = sm/MiniProfiler
+	url = git@github.com:aggieben/MiniProfiler.net.git
