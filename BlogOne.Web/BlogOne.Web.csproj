@@ -163,7 +163,6 @@
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -177,13 +176,8 @@
     </Compile>
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
-    <Compile Include="Identity\UserStore.cs" />
-    <Compile Include="Model\ExternalLogin.cs" />
     <Compile Include="Model\ModelBase.cs" />
-    <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Mvc\DependencyResolver.cs" />
-    <Compile Include="ViewModel\AccountViewModels.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -593,14 +587,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Admin\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Admin\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Admin\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Admin\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_PostExcerptPartial.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_UserNavigation.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Create.cshtml" />
