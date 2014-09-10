@@ -16,6 +16,6 @@
 [submodule "sm/undo.js"]
 	path = sm/undo.js
 	url = git@github.com:jzaefferer/undo.git
-[submodule "sm\\StackExchange.Redis"]
-	path = sm\\StackExchange.Redis
+[submodule "sm/StackExchange.Redis"]
+	path = sm/StackExchange.Redis
 	url = https://github.com/StackExchange/StackExchange.Redis.git
