@@ -19,13 +19,11 @@ namespace BlogOne.Web {
             ioc.Register<IDbConnectionFactory>(c => new SqlConnectionFactory(WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString));
 
             // repositories
-            ioc.Register<IExternalLoginRepository, ExternalLoginRepository>();
             ioc.Register<IPostRepository, PostRepository>();
 
             // controllers
-            ioc.Register<HomeController>(c => new HomeController(c.Resolve<IPostRepository>()));
-            ioc.Register<AdminController>(c => new AdminController(c.Resolve<IExternalLoginRepository>(), c.Resolve<IPostRepository>()));
-            ioc.Register<PostController>(c => new PostController(c.Resolve<IPostRepository>()));
+            ioc.Register(c => new HomeController(c.Resolve<IPostRepository>()));
+            ioc.Register(c => new PostController(c.Resolve<IPostRepository>()));
 
             return ioc;
         }
