@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30626.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munq.IocContainer", "sm\munq\IocContainer\Munq.IocContainer\Munq.IocContainer.csproj", "{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440}"
 EndProject
@@ -14,10 +14,6 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BlogOne.Database", "BlogOne.Database\BlogOne.Database.sqlproj", "{22327701-8D54-40EB-A336-09EC4456EB5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Shortner", "BlogOne.Shortner\BlogOne.Shortner.csproj", "{78AE9701-BF1F-4246-AD8E-682EF750D450}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Shortner.Tests", "BlogOne.Shortner.Tests\BlogOne.Shortner.Tests.csproj", "{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchange.Redis", "sm\StackExchange.Redis\StackExchange.Redis\StackExchange.Redis.csproj", "{7CEC07F2-8C03-4C42-B048-738B215824C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogOne.Common", "BlogOne.Common\BlogOne.Common.csproj", "{551241EB-4961-438A-963A-5A31131F700A}"
 EndProject
@@ -75,22 +71,6 @@ Global
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
 		{78AE9701-BF1F-4246-AD8E-682EF750D450}.Verbose|Any CPU.Build.0 = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Log Output|Any CPU.ActiveCfg = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Log Output|Any CPU.Build.0 = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Verbose|Any CPU.ActiveCfg = Release|Any CPU
-		{B678B4D8-502A-41BD-A5E3-3CB2A0EBF79E}.Verbose|Any CPU.Build.0 = Release|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Log Output|Any CPU.ActiveCfg = Log Output|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Log Output|Any CPU.Build.0 = Log Output|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Verbose|Any CPU.ActiveCfg = Verbose|Any CPU
-		{7CEC07F2-8C03-4C42-B048-738B215824C1}.Verbose|Any CPU.Build.0 = Verbose|Any CPU
 		{551241EB-4961-438A-963A-5A31131F700A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{551241EB-4961-438A-963A-5A31131F700A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551241EB-4961-438A-963A-5A31131F700A}.Log Output|Any CPU.ActiveCfg = Release|Any CPU
@@ -115,6 +95,5 @@ Global
 		{3A5BC8F1-5817-4B0E-A82B-D92FFC5BE440} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
 		{386222BD-6B6E-480F-A342-8DE1AB516E2C} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
 		{074BCD84-3E44-4140-9918-C09FCBEEC09F} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
-		{7CEC07F2-8C03-4C42-B048-738B215824C1} = {3A2E84CD-910B-4831-9661-89FB61C28C55}
 	EndGlobalSection
 EndGlobal

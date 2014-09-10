@@ -98,10 +98,6 @@
       <Project>{3a5bc8f1-5817-4b0e-a82b-d92ffc5be440}</Project>
       <Name>Munq.IocContainer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\sm\StackExchange.Redis\StackExchange.Redis\StackExchange.Redis.csproj">
-      <Project>{7cec07f2-8c03-4c42-b048-738b215824c1}</Project>
-      <Name>StackExchange.Redis</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
