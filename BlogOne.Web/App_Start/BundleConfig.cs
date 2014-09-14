@@ -35,7 +35,8 @@ namespace BlogOne.Web
                       ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/setup.css"));
             bundles.Add(new StyleBundle("~/bundles/edtorcss").Include(
                       "~/Content/medium.css"));
         }

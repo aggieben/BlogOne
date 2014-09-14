@@ -1,6 +1,5 @@
 ﻿using StackExchange.Profiling;
 using StackExchange.Profiling.Mvc;
-using System;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Optimization;

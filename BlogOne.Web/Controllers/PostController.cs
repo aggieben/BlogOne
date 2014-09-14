@@ -2,10 +2,9 @@
 using BlogOne.Web.Data;
 using BlogOne.Web.Extensions;
 using BlogOne.Web.Model;
-using BlogOne.Web.ViewModel;
 using System;
 using System.Web.Mvc;
-using System.Web.Routing;
+using BlogOne.Web.Views.Shared;
 
 namespace BlogOne.Web.Controllers
 {
@@ -28,7 +27,7 @@ namespace BlogOne.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             return View(ViewModelFromPost(post));
         }
 

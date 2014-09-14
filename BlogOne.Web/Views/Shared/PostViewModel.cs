@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace BlogOne.Web.ViewModel
+namespace BlogOne.Web.Views.Shared
 {
     public class PostViewModel
     {

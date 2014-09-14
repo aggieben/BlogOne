@@ -162,7 +162,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -178,8 +180,13 @@
     <Compile Include="Mvc\DependencyResolver.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\PostViewModel.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Views\Home\SetupViewModel.cs">
+      <DependentUpon>Setup.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\PostViewModel.cs">
+      <DependentUpon>_PostPartial.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts.css">
@@ -491,6 +498,7 @@
       <DependentUpon>editing.js</DependentUpon>
     </Content>
     <Content Include="Scripts\highlight.pack.js" />
+    <Content Include="Content\setup.less" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -584,19 +592,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_PostExcerptPartial.cshtml" />
     <Content Include="Views\Shared\_UserNavigation.cshtml" />
-    <Content Include="Views\Post\Edit.cshtml" />
-    <Content Include="Views\Post\Create.cshtml" />
-    <Content Include="Views\Post\_PostFormPartial.cshtml" />
-    <Content Include="Views\Shared\_MarkdownEditorPartial.cshtml" />
-    <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
-    <Content Include="Views\Post\_Editor.cshtml" />
     <Content Include="Scripts\popover.coffee" />
     <Content Include="Scripts\navigation.coffee" />
     <Content Include="Scripts\navigation.min.js.map">
@@ -605,6 +604,8 @@
     <Content Include="Scripts\popover.min.js.map">
       <DependentUpon>popover.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Setup.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
