@@ -606,7 +606,6 @@
       <DependentUpon>popover.min.js</DependentUpon>
     </Content>
     <Content Include="Views\Home\Setup.cshtml" />
-    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
