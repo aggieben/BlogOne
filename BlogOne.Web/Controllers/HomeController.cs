@@ -1,5 +1,7 @@
 ﻿using System.Configuration;
+using System.Net;
 using System.Web.Configuration;
+using BlogOne.Common.Extensions;
 using BlogOne.Web.Data;
 using System.Linq;
 using System.Web.Mvc;
@@ -36,6 +38,10 @@ namespace BlogOne.Web.Controllers
         [Route("setup")]
         public ActionResult Setup()
         {
+            var initialized = bool.Parse(WebConfigurationManager.AppSettings["BlogOne:Initialized"]);
+            if (initialized)
+                throw new ConfigurationErrorsException("Configuration has already been initialized; To change configured settings, please use the settings page or edit the configuration manually.");
+            
             return View();
         }
 
@@ -44,7 +50,38 @@ namespace BlogOne.Web.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult SetupSubmit(SetupViewModel viewModel)
         {
-            return Content("OK");
+            var initialized = bool.Parse(WebConfigurationManager.AppSettings["BlogOne:Initialized"]);
+            if (initialized)
+                throw new ConfigurationErrorsException("Configuration has already been initialized; To change configured settings, please use the settings page or edit the configuration manually.");
+
+            var config = WebConfigurationManager.OpenWebConfiguration("~");
+
+            if (config.AppSettings.Settings.AllKeys.Contains(AppSettingsKeys.Title))
+            {
+                config.AppSettings.Settings[AppSettingsKeys.Title].Value = viewModel.BlogTitle;
+            }
+            else
+            {
+                config.AppSettings.Settings.Add(AppSettingsKeys.Title, viewModel.BlogTitle);
+            }
+
+            if (viewModel.Name.HasValue())
+            {
+                if (config.AppSettings.Settings.AllKeys.Contains(AppSettingsKeys.Name))
+                {
+                    config.AppSettings.Settings[AppSettingsKeys.Name].Value = viewModel.Name;
+                }
+                else
+                {
+                    config.AppSettings.Settings.Add(AppSettingsKeys.Name, viewModel.Name);
+                }
+            }
+
+            config.AppSettings.Settings[AppSettingsKeys.Initialized].Value = "True";
+
+            config.Save();
+            
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
 }
