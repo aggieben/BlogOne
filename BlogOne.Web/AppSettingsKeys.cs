@@ -10,5 +10,7 @@ namespace BlogOne.Web
         public const string Initialized = "BlogOne:Initialized";
         public const string Title = "BlogOne:Title";
         public const string Name = "BlogOne:Name";
+        public const string GoogleClientId = "BlogOne:GoogleClientId";
+        public const string GoogleClientSecret = "BlogOne:GoogleClientSecret";
     }
 }

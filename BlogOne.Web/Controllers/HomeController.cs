@@ -1,11 +1,19 @@
 ﻿using System.Configuration;
 using System.Net;
+using System.Threading;
 using System.Web.Configuration;
 using BlogOne.Common.Extensions;
 using BlogOne.Web.Data;
 using System.Linq;
 using System.Web.Mvc;
+using BlogOne.Web.Extensions;
+using BlogOne.Web.Integration;
 using BlogOne.Web.Views.Home;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Mvc;
+using Google.Apis.Drive.v2;
+using System.Threading.Tasks;
 
 namespace BlogOne.Web.Controllers
 {
@@ -48,40 +56,34 @@ namespace BlogOne.Web.Controllers
         [ValidateAntiForgeryToken]
         [Route("setup/submit")]
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult SetupSubmit(SetupViewModel viewModel)
+        public async Task<ActionResult> SetupSubmitAsync(SetupViewModel viewModel, CancellationToken cancellationToken)
         {
             var initialized = bool.Parse(WebConfigurationManager.AppSettings["BlogOne:Initialized"]);
             if (initialized)
                 throw new ConfigurationErrorsException("Configuration has already been initialized; To change configured settings, please use the settings page or edit the configuration manually.");
 
             var config = WebConfigurationManager.OpenWebConfiguration("~");
-
-            if (config.AppSettings.Settings.AllKeys.Contains(AppSettingsKeys.Title))
-            {
-                config.AppSettings.Settings[AppSettingsKeys.Title].Value = viewModel.BlogTitle;
-            }
-            else
-            {
-                config.AppSettings.Settings.Add(AppSettingsKeys.Title, viewModel.BlogTitle);
-            }
+            config.AppSettings.Settings.Ensure(AppSettingsKeys.Title, viewModel.BlogTitle);            
+            config.AppSettings.Settings.Ensure(AppSettingsKeys.GoogleClientId, viewModel.GoogleClientId);
+            config.AppSettings.Settings.Ensure(AppSettingsKeys.GoogleClientSecret, viewModel.GoogleClientSecret);
 
             if (viewModel.Name.HasValue())
             {
-                if (config.AppSettings.Settings.AllKeys.Contains(AppSettingsKeys.Name))
-                {
-                    config.AppSettings.Settings[AppSettingsKeys.Name].Value = viewModel.Name;
-                }
-                else
-                {
-                    config.AppSettings.Settings.Add(AppSettingsKeys.Name, viewModel.Name);
-                }
+                config.AppSettings.Settings.Ensure(AppSettingsKeys.Name, viewModel.Name);
             }
 
-            config.AppSettings.Settings[AppSettingsKeys.Initialized].Value = "True";
+            config.AppSettings.Settings.Ensure(AppSettingsKeys.Initialized, "True");
 
             config.Save();
+
+            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(cancellationToken);
+            if (authResult.Credential != null)
+            {
+                // this should never happen, but...
+                return RedirectToAction("Index", "Admin");
+            }
             
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Redirect(authResult.RedirectUri);
         }
     }
 }
