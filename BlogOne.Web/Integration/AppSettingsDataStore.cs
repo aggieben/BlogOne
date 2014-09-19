@@ -39,16 +39,21 @@ namespace BlogOne.Web.Integration
         public async Task<T> GetAsync<T>(string key)
         {
             var stringValue = await GetAsync(key);
-            var tVal = Jil.JSON.Deserialize<T>(stringValue);
+            var tVal = default(T);
+            if (stringValue != null)
+                tVal = Jil.JSON.Deserialize<T>(stringValue);
 
             return tVal;
         }
 
         public async Task StoreAsync<T>(string key, T value)
         {
-            var stringVal = Jil.JSON.Serialize(value);
+            if (value.HasValue())
+            {
+                var stringVal = Jil.JSON.Serialize(value);
 
-            await SetAsync(key, stringVal);
+                await SetAsync(key, stringVal);
+            }
         }
 
         private static Task<IEnumerable<string>> AllKeysAsync()
@@ -60,7 +65,12 @@ namespace BlogOne.Web.Integration
         private static Task<string> GetAsync(string key)
         {
             return Task<string>.Factory.StartNew(
-                () => WebConfigurationManager.OpenWebConfiguration("~").AppSettings.Settings["{0}:{1}".f(KeyPrefix, key)].Value);
+                () =>
+                {
+                    var settings = WebConfigurationManager.OpenWebConfiguration("~").AppSettings.Settings;
+                    var pfkey = "{0}:{1}".f(KeyPrefix, key);
+                    return settings.AllKeys.Contains(pfkey) ? settings[pfkey].Value : null;
+                });
         }
 
         private static Task SetAsync(string key, string value)
