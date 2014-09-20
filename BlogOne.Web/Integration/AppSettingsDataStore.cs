@@ -40,7 +40,7 @@ namespace BlogOne.Web.Integration
         {
             var stringValue = await GetAsync(key);
             var tVal = default(T);
-            if (stringValue != null)
+            if (stringValue.HasValue())
                 tVal = Jil.JSON.Deserialize<T>(stringValue);
 
             return tVal;
@@ -48,12 +48,15 @@ namespace BlogOne.Web.Integration
 
         public async Task StoreAsync<T>(string key, T value)
         {
+            var stringVal = string.Empty;
             if (value.HasValue())
             {
-                var stringVal = Jil.JSON.Serialize(value);
-
-                await SetAsync(key, stringVal);
+                if (value is string)
+                    stringVal = value as string;
+                else
+                    stringVal = Jil.JSON.Serialize(value);
             }
+            await SetAsync(key, stringVal);
         }
 
         private static Task<IEnumerable<string>> AllKeysAsync()
@@ -78,7 +81,7 @@ namespace BlogOne.Web.Integration
             return Task.Factory.StartNew(() =>
             {
                 var config = WebConfigurationManager.OpenWebConfiguration("~");
-                if (String.IsNullOrWhiteSpace(value))
+                if (value.HasValue())
                 {
                     config.AppSettings.Settings.Ensure("{0}:{1}".f(KeyPrefix, key), value);
                 }
