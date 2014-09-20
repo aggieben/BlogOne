@@ -217,6 +217,7 @@
       <DependentUpon>Startup.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GoogleOAuth2CallbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Integration\AppSettingsDataStore.cs" />
@@ -662,6 +663,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GoogleOAuth2Callback\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

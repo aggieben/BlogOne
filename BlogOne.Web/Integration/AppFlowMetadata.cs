@@ -22,7 +22,8 @@ namespace BlogOne.Web.Integration
                     ClientSecret = settings[AppSettingsKeys.GoogleClientSecret].Value
                 },
                 Scopes = new[] { DriveService.Scope.DriveAppdata },
-                DataStore = new AppSettingsDataStore()
+                
+                DataStore = new AppSettingsDataStore(),
             });
         }
 
@@ -34,6 +35,11 @@ namespace BlogOne.Web.Integration
         public override string GetUserId(System.Web.Mvc.Controller controller)
         {
             return "admin";
+        }
+
+        public override string AuthCallback
+        {
+            get { return "/login/oauth/google"; }
         }
     }
 }
