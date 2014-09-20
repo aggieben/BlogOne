@@ -221,6 +221,7 @@
     <Compile Include="Controllers\GoogleOAuth2CallbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Integration\AppGoogleAuthorizationCodeFlow.cs" />
     <Compile Include="Integration\AppSettingsDataStore.cs" />
     <Compile Include="Data\IPostRepository.cs" />
     <Compile Include="Data\PostRepository.cs" />

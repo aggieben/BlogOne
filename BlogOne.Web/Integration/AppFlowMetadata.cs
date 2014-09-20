@@ -2,7 +2,6 @@
 using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Auth.OAuth2.Mvc;
 using Google.Apis.Drive.v2;
-using System;
 using System.Web.Configuration;
 
 namespace BlogOne.Web.Integration
@@ -11,10 +10,10 @@ namespace BlogOne.Web.Integration
     {
         private readonly GoogleAuthorizationCodeFlow _flow;
 
-        public AppFlowMetadata()
+        public AppFlowMetadata(bool forceApproval = false)
         {
             var settings = WebConfigurationManager.OpenWebConfiguration("~").AppSettings.Settings;
-            _flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+            _flow = new AppGoogleAuthorizationCodeFlow(new AppGoogleAuthorizationCodeFlow.Initializer
             {
                 ClientSecrets = new ClientSecrets
                 {
@@ -22,8 +21,8 @@ namespace BlogOne.Web.Integration
                     ClientSecret = settings[AppSettingsKeys.GoogleClientSecret].Value
                 },
                 Scopes = new[] { DriveService.Scope.DriveAppdata },
-                
                 DataStore = new AppSettingsDataStore(),
+                ForceApproval = forceApproval
             });
         }
 

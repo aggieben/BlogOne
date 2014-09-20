@@ -76,7 +76,7 @@ namespace BlogOne.Web.Controllers
 
             config.Save();
 
-            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata()).AuthorizeAsync(cancellationToken);
+            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata(true)).AuthorizeAsync(cancellationToken);
             if (authResult.Credential != null)
             {
                 // this should never happen, but...
