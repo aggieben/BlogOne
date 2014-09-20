@@ -216,6 +216,7 @@
     <Compile Include="App_Start\Startup.Auth.cs">
       <DependentUpon>Startup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GoogleOAuth2CallbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -660,6 +661,7 @@
       <DependentUpon>popover.min.js</DependentUpon>
     </Content>
     <Content Include="Views\Home\Setup.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
