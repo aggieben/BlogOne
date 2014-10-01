@@ -10,6 +10,6 @@ It is an ASP.NET MVC 5 application which also uses a handful of other bits, most
  * [dapper](https://github.com/SamSaffron/dapper-dot-net)
  * [MiniProfiler](http://miniprofiler.com/)
  * [Munq](https://munq.codeplex.com/)
- * StackExchange.Redis
- * StackExchange.Exceptional (not yet)
- * NLog (not yet)
+ * [Jil](https://github.com/kevin-montrose/jil)
+
+Other open-source thingies are referenced as dependencies of ASP.NET MVC.
