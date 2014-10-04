@@ -20,7 +20,8 @@ namespace BlogOne.Web.Integration
                     ClientId = settings[AppSettingsKeys.GoogleClientId].Value,
                     ClientSecret = settings[AppSettingsKeys.GoogleClientSecret].Value
                 },
-                Scopes = new[] { DriveService.Scope.DriveAppdata },
+                /* I wanted to use a defined constant somewhere for this, but couldn't find it and didn't want to pull in more nupkegs just for that. */
+                Scopes = new[] { DriveService.Scope.DriveAppdata, "email" },
                 DataStore = new AppSettingsDataStore(),
                 ForceApproval = forceApproval
             });

@@ -72,7 +72,7 @@ namespace BlogOne.Web.Controllers
                 config.AppSettings.Settings.Ensure(AppSettingsKeys.Name, viewModel.Name);
             }
 
-            config.AppSettings.Settings.Ensure(AppSettingsKeys.Initialized, "True");
+            //config.AppSettings.Settings.Ensure(AppSettingsKeys.Initialized, "True");
 
             config.Save();
 
