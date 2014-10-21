@@ -551,6 +551,7 @@
     </Content>
     <Content Include="Scripts\highlight.pack.js" />
     <Content Include="Content\setup.less" />
+    <Content Include="authSettings.config" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

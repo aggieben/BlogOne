@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace BlogOne.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public partial class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {

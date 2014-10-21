@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using BlogOne.Web.Controllers;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
@@ -9,32 +13,26 @@ namespace BlogOne.Web
 {
     public partial class Startup
     {
-        public void ConfigureAuth(IAppBuilder app)  
+        public void ConfigureAuth(IAppBuilder app)
         {
-            // Enable the application to use a cookie to store information for the signed in user
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/admin/login")
-            });
+            var authSettings = (NameValueCollection)WebConfigurationManager.GetSection("authSettings");
+
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-            if (bool.Parse(WebConfigurationManager.AppSettings[AppSettingsKeys.Initialized]))
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
             {
-                app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
+                ClientId = authSettings[AppSettingsKeys.GoogleClientId],
+                ClientSecret = authSettings[AppSettingsKeys.GoogleClientSecret],
+                CallbackPath = PathString.FromUriComponent("/admin/xlc"),
+                Provider = new GoogleOAuth2AuthenticationProvider
                 {
-                    ClientId = WebConfigurationManager.AppSettings[AppSettingsKeys.GoogleClientId],
-                    ClientSecret = WebConfigurationManager.AppSettings[AppSettingsKeys.GoogleClientSecret],
-                    Provider = new GoogleOAuth2AuthenticationProvider
+                    OnAuthenticated = context =>
                     {
-                        OnAuthenticated = (context) =>
-                        {
-                            context.
-                        }
+                        return Task.Factory.StartNew(() => Trace.WriteLine("authenticated."));
+
                     }
-                });
-            }
+                }
+            });
         }
     }
 }

@@ -110,6 +110,8 @@
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Mvc\AuthorizeExternalAttribute.cs" />
+    <Compile Include="Web\Mvc\ChallengeResult.cs" />
     <Compile Include="Web\Mvc\DependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>

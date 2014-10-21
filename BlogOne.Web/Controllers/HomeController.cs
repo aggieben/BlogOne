@@ -1,31 +1,19 @@
 ﻿using System.Configuration;
-using System.Net;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Configuration;
+using System.Web.Mvc;
+
 using BlogOne.Common.Extensions;
 using BlogOne.Web.Data;
-using System.Linq;
-using System.Web.Mvc;
 using BlogOne.Web.Extensions;
-using BlogOne.Web.Integration;
 using BlogOne.Web.Views.Home;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Mvc;
-using Google.Apis.Drive.v2;
-using System.Threading.Tasks;
 
 namespace BlogOne.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPostRepository _postRepository;
-
-        public HomeController(IPostRepository postRepository)
-        {
-            _postRepository = postRepository;
-        }
-
         [Route("")]
         public ActionResult Index()
         {
@@ -38,9 +26,10 @@ namespace BlogOne.Web.Controllers
                 return RedirectToAction("Setup");
             }
 
-            var posts = _postRepository.FindPublished(1, 5)
-                .Select(p => PostController.ViewModelFromPost(p, PostController.PostViewModelOptions.Excerpt));
-            return View(posts);
+            //var posts = _postRepository.FindPublished(1, 5)
+            //    .Select(p => PostController.ViewModelFromPost(p, PostController.PostViewModelOptions.Excerpt));
+            //return View(posts);
+            return Content("index");
         }
 
         [Route("setup")]
@@ -63,27 +52,16 @@ namespace BlogOne.Web.Controllers
                 throw new ConfigurationErrorsException("Configuration has already been initialized; To change configured settings, please use the settings page or edit the configuration manually.");
 
             var config = WebConfigurationManager.OpenWebConfiguration("~");
-            config.AppSettings.Settings.Ensure(AppSettingsKeys.Title, viewModel.BlogTitle);            
-            config.AppSettings.Settings.Ensure(AppSettingsKeys.GoogleClientId, viewModel.GoogleClientId);
-            config.AppSettings.Settings.Ensure(AppSettingsKeys.GoogleClientSecret, viewModel.GoogleClientSecret);
+            config.AppSettings.Settings.Ensure(AppSettingsKeys.Title, viewModel.BlogTitle);
 
             if (viewModel.Name.HasValue())
             {
                 config.AppSettings.Settings.Ensure(AppSettingsKeys.Name, viewModel.Name);
             }
 
-            //config.AppSettings.Settings.Ensure(AppSettingsKeys.Initialized, "True");
+            await Task.Factory.StartNew(config.Save, cancellationToken);
 
-            config.Save();
-
-            var authResult = await new AuthorizationCodeMvcApp(this, new AppFlowMetadata(true)).AuthorizeAsync(cancellationToken);
-            if (authResult.Credential != null)
-            {
-                // this should never happen, but...
-                return RedirectToAction("Index", "Admin");
-            }
-            
-            return Redirect(authResult.RedirectUri);
+            return RedirectToAction("Index", "Admin");
         }
     }
 }
